@@ -2,31 +2,6 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env' });
 
-// export default {
-//   pathPrefix: '/pizza',
-//   siteMetadata: {
-//     title: `First Trimester`,
-//     siteUrl: '',
-//     description: 'First Trimester',
-//     twitter: '@KrishnaIstha',
-//   },
-//   plugins: [
-//     'gatsby-plugin-react-helmet',
-//     'gatsby-plugin-styled-components',
-//     {
-//       // this is the name of the plugin you are adding
-//       resolve: 'gatsby-source-sanity',
-//       options: {
-//         projectId: '1mkamazd',
-//         dataset: 'production',
-//         watchMode: true,
-//         apiVersion: '2023-06-19', // use a UTC date string
-//         token: process.env.SANITY_TOKEN,
-//       },
-//     },
-//   ],
-// };
-
 module.exports = {
   siteMetadata: {
     title: `First Trimester`,

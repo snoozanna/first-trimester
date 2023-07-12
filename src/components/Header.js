@@ -36,7 +36,11 @@ const HeaderStyles = styled.header`
     z-index: 999;
   }
   @media ${devices.mobileS} {
+    padding: 0 1rem;
     margin-bottom: var(--padding);
+    h2 {
+      font-size: 2.8rem;
+    }
   }
 `;
 

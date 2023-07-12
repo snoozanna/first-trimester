@@ -33,6 +33,7 @@ h2{
     /* background-color: var(--pink); */
     position: relative;
     width: fit-content;
+    margin-block-end: 1rem;
   }
 
     .funTitle > .color{

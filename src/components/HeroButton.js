@@ -4,8 +4,10 @@ import styled from 'styled-components';
 
 const HeroButtonStyles = styled.div`
   .hero-button {
-    position: relative;
+    background-color: var(--pink);
     width: fit-content;
+    display: block;
+    padding: 5px;
     align-self: end;
     cursor: pointer;
     --cast: 5px;
@@ -16,10 +18,11 @@ const HeroButtonStyles = styled.div`
       text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
       transition: all 0.2s;
     }
+
     .hero-button-text-wrapper {
-      position: absolute;
-      right: 50%;
-      top: -50%;
+      /* position: absolute; */
+      /* right: 50%; */
+      /* top: -50%; */
       margin-left: inherit;
       display: flex;
       flex-direction: column;
@@ -31,22 +34,15 @@ const HeroButtonStyles = styled.div`
         margin-left: inherit;
       }
     }
-    .hero-button-color {
-      background-color: var(--pink);
-      min-width: 5rem;
-      min-height: 4rem;
-      box-shadow: var(--cast) var(--cast) 0 var(--black);
-    }
   }
 `;
 
 const HeroButton = () => (
   <HeroButtonStyles>
     <Link to="/donate" className="hero-button">
-      <div className="hero-button-color" />
       <div className="hero-button-text-wrapper">
         <span>Apply </span>
-        <span>online today!</span>
+        <span> today!</span>
       </div>
     </Link>
   </HeroButtonStyles>

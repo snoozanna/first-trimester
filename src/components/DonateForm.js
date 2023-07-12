@@ -18,6 +18,7 @@ const FormStyles = styled.form`
   label {
     color: black;
     font-weight: 600;
+    margin-block-end: 0.5rem;
   }
   button {
     width: fit-content;
@@ -41,6 +42,8 @@ const InputItemStyles = styled.div`
     padding: 5px 10px;
     font-weight: 900;
     font-size: 2rem;
+    border: none;
+    border-radius: 10px;
   }
   input[type='submit'] {
     background-color: 'pink';
@@ -50,6 +53,7 @@ const InputItemStyles = styled.div`
     color: white;
     font-weight: 900;
     font-size: 2rem;
+    border: none;
   }
 `;
 
@@ -90,7 +94,7 @@ export default function DonateForm({ showForm, showWidget }) {
           aria-invalid={errors.userLastName ? 'true' : 'false'}
         />
         {errors.userLastName?.type === 'required' && (
-          <p role="alert">First name is required</p>
+          <p role="alert">Last name is required</p>
         )}
       </InputItemStyles>
       <InputItemStyles>
