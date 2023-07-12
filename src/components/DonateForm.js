@@ -11,7 +11,7 @@ const FormStyles = styled.form`
   border-radius: 10px;
   padding: 2rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 40rem;
   p[role='alert'] {
     color: var(--pink);
     font-weight: 900;
@@ -38,6 +38,9 @@ const InputItemStyles = styled.div`
   display: flex;
   flex-direction: column;
   margin-block-end: 2rem;
+  select {
+    max-width: 10rem;
+  }
   input {
     line-height: 1.5;
     padding: 5px 10px;
@@ -64,14 +67,15 @@ export default function DonateForm({ showForm, showWidget }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { firstName, lastName, email, setFirstName, setLastName, setEmail } =
+  const { setFirstName, setLastName, setEmail, setBSL } =
     useContext(FormContext);
 
   const onSubmit = (data) => {
-    const { userFirstName, userLastName, userEmail } = data;
+    const { userFirstName, userLastName, userEmail, userBSL } = data;
     setFirstName(userFirstName);
     setLastName(userLastName);
     setEmail(userEmail);
+    setBSL(userBSL);
     showForm();
     showWidget();
   };
@@ -106,6 +110,19 @@ export default function DonateForm({ showForm, showWidget }) {
         />
         {errors.userEmail && <p role="alert">{errors.userEmail?.message}</p>}
       </InputItemStyles>
+      <InputItemStyles>
+        <label htmlFor="userBSL">Do you require BSL interpretation?</label>
+
+        <select
+          {...register('userBSL', { required: 'This is required' })}
+          aria-invalid={errors.userBSL ? 'true' : 'false'}
+        >
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        {errors.userEmail && <p role="alert">{errors.userEmail?.message}</p>}
+      </InputItemStyles>
+
       <button type="button" onClick={handleSubmit(onSubmit)}>
         Find appointment time
       </button>
