@@ -30,6 +30,10 @@ const HomePageStyles = styled.section`
       font-size: 10rem;
       margin-bottom: 2rem;
     }
+    .tagline {
+      font-weight: 600;
+      font-size: 2rem;
+    }
   }
   .hero-img-wrapper {
     grid-area: a;
@@ -134,13 +138,14 @@ const HomePage = ({ location }) => {
     <>
       <HomePageStyles className="narrow">
         <div className="hero-img-wrapper">
-          <span className="tagline">
-            Lorem ipsum dolor sit amet consectetur
-          </span>
+          <span className="tagline">Show image</span>
         </div>
 
         <div className="hero-text-wrapper">
           <h1 className="site-title">First Trimester</h1>
+          <span className="tagline">
+            Lorem ipsum dolor sit amet consectetur
+          </span>
         </div>
 
         <Link to="/donate" className="hero-button">

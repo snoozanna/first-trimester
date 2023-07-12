@@ -15,7 +15,7 @@ const HeaderStyles = styled.header`
   top: 0;
   z-index: 999;
   margin-bottom: 5rem;
-  padding: var(--padding);
+  padding: 1rem var(--padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,31 +57,31 @@ const Header = () => {
       const pageName = currentPage;
       switch (pageName) {
         case '/participate':
-          pageToShow = 'Who can participate?';
+          pageToShow = <h2>Who can participate?</h2>;
           break;
         case '/access':
-          pageToShow = 'Accessiblity';
+          pageToShow = <h2>Accessiblity</h2>;
           break;
         case '/info':
-          pageToShow = 'Information';
+          pageToShow = <h2>Info</h2>;
           break;
         case '/process':
-          pageToShow = 'Process';
+          pageToShow = <h2>Process</h2>;
           break;
         case '/faqs':
-          pageToShow = 'FAQs';
+          pageToShow = <h2>FAQs</h2>;
           break;
         case '/book':
-          pageToShow = 'Book tickets';
+          pageToShow = <h2>Book tickets</h2>;
           break;
         case '/donate':
-          pageToShow = 'Apply to donate';
+          pageToShow = <h2>Apply to donate</h2>;
           break;
         case '/':
           pageToShow = <ScrollText />;
           break;
         default:
-          pageToShow = 'First Trimester';
+          pageToShow = <h2>First Trimester</h2>;
       }
     } else {
       return pageToShow;
@@ -104,9 +104,8 @@ const Header = () => {
             <img src={icon} alt="baby" />
           </MenuToggleButtonStyles>
         </IconButton>
-        {/* <ScrollText /> */}
-
-        <h2>{isBrowser ? findPageToShow() : 'First Trimester'}</h2>
+        {/* ({isBrowser ? pageToShow() : `First Trimester`})  */}
+        {isBrowser ? findPageToShow() : <h2>First Trimester</h2>}
       </HeaderStyles>
 
       {isOpen ? <Nav /> : ''}

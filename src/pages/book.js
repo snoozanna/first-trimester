@@ -65,7 +65,7 @@ const BookPageStyles = styled.section`
       top: 50%;
       margin-left: inherit;
       span {
-        font-size: 2rem;
+        font-size: 3rem;
         font-family: Impact;
         color: white;
         text-align: right;

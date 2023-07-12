@@ -43,8 +43,8 @@ const InfoPage = ({ location }) => {
             delectus ut accusantium excepturi animi!
           </p>
           <p>
-            Got questions? See our
-            <Link to="/faqs">FAQs</Link>.
+            Got questions? See the
+            <Link to="/faqs"> FAQs</Link>.
           </p>
         </div>
         {isBSLShowing ? (
