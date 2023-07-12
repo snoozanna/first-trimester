@@ -1,24 +1,37 @@
 import { Link } from 'gatsby';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Video from '../components/Video';
 import AccessContext from '../context/access.context';
+import { devices } from '../styles/breakpoints.js';
+import { MenuContext } from '../context/menu.context';
 
 const InfoPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
   display: flex;
-  .hero-text-wrapper {
+  .info-text-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+  }
+  @media ${devices.mobileS} {
+    flex-direction: column;
   }
 `;
 
-const InfoPage = () => {
+const InfoPage = ({ location }) => {
   const { isBSLShowing } = useContext(AccessContext);
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
+
   return (
     <>
       <InfoPageStyles className="narrow">

@@ -1,15 +1,12 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import { MenuContext } from '../context/menu.context';
 
 const BookPageStyles = styled.section`
   padding: clamp(5px, 5vw, 25px);
   min-height: 60vh;
-  /* margin: -1vw; */
-  /* display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center; */
+
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   gap: 4rem;
@@ -67,8 +64,13 @@ const BookPageStyles = styled.section`
   }
 `;
 
-const BookPage = () => {
-  console.log('');
+const BookPage = ({ location }) => {
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
   return (
     <BookPageStyles className="narrow">
       <div className="hero-img-wrapper">

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { MenuContext } from '../context/menu.context';
 import Nav from './Nav';
 import BSLToggle from './BSLToggle';
+import HeroButton from './HeroButton';
+import { devices } from '../styles/breakpoints';
 
 const FooterStyles = styled.footer`
 /* background-color:var(--yellow); */
@@ -14,14 +18,25 @@ width: 100vw;
   .scroller-wrapper{
     back
   }
+    @media ${devices.mobileS} {
+     justify-content: flex-start; 
+     justify-content: space-between; 
+     align-items:end;
+     padding: var(--padding)
+    }
 `;
 
-const Footer = () => (
-  <FooterStyles>
-    {/* <div className="scroller-wrapper">
+const Footer = () => {
+  const { currentPage } = useContext(MenuContext);
+  return (
+    <FooterStyles>
+      {/* <div className="scroller-wrapper">
       <h3 className="tagline">Could you be our ideal sperm donor?</h3>
     </div> */}
-    <BSLToggle />
-  </FooterStyles>
-);
+      <BSLToggle />
+      {currentPage !== '/donate' ? <HeroButton /> : ''}
+    </FooterStyles>
+  );
+};
+
 export default Footer;

@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/bg.svg';
 import stripes from '../assets/images/stripes.svg';
+import { devices } from './breakpoints.js';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -18,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     --body:"Gloria";
     --padding: 2rem;
   }
+
   html {
     /* background-image: url(${bg}); */
     background-color: var(--blue) ;
@@ -33,8 +35,6 @@ body {
   margin: 0;
   color: white;
 }
-
-
 
 *,
 *::before,
@@ -97,7 +97,6 @@ button * {
   pointer-events: null;
 }
 
-
     img {
   /* This means that it can be less than 100% of the width of its parent IF the image is INTRINSICALLY smaller */
   max-width: 100%;
@@ -108,14 +107,13 @@ button * {
   /* minor vertical centering. Works for images IF there is a baseline (i.e. they are displayed inline or inline-block) */
 }
 
-
  section.narrow{
-  max-width: 1000px; 
+  max-width: 1000px;
   margin:auto;
  }
 
   section.wide{
-  max-width: 100vw; 
+  max-width: 100vw;
  }
 
   fieldset {
@@ -168,7 +166,6 @@ button * {
     background-size: 1500px;
   }
 
-
   img {
     max-width: 100%;
   }
@@ -187,9 +184,6 @@ button * {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
 /* Because we us <ul>s for lists that we don't always want bulletted. */
 ul {
   list-style: none;
@@ -201,7 +195,6 @@ ul.typographic {
   list-style: initial;
   padding-inline-start: 20px;
 }
-
 
 /* For 'accessibility text'. If your button only has an image inside it that isn't good for accessibility. Put a span inside there and give it this class and put some descriptive text for what the button does into the span. */
 
@@ -229,7 +222,13 @@ ul.typographic {
   -webkit-clip-path: auto;
   white-space: normal;
 }
+@media ${devices.mobileS} {
 
+main{
+  padding: var(--padding);
+   margin-block-end: 8rem;
+}
+}
 
 `;
 

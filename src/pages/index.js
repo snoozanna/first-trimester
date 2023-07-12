@@ -1,22 +1,27 @@
 import { Box, Grid } from '@material-ui/core';
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import { devices } from '../styles/breakpoints.js';
+import { MenuContext } from '../context/menu.context.js';
 
 const HomePageStyles = styled.section`
-  /* padding: clamp(5px, 5vw, 25px);
-  min-height: 60vh; */
-  /* margin: -1vw; */
-  /* display: flex;
+  /* padding: clamp(5px, 5vw, 25px); */
+  min-height: 60vh;
+
+  display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center; */
-  /* display: grid;
+  align-items: center;
+  display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
-  gap: 4rem;
-  grid-auto-rows: auto auto 500px;
-  gap: 2rem; */
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'a a b b'
+    'a a . d';
+  /* gap: 2rem; */
   .hero-text-wrapper {
+    grid-area: b;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,8 +32,9 @@ const HomePageStyles = styled.section`
     }
   }
   .hero-img-wrapper {
+    grid-area: a;
     background-color: var(--yellow);
-    width: 400px;
+    width: 80%;
     height: 400px;
     display: flex;
     justify-content: center;
@@ -38,83 +44,116 @@ const HomePageStyles = styled.section`
       color: black;
     }
   }
+
   .hero-button {
-    background-color: var(--pink);
-    padding: 4rem;
-    display: block;
+    grid-area: d;
     position: relative;
-    min-width: 10rem;
-    min-height: 8rem;
     width: fit-content;
     align-self: end;
     cursor: pointer;
+
     --cast: 5px;
     box-shadow: var(--cast) var(--cast) 0 var(--black);
-    text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
-    transition: all 0.2s;
     &:hover {
       --cast: 8px;
+      box-shadow: var(--cast) var(--cast) 0 var(--black);
+      text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
     }
-    span {
-      font-size: 4rem;
-      font-family: Impact;
-      color: white;
-      text-align: right;
+    .hero-button-text-wrapper {
       position: absolute;
       right: 50%;
       top: 50%;
-      margin-left: 3rem;
+      margin-left: inherit;
+      span {
+        font-size: 2rem;
+        font-family: Impact;
+        color: white;
+        text-align: right;
+        margin-left: inherit;
+      }
+    }
+    .hero-button-color {
+      background-color: var(--pink);
+
+      min-width: 10rem;
+      min-height: 8rem;
+    }
+  }
+  @media ${devices.mobileS} {
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'a a .'
+      'a a b'
+      '. . d';
+    gap: 2rem;
+    .hero-text-wrapper {
+      grid-row-start: 2;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      align-items: end;
+      .site-title {
+        font-size: 6rem;
+        margin-bottom: 2rem;
+        text-align: right;
+        width: min-content;
+      }
+    }
+    .hero-img-wrapper {
+      height: 300px;
+      width: inherit;
+    }
+    .hero-button {
+      /* padding: 3rem; */
+      .hero-button-text-wrapper {
+        width: max-content;
+        display: flex;
+        flex-direction: column;
+        span {
+          font-size: 3rem;
+          right: 50%;
+          top: 50%;
+          margin-left: 3rem;
+        }
+      }
     }
   }
 `;
 
-const HomePage = () => {
-  console.log('landing');
+const HomePage = ({ location }) => {
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
+
   return (
-    <HomePageStyles className="narrow">
-      <Box
-        sx={{
-          flexGrow: 1,
-          maxWidth: 1080,
-          margin: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <Grid
-          container
-          spacing={5}
-          columns={12}
-          // columns={{ xs: 1, sm: 2, md: 12 }}
-        >
-          <Grid item xs={12} sm={6} md={6}>
-            <div className="hero-img-wrapper">
-              <span className="tagline">
-                The Danish Sperm Bank That’s Born to Help
-              </span>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <div className="hero-text-wrapper">
-              <h1 className="site-title">First Trimester</h1>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={6} />
-          <Grid
-            item
-            sx={{ justifyContent: 'end', display: 'flex', marginTop: '-10rem' }}
-            xs={12}
-            sm={6}
-            md={6}
-          >
-            <Link to="/donate" className="hero-button">
-              <span>Register to donate</span>
-            </Link>
-          </Grid>
-          {/* <button type="button">Register to donate</button> */}
-        </Grid>
-      </Box>
-    </HomePageStyles>
+    <>
+      <HomePageStyles className="narrow">
+        <div className="hero-img-wrapper">
+          <span className="tagline">
+            Lorem ipsum dolor sit amet consectetur
+          </span>
+        </div>
+
+        <div className="hero-text-wrapper">
+          <h1 className="site-title">First Trimester</h1>
+        </div>
+
+        <Link to="/donate" className="hero-button">
+          <div className="hero-button-color" />
+          <div className="hero-button-text-wrapper">
+            <span>Register </span>
+            <span>to donate</span>
+          </div>
+        </Link>
+
+        {/* <button type="button">Register to donate</button> */}
+      </HomePageStyles>
+    </>
   );
 };
 export default HomePage;

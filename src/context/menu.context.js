@@ -4,26 +4,32 @@ import React, { createContext, useState } from 'react';
 export const MenuContext = createContext({
   menu: {
     isOpen: false,
+    currentPage: '',
     open: () => {},
     close: () => {},
     toggle: () => {},
+    setCurrentPage: () => {},
   },
 });
 
 export function MenuProvider({ children }) {
   const [isOpen, setState] = useState(false);
+  const [currentPage, setCurrentPage] = useState('');
   const open = () => setState(true);
   const close = () => setState(false);
   const toggle = () => {
     setState(!isOpen);
   };
+
   return (
     <MenuContext.Provider
       value={{
         isOpen,
+        currentPage,
         open,
         close,
         toggle,
+        setCurrentPage,
       }}
     >
       {children}

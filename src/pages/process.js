@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import ProcessStepsList from '../components/ProcessStepsList';
+import { devices } from '../styles/breakpoints.js';
+import MenuContext from '../context/menu.context';
 
 // import SEO from '../components/SEO';
 const StepsPageStyles = styled.section`
@@ -16,11 +18,20 @@ const StepsPageStyles = styled.section`
     justify-content: center;
     align-items: center;
   }
+  @media ${devices.mobileS} {
+    padding: 2rem;
+  }
 `;
 
-const StepsPage = ({ data, pageContext }) => {
-  console.log(data);
+const StepsPage = ({ data, pageContext, location }) => {
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
   const steps = data.steps.nodes;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
+
   return (
     <StepsPageStyles>
       {/* <SEO

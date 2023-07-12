@@ -6,6 +6,7 @@ import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import stripes from '../assets/images/stripes.svg';
+import { devices } from '../styles/breakpoints.js';
 
 const SiteBorderStyles = styled.div`
   /* height: 100%; */
@@ -33,6 +34,12 @@ const ContentStyles = styled.div`
   /* margin: 12rem auto 4rem auto; */
 `;
 
+const MainStyles = styled.main`
+  @media ${devices.mobileS} {
+    margin-bottom: 8rem;
+  }
+`;
+
 const Layout = ({ children }) => (
   <>
     <GlobalStyles />
@@ -40,7 +47,7 @@ const Layout = ({ children }) => (
     {/* <SiteBorderStyles> */}
     <ContentStyles>
       <Header />
-      {children}
+      <MainStyles>{children}</MainStyles>
       <Footer />
     </ContentStyles>
     {/* </SiteBorderStyles> */}

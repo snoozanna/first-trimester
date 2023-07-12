@@ -36,7 +36,7 @@ const BSLToggle = () => {
               onChange={handleChange}
             />
           }
-          sx={{ textAlign: 'Center' }}
+          sx={{ textAlign: 'Center', marginLeft: 0 }}
           label="Show BSL Videos"
           labelPlacement="top"
         />

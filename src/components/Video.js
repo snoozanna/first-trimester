@@ -7,6 +7,7 @@ const VideoStyles = styled.div`
   justify-content: center;
   align-items: center;
   width: 70%;
+  max-height: 300px;
   margin: auto;
 `;
 

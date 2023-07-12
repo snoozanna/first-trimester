@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-
+import { devices } from './breakpoints.js';
 import heading from '../assets/fonts/impact.ttf';
 
 const Typography = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,300;0,600;0,700;1,300;1,500&family=Inconsolata:wght@300;400;600;700&display=swap');
+
  @font-face {
     font-family: Impact;
     src: url(${heading});
@@ -82,6 +82,15 @@ h2{
 
   .tilt {
     transform: rotate(-2deg);
+  }
+   @media ${devices.mobileS} {
+  h2{
+  font-size:3.5rem;
+}
+  h3{
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+  }
   }
 `;
 

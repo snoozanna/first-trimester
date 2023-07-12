@@ -1,9 +1,10 @@
 import { Link, graphql } from 'gatsby';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import FAQList from '../components/FAQList';
-
 import SEO from '../components/SEO';
+import { devices } from '../styles/breakpoints.js';
+import { MenuContext } from '../context/menu.context';
 
 const FAQPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -11,10 +12,20 @@ const FAQPageStyles = styled.section`
   /* margin: -1vw; */
   display: flex;
   flex-direction: column;
+
+  @media ${devices.mobileS} {
+  }
 `;
 
-const FAQPage = ({ data, pageContext }) => {
+const FAQPage = ({ data, pageContext, location }) => {
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
   const faqs = data.faqs.nodes;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
+
   return (
     <FAQPageStyles className="narrow">
       <SEO title="FAQs" />

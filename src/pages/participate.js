@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import { MenuContext } from '../context/menu.context';
 
 const ParticipatePageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -13,8 +14,14 @@ const ParticipatePageStyles = styled.section`
     align-items: center;
   }
 `;
-const ParticipatePage = () => {
-  console.log(window.location.pathname);
+const ParticipatePage = ({ location }) => {
+  const { setCurrentPage } = useContext(MenuContext);
+  const { pathname } = location;
+
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, []);
+
   return (
     <ParticipatePageStyles className="narrow">
       <div className="funTitle">
