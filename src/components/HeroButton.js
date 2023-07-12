@@ -1,13 +1,14 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { devices } from '../styles/breakpoints';
 
 const HeroButtonStyles = styled.div`
   .hero-button {
     background-color: var(--pink);
     width: fit-content;
     display: block;
-    padding: 5px;
+    padding: 10px;
     align-self: end;
     cursor: pointer;
     --cast: 5px;
@@ -27,11 +28,14 @@ const HeroButtonStyles = styled.div`
       display: flex;
       flex-direction: column;
       span {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         font-family: Impact;
         color: white;
         text-align: right;
         margin-left: inherit;
+        @media ${devices.mobileL} {
+          font-size: 1.5rem;
+        }
       }
     }
   }

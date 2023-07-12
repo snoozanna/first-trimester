@@ -84,7 +84,7 @@ h2{
   .tilt {
     transform: rotate(-2deg);
   }
-   @media ${devices.mobileS} {
+   @media ${devices.mobileL} {
   h2{
   font-size:3.5rem;
 }

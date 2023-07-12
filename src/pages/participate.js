@@ -11,7 +11,8 @@ const ParticipatePageStyles = styled.section`
   .hero-text-wrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    flex-direction: column;
   }
 `;
 const ParticipatePage = ({ location }) => {
@@ -24,15 +25,18 @@ const ParticipatePage = ({ location }) => {
 
   return (
     <ParticipatePageStyles className="narrow">
-      <div className="funTitle">
-        <div className="color green" />
-        <h3>Everyone!</h3>
+      <div className="hero-text-wrapper">
+        <div className="funTitle">
+          <div className="color green" />
+          <h3>Everyone!</h3>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          cupiditate quod illum! Excepturi recusandae eos aliquam, dolor hic
+          alias fugit accusamus, animi rerum vel ab, dolores porro qui quam
+          quisquam.
+        </p>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-        cupiditate quod illum! Excepturi recusandae eos aliquam, dolor hic alias
-        fugit accusamus, animi rerum vel ab, dolores porro qui quam quisquam.
-      </p>
     </ParticipatePageStyles>
   );
 };

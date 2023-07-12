@@ -13,7 +13,7 @@ const FAQPageStyles = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
   }
 `;
 

@@ -4,12 +4,16 @@ import CalendarWidget from '../components/CalendarWidget';
 import DonateForm from '../components/DonateForm';
 import { FormContext } from '../context/form.context';
 import { MenuContext } from '../context/menu.context';
+import { devices } from '../styles/breakpoints.js';
 
 const DonatePageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .hero-text-wrapper {
     display: flex;
     justify-content: center;
@@ -17,6 +21,9 @@ const DonatePageStyles = styled.section`
   }
   [data-container='booking-container'] {
     background-color: red;
+  }
+  @media ${devices.mobileL} {
+    flex-direction: column;
   }
 `;
 

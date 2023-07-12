@@ -35,7 +35,7 @@ const ContentStyles = styled.div`
 `;
 
 const MainStyles = styled.main`
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     margin-bottom: 8rem;
   }
 `;

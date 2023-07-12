@@ -35,7 +35,7 @@ const HeaderStyles = styled.header`
     background-color: var(--pink);
     z-index: 999;
   }
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     padding: 0 1rem;
     margin-bottom: var(--padding);
     h2 {

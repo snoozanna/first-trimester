@@ -10,6 +10,7 @@ const FormStyles = styled.form`
   background-color: var(--yellow);
   border-radius: 10px;
   padding: 2rem;
+  width: 100%;
   max-width: 800px;
   p[role='alert'] {
     color: var(--pink);
@@ -28,7 +29,7 @@ const FormStyles = styled.form`
     box-shadow: var(--cast) var(--cast) 0 var(--black);
     font-weight: 600;
   }
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     width: 100%;
   }
 `;

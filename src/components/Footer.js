@@ -11,16 +11,16 @@ const FooterStyles = styled.footer`
 /* background-color:var(--yellow); */
 position:fixed;
 bottom:0;
-padding: 1rem;
+padding: var(--padding);
 width: 100vw;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  justify-content: space-between; 
+   align-items:end;
   .scroller-wrapper{
     back
   }
-    @media ${devices.mobileS} {
-     justify-content: flex-start; 
-     justify-content: space-between; 
+    @media ${devices.mobileL} {
      align-items:end;
      padding: var(--padding)
     }
@@ -34,7 +34,7 @@ const Footer = () => {
       <h3 className="tagline">Could you be our ideal sperm donor?</h3>
     </div> */}
       <BSLToggle />
-      {currentPage !== '/donate' ? <HeroButton /> : ''}
+      {currentPage !== '/donate' && currentPage !== '/' ? <HeroButton /> : ''}
     </FooterStyles>
   );
 };

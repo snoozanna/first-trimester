@@ -18,7 +18,7 @@ const InfoPageStyles = styled.section`
     align-items: center;
     flex-direction: column;
   }
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     flex-direction: column;
   }
 `;

@@ -66,7 +66,7 @@ const HomePageStyles = styled.section`
       top: 50%;
       margin-left: inherit;
       span {
-        font-size: 2rem;
+        font-size: 3rem;
         font-family: Impact;
         color: white;
         text-align: right;
@@ -80,7 +80,7 @@ const HomePageStyles = styled.section`
       min-height: 8rem;
     }
   }
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: auto auto auto;
     grid-template-areas:

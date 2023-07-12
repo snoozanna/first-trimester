@@ -18,7 +18,7 @@ const StepsPageStyles = styled.section`
     justify-content: center;
     align-items: center;
   }
-  @media ${devices.mobileS} {
+  @media ${devices.mobileL} {
     padding: 2rem;
   }
 `;

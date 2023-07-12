@@ -222,7 +222,7 @@ ul.typographic {
   -webkit-clip-path: auto;
   white-space: normal;
 }
-@media ${devices.mobileS} {
+@media ${devices.mobileL} {
 
 main{
   padding: var(--padding);
