@@ -1,12 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-
 import IconButton from '@material-ui/core/IconButton';
 // import { animated } from '@react-spring/web';
-
 import { MenuContext } from '../context/menu.context';
 import { devices } from '../styles/breakpoints.js';
-
 import icon from '../assets/images/baby.png';
 import Nav from './Nav';
 import ScrollText from './ScrollText';
