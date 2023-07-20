@@ -103,6 +103,9 @@ const HomePageStyles = styled.section`
         margin-bottom: 2rem;
         text-align: right;
         width: min-content;
+        .tagline {
+          backgroundcolor: var(--yellow);
+        }
       }
     }
     .hero-img-wrapper {

@@ -24,7 +24,7 @@ const StepStyles = styled.div`
   &.bgpink {
     background-color: #ef5ea8;
   }
-  padding: 5rem;
+  padding: 4rem;
   position: relative;
   min-height: 300px;
   display: flex;
@@ -41,10 +41,8 @@ const StepStyles = styled.div`
   h2 {
     font-size: 4rem;
     text-align: end;
-    margin-inline-end: 0rem;
-    position: absolute;
-    top: 10%;
-    right: -9%;
+    margin-inline-end: -7rem;
+    margin-bottom: 2rem;
   }
   .step-number-wrapper {
     background-color: var(--mustyblue);
@@ -71,8 +69,10 @@ const SingleStep = ({ step, bgColor }) => (
           <span className="step-number">{step.stepNumber}</span>
         </div>
 
-        <h2>{step.heading}</h2>
-        <p>{step.explanation}</p>
+        <div className="step-info-wrapper">
+          <h2>{step.heading}</h2>
+          <p>{step.explanation}</p>
+        </div>
       </StepStyles>
     </Grid>
   </>

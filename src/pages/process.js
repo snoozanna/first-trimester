@@ -41,6 +41,12 @@ const StepsPage = ({ data, pageContext, location }) => {
             : `All Pizzas`
         }
       /> */}
+      {/* <div className="hero-text-wrapper">
+        <div className="funTitle">
+          <div className="color green" />
+          <h3>What is the process, you ask?</h3>
+        </div>
+      </div> */}
 
       <ProcessStepsList steps={steps} />
     </StepsPageStyles>

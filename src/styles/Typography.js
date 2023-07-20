@@ -15,6 +15,7 @@ const Typography = createGlobalStyle`
   }
   p, li {
     letter-spacing: 0.5px;
+    line-height: 3rem;
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: Impact;
@@ -27,6 +28,10 @@ h2{
   h3{
     font-size: 3.5rem;
     letter-spacing: 0.15rem;
+  }
+
+  li{
+    
   }
 
   .funTitle{
@@ -55,9 +60,7 @@ h2{
     background-color: var(--mintgreen);
   }
 
-  p{
-    line-height: 3rem;
-  }
+  
   a {
     color: var(--black);
     text-decoration-color: var(--red);
