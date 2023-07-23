@@ -66,7 +66,7 @@ const BookPageStyles = styled.section`
       margin-left: inherit;
       span {
         font-size: 3rem;
-        font-family: Impact;
+        font-family: var(--headings);
         color: white;
         text-align: right;
         margin-left: inherit;
@@ -142,8 +142,6 @@ const BookPage = ({ location }) => {
             <span>tickets!</span>
           </div>
         </Link>
-
-        {/* <button type="button">Register to donate</button> */}
       </div>{' '}
       {/* <p className="show-description">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias

@@ -56,7 +56,7 @@ const Header = () => {
     if (isBrowser) {
       const pageName = currentPage;
       switch (pageName) {
-        case '/participate':
+        case '/who':
           pageToShow = <h2>Who can participate?</h2>;
           break;
         case '/access':
@@ -74,8 +74,8 @@ const Header = () => {
         case '/book':
           pageToShow = <h2>Book tickets</h2>;
           break;
-        case '/donate':
-          pageToShow = <h2>Apply to donate</h2>;
+        case '/participate':
+          pageToShow = <h2>Apply to Participate</h2>;
           break;
         case '/':
           pageToShow = <ScrollText />;

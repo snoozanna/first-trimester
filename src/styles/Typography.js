@@ -1,16 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 import { devices } from './breakpoints.js';
-import heading from '../assets/fonts/impact.ttf';
+import heading from '../assets/fonts/KantataAksara.ttf';
 
 const Typography = createGlobalStyle`
 
  @font-face {
-    font-family: Impact;
+    font-family: KantataAksara;
     src: url(${heading});
   } 
 
   html {
-     font-family: "Glory", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-family: "Glory", -apple-system, 
+     BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-weight: 600;
     color: var(--black);
   }
   p, li {
@@ -18,9 +20,10 @@ const Typography = createGlobalStyle`
     line-height: 3rem;
   }
   h1,h2,h3,h4,h5,h6 {
-    font-family: Impact;
+     font-family: var(--headings);
     font-weight: normal;
     margin: 0;
+    text-transform:uppercase;
   }
 h2{
   font-size:4rem;

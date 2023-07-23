@@ -86,7 +86,7 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/participate">Who can participate?</Link>
+              <Link to="/who">Who can participate?</Link>
             </li>
 
             <li>
@@ -102,7 +102,7 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/donate">Apply to Donate</Link>
+              <Link to="/participate">Apply to Participate</Link>
             </li>
 
             <li>

@@ -14,15 +14,17 @@ const GlobalStyles = createGlobalStyle`
     --pink:#EF5EA8;
     --mustyblue: #5E87EF;
     --mintgreen: #32D7B9;
-    --headings: "Impact";
+    --headings: "KantataAksara";
     --subheadings: "Inconsolata";
     --body:"Gloria";
-    --padding: 2rem;
+    --padding: 3rem;
   }
 
   html {
     /* background-image: url(${bg}); */
     background-color: var(--blue) ;
+    /* background: rgb(6,6,171);
+background: radial-gradient(circle, rgba(6,6,171,1) 0%, rgba(8,3,83,1) 100%); */
     /* background-size: 450px; */
     /* background-attachment: fixed; */
     font-size: 10px;

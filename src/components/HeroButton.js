@@ -29,7 +29,7 @@ const HeroButtonStyles = styled.div`
       flex-direction: column;
       span {
         font-size: 2.5rem;
-        font-family: Impact;
+        font-family: var(--headings);
         color: white;
         text-align: right;
         margin-left: inherit;

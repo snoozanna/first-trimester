@@ -1,5 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import { Link } from 'gatsby';
+
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { devices } from '../styles/breakpoints.js';
@@ -71,7 +72,7 @@ const HomePageStyles = styled.section`
       margin-left: inherit;
       span {
         font-size: 3rem;
-        font-family: Impact;
+        font-family: var(--headings);
         color: white;
         text-align: right;
         margin-left: inherit;
@@ -151,15 +152,13 @@ const HomePage = ({ location }) => {
           </span>
         </div>
 
-        <Link to="/donate" className="hero-button">
+        <Link to="/participate" className="hero-button">
           <div className="hero-button-color" />
           <div className="hero-button-text-wrapper">
             <span>Register </span>
-            <span>to donate</span>
+            <span>to participate</span>
           </div>
         </Link>
-
-        {/* <button type="button">Register to donate</button> */}
       </HomePageStyles>
     </>
   );
