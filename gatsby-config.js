@@ -10,6 +10,7 @@ module.exports = {
     twitter: '@KrishnaIstha',
   },
   plugins: [
+    `gatsby-plugin-scroll-reveal`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-material-ui`,
     'gatsby-plugin-styled-components',
@@ -44,6 +45,10 @@ module.exports = {
           {
             name: `Inconsolata`,
             file: `https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700;800;900&display=swap`,
+          },
+          {
+            name: `Roboto`,
+            file: `https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,700&display=swap`,
           },
         ],
       },

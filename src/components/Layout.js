@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { navigate } from 'gatsby';
 import Header from './Header';
 import Footer from './Footer';
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import stripes from '../assets/images/stripes.svg';
+// import { ScrollReveal } from 'gatsby-plugin-scroll-reveal';
 import { devices } from '../styles/breakpoints.js';
 
 const SiteBorderStyles = styled.div`
@@ -40,17 +42,45 @@ const MainStyles = styled.main`
   }
 `;
 
-const Layout = ({ children }) => (
-  <>
-    <GlobalStyles />
-    <Typography />
-    {/* <SiteBorderStyles> */}
-    <ContentStyles>
-      <Header />
-      <MainStyles>{children}</MainStyles>
-      <Footer />
-    </ContentStyles>
-    {/* </SiteBorderStyles> */}
-  </>
-);
+const Layout = ({ children }) => {
+  // Function to handle the scroll event
+  const handleScroll = () => {
+    // Check if the user has scrolled to the bottom of the page
+    const isAtBottom =
+      window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+
+    // If at the bottom, trigger the transition to SecretPage2
+    if (isAtBottom) {
+      // Use Gatsby's navigate to programmatically navigate to the next secret page
+      // navigate('/book');
+      console.log('at the bottom');
+    }
+    // Add a scroll event listener when the component mounts
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  return (
+    <>
+      <GlobalStyles />
+      <Typography />
+      {/* <SiteBorderStyles> */}
+      <ContentStyles>
+        <Header />
+        <MainStyles>
+          {/* <ScrollReveal> */}
+          {children}
+
+          {/* </ScrollReveal> */}
+        </MainStyles>
+        <Footer />
+      </ContentStyles>
+      {/* </SiteBorderStyles> */}
+    </>
+  );
+};
+
 export default Layout;

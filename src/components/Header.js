@@ -9,7 +9,7 @@ import Nav from './Nav';
 import ScrollText from './ScrollText';
 
 const HeaderStyles = styled.header`
-  background-color: var(--pink);
+  background-color: var(--purple);
   /* margin: -1vw; */
   position: sticky;
   top: 0;
@@ -32,7 +32,7 @@ const HeaderStyles = styled.header`
   }
   button {
     box-shadow: none;
-    background-color: var(--pink);
+    /* background-color: var(--pink); */
     z-index: 999;
   }
   @media ${devices.mobileL} {
@@ -105,6 +105,7 @@ const Header = () => {
           </MenuToggleButtonStyles>
         </IconButton>
         {/* ({isBrowser ? pageToShow() : `First Trimester`})  */}
+        <h1>First Trimester</h1>
         {isBrowser ? findPageToShow() : <h2>First Trimester</h2>}
       </HeaderStyles>
 

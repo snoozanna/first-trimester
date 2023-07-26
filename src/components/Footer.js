@@ -11,7 +11,8 @@ const FooterStyles = styled.footer`
 /* background-color:var(--yellow); */
 position:fixed;
 bottom:0;
-padding: var(--padding);
+padding:  var(--padding);
+padding-top: 0;
 width: 100vw;
   display: flex;
   justify-content: flex-start;
@@ -22,7 +23,7 @@ width: 100vw;
   }
     @media ${devices.mobileL} {
      align-items:end;
-     padding: var(--padding)
+
     }
 `;
 

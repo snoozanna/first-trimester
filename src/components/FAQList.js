@@ -39,7 +39,7 @@ const SingleFAQ = ({ faq }) => (
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <h3>{faq.question}</h3>
+          <h4>{faq.question}</h4>
         </AccordionSummary>
         <AccordionDetails>
           <p>{faq.answer}</p>
@@ -49,14 +49,30 @@ const SingleFAQ = ({ faq }) => (
   </>
 );
 
-const FAQList = ({ faqs }) => (
-  <>
-    {faqs.map((faq) => (
-      <>
-        <SingleFAQ faq={faq} key={faq.id} />
-      </>
-    ))}
-  </>
-);
+const FAQList = ({ faqs }) => {
+  const faqsByCategory = {};
 
+  faqs.forEach((faq) => {
+    const { category } = faq.faqCategories[0];
+    if (!faqsByCategory[category]) {
+      faqsByCategory[category] = [];
+    }
+    faqsByCategory[category].push(faq);
+  });
+  return (
+    <>
+      {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
+        <div key={category}>
+          <div className="funTitle">
+            <div className="color green" />
+            <h3>{category}</h3>
+          </div>
+          {faqsInCategory.map((faq) => (
+            <SingleFAQ faq={faq} key={faq.id} />
+          ))}
+        </div>
+      ))}
+    </>
+  );
+};
 export default FAQList;

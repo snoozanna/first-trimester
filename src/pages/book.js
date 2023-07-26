@@ -44,41 +44,6 @@ const BookPageStyles = styled.section`
     }
   }
 
-  .hero-button {
-    grid-area: d;
-    position: relative;
-    width: fit-content;
-    align-self: end;
-    cursor: pointer;
-
-    --cast: 5px;
-    box-shadow: var(--cast) var(--cast) 0 var(--black);
-    &:hover {
-      --cast: 8px;
-      box-shadow: var(--cast) var(--cast) 0 var(--black);
-      text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
-      transition: all 0.2s;
-    }
-    .hero-button-text-wrapper {
-      position: absolute;
-      right: 50%;
-      top: 50%;
-      margin-left: inherit;
-      span {
-        font-size: 3rem;
-        font-family: var(--headings);
-        color: white;
-        text-align: right;
-        margin-left: inherit;
-      }
-    }
-    .hero-button-color {
-      background-color: var(--pink);
-
-      min-width: 10rem;
-      min-height: 8rem;
-    }
-  }
   @media ${devices.mobileL} {
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: auto auto auto;
@@ -104,20 +69,6 @@ const BookPageStyles = styled.section`
       height: 300px;
       width: inherit;
     }
-    .hero-button {
-      /* padding: 3rem; */
-      .hero-button-text-wrapper {
-        width: max-content;
-        display: flex;
-        flex-direction: column;
-        span {
-          font-size: 3rem;
-          right: 50%;
-          top: 50%;
-          margin-left: 3rem;
-        }
-      }
-    }
   }
 `;
 
@@ -135,13 +86,6 @@ const BookPage = ({ location }) => {
       </div>
       <div className="hero-text-wrapper">
         <h1 className="site-title">First Trimester</h1>
-        <Link to="" className="hero-button">
-          <div className="hero-button-color" />
-          <div className="hero-button-text-wrapper">
-            <span>Book </span>
-            <span>tickets!</span>
-          </div>
-        </Link>
       </div>{' '}
       {/* <p className="show-description">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias

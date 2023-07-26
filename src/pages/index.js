@@ -1,14 +1,15 @@
 import { Box, Grid } from '@material-ui/core';
-import { Link } from 'gatsby';
-
+import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
+import HomePageHeroButton from '../components/HomePageHeroButton.js';
+import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
 
 const HomePageStyles = styled.section`
   /* padding: clamp(5px, 5vw, 25px); */
-  min-height: 60vh;
+  min-height: 70vh;
 
   display: flex;
   flex-direction: row-reverse;
@@ -50,48 +51,13 @@ const HomePageStyles = styled.section`
     }
   }
 
-  .hero-button {
-    grid-area: d;
-    position: relative;
-    width: fit-content;
-    align-self: end;
-    cursor: pointer;
-
-    --cast: 5px;
-    box-shadow: var(--cast) var(--cast) 0 var(--black);
-    &:hover {
-      --cast: 8px;
-      box-shadow: var(--cast) var(--cast) 0 var(--black);
-      text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
-      transition: all 0.2s;
-    }
-    .hero-button-text-wrapper {
-      position: absolute;
-      right: 50%;
-      top: 50%;
-      margin-left: inherit;
-      span {
-        font-size: 3rem;
-        font-family: var(--headings);
-        color: white;
-        text-align: right;
-        margin-left: inherit;
-      }
-    }
-    .hero-button-color {
-      background-color: var(--pink);
-
-      min-width: 10rem;
-      min-height: 8rem;
-    }
-  }
   @media ${devices.mobileL} {
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: auto auto auto;
     grid-template-areas:
       'a a .'
       'a a b'
-      '. . d';
+      '. e d';
     gap: 2rem;
     .hero-text-wrapper {
       grid-row-start: 2;
@@ -113,30 +79,17 @@ const HomePageStyles = styled.section`
       height: 300px;
       width: inherit;
     }
-    .hero-button {
-      /* padding: 3rem; */
-      .hero-button-text-wrapper {
-        width: max-content;
-        display: flex;
-        flex-direction: column;
-        span {
-          font-size: 3rem;
-          right: 50%;
-          top: 50%;
-          margin-left: 3rem;
-        }
-      }
-    }
   }
 `;
 
-const HomePage = ({ location }) => {
+const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
   const { pathname } = location;
 
   useEffect(() => {
     setCurrentPage(pathname);
   }, []);
+  console.log(data);
 
   return (
     <>
@@ -151,16 +104,23 @@ const HomePage = ({ location }) => {
             Lorem ipsum dolor sit amet consectetur
           </span>
         </div>
-
-        <Link to="/participate" className="hero-button">
-          <div className="hero-button-color" />
-          <div className="hero-button-text-wrapper">
-            <span>Register </span>
-            <span>to participate</span>
-          </div>
-        </Link>
+        <HomePageHeroButton />
       </HomePageStyles>
+      {/* <InfoPageWrapper data={data.info} /> */}
     </>
   );
 };
 export default HomePage;
+
+export const query = graphql`
+  query HomeQuery {
+    info: allSanityInfo {
+      nodes {
+        id
+        # heading
+        bslvid
+        infoCopy: _rawInfoCopy(resolveReferences: { maxDepth: 5 })
+      }
+    }
+  }
+`;

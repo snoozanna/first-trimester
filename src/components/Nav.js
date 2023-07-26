@@ -25,10 +25,11 @@ const NavStyles = styled.nav`
     grid-gap: 2rem;
     align-items: center;
     flex-direction: column;
-    background-color: var(--pink);
+    background-color: var(--mustyblue);
     padding: 2rem;
   }
   li {
+    font-family: var(--subheadings);
     --rotate: -2deg;
     transform: rotate(var(--rotate));
     order: 1;
@@ -44,7 +45,7 @@ const NavStyles = styled.nav`
   }
   a {
     color: white;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-decoration: none;
     &:hover {
       color: var(--mintgreen);

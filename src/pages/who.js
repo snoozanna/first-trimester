@@ -5,16 +5,31 @@ import { PortableText } from '@portabletext/react';
 import { MenuContext } from '../context/menu.context';
 
 const ParticipatePageStyles = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 4rem;
+  grid-auto-rows: auto;
   padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
-  display: flex;
-  flex-direction: column;
+
   .hero-text-wrapper {
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
+  }
+  .hero-img-wrapper {
+    background-color: var(--yellow);
+    min-height: 400px;
+    /* height: 400px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      text-align: center;
+      color: black;
+    }
   }
 `;
 const ParticipatePage = ({ data, location }) => {
@@ -33,19 +48,17 @@ const ParticipatePage = ({ data, location }) => {
           <div className="color green" />
           <h3>{participate.heading}</h3>
         </div>
-        <PortableText
-          value={participate.copy}
-          // components={/* optional object of custom components to use */}
-        />
-
+        <PortableText value={participate.copy} />
         <p>
           Read
-          <Link to="/faqs"> FAQs</Link>to find out more.
+          <Link to="/faqs"> FAQs </Link>to find out more.
         </p>
-        <p>
-          {/* todo add image */}
-          ADD IMAGE
-        </p>
+      </div>
+      <div className="hero-img-wrapper">
+        <span className="tagline">
+          {' '}
+          a funny picture of Krishna and Rent holding a doll or something
+        </span>
       </div>
     </ParticipatePageStyles>
   );

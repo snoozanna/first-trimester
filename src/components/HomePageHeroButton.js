@@ -4,12 +4,14 @@ import styled from 'styled-components';
 import { devices } from '../styles/breakpoints';
 
 const HeroButtonStyles = styled.div`
+  grid-area: d;
+
   .hero-button-text-wrapper {
     margin-left: inherit;
     display: flex;
     flex-direction: column;
     span {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-family: var(--subheadings);
       color: white;
       text-align: center;
@@ -28,13 +30,14 @@ const HeroButtonStyles = styled.div`
     text-decoration: none;
     color: var(--clr-neon);
     border: var(--clr-neon) 0.125em solid;
-    padding: 0.25em 0.5em;
+    padding: 0.25em 1em;
     border-radius: 0.25em;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
     box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
 
     position: relative;
   }
+
   .neon-button::after {
     content: '';
     position: absolute;
@@ -63,16 +66,25 @@ const HeroButtonStyles = styled.div`
   .neon-button:focus::after {
     opacity: 1;
   }
+
+  @media ${devices.mobileL} {
+    grid-row-start: d;
+    grid-column-start: e;
+    grid-row-end: d;
+    grid-column-end: d;
+    display: flex;
+    justify-content: end;
+  }
 `;
 
-const HeroButton = () => (
+const HomePageHeroButton = () => (
   <HeroButtonStyles>
-    <Link to="/donate" className="neon-button">
+    <Link to="/participate" className="neon-button">
       <div className="hero-button-text-wrapper">
-        <span>Apply </span>
-        <span> today!</span>
+        <span>Apply to</span>
+        <span>participate</span>
       </div>
     </Link>
   </HeroButtonStyles>
 );
-export default HeroButton;
+export default HomePageHeroButton;

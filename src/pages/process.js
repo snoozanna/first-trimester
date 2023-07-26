@@ -56,7 +56,7 @@ export default StepsPage;
 
 export const query = graphql`
   query ProcessQuery {
-    steps: allSanitySteps {
+    steps: allSanitySteps(sort: { fields: stepNumber, order: ASC }) {
       nodes {
         stepNumber
         id

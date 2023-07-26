@@ -3,17 +3,6 @@ import Box from '@mui/material/Box';
 import React from 'react';
 import styled from 'styled-components';
 
-const ProcessGridStyles = styled.div`
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-  align-items: flex-start;
-  justify-content: center;
-  gap: 4rem;
-  grid-row: span 3;
-  grid-auto-rows: auto auto 500px; */
-  background: red;
-`;
-
 const StepStyles = styled.div`
   &.bggreen {
     background-color: #32d7b9;
@@ -56,7 +45,7 @@ const StepStyles = styled.div`
 
     .step-number {
       font-size: 4rem;
-      font-family: 'Impact';
+      font-family: var(--headings);
     }
   }
 `;

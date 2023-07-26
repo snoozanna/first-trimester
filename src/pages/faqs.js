@@ -2,6 +2,7 @@ import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import FAQList from '../components/FAQList';
+import FAQCategoryFilter from '../components/FAQCategoryFilter';
 import SEO from '../components/SEO';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context';
@@ -29,6 +30,7 @@ const FAQPage = ({ data, pageContext, location }) => {
   return (
     <FAQPageStyles className="narrow">
       <SEO title="FAQs" />
+      <FAQCategoryFilter />
       <FAQList faqs={faqs} />
     </FAQPageStyles>
   );
@@ -37,12 +39,31 @@ const FAQPage = ({ data, pageContext, location }) => {
 export default FAQPage;
 
 export const query = graphql`
-  query FAQQuery {
-    faqs: allSanityFaq {
+  # query FAQQuery {
+  #   faqs: allSanityFaq {
+  #     nodes {
+  #       question
+  #       id
+  #       answer
+  #       faqCategories {
+  #         category
+  #       }
+  #     }
+  #   }
+  # }
+  query FAQQuery($FAQRegex: String) {
+    faqs: allSanityFaq(
+      filter: {
+        faqCategories: { elemMatch: { category: { regex: $FAQRegex } } }
+      }
+    ) {
       nodes {
         question
         id
         answer
+        faqCategories {
+          category
+        }
       }
     }
   }

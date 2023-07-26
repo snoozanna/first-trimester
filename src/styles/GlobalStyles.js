@@ -9,14 +9,18 @@ const GlobalStyles = createGlobalStyle`
     --black: #2E2E2E;
     --white: #fff;
     --grey: #efefef;
-    --blue:#00A5E8;
+    --blue:#3e31de;
      --yellow: #FDC24C;
-    --pink:#EF5EA8;
+    --pink:#ff87e5;
     --mustyblue: #5E87EF;
     --mintgreen: #32D7B9;
+    /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
+     --purple:#d866a7;
+    --clr-neon: hsl(300 85% 73%);
+  --clr-bg: hsl(323 21% 16%);
     --headings: "KantataAksara";
     --subheadings: "Inconsolata";
-    --body:"Gloria";
+    --body:"Roboto";
     --padding: 3rem;
   }
 
@@ -25,11 +29,14 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--blue) ;
     /* background: rgb(6,6,171);
 background: radial-gradient(circle, rgba(6,6,171,1) 0%, rgba(8,3,83,1) 100%); */
+background: rgb(62,49,222);
+background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(255,135,229,1) 100%);
     /* background-size: 450px; */
     /* background-attachment: fixed; */
     font-size: 10px;
   }
 
+/* GENERICS */
   html,
 body {
   min-height: 100vh;
@@ -224,13 +231,24 @@ ul.typographic {
   -webkit-clip-path: auto;
   white-space: normal;
 }
-@media ${devices.mobileL} {
+  
+
+  /* CUSTOM SITE WIDE STYLES  */
+
+  main{
+    margin-block-end: 8rem;
+  }
+
+  @media ${devices.mobileL} {
 
 main{
   padding: var(--padding);
-   margin-block-end: 8rem;
+   
 }
 }
+
+
+
 
 `;
 

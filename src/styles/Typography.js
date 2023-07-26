@@ -10,20 +10,28 @@ const Typography = createGlobalStyle`
   } 
 
   html {
-     font-family: "Glory", -apple-system, 
+     font-family: "Roboto", -apple-system, 
      BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     font-weight: 600;
+     font-weight: 300;
     color: var(--black);
   }
   p, li {
     letter-spacing: 0.5px;
     line-height: 3rem;
   }
+
+  
   h1,h2,h3,h4,h5,h6 {
-     font-family: var(--headings);
     font-weight: normal;
     margin: 0;
+
+  }
+  h1, h2{
+    font-family: var(--headings);
     text-transform:uppercase;
+  }
+  h3,h4,h5,h6{
+    font-family: var(--subheadings); 
   }
 h2{
   font-size:4rem;
@@ -33,24 +41,29 @@ h2{
     letter-spacing: 0.15rem;
   }
 
+   h4{
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+  }
+
   li{
     
   }
 
   .funTitle{
-    /* background-color: var(--pink); */
+
     position: relative;
     width: fit-content;
     margin-block-end: 1rem;
   }
 
     .funTitle > .color{
-    /* background-color: var(--pink); */
-    width: fit-content;
-        width: 100%;
+
+        min-width: 100%;
+       width: calc(100% + 5rem);
     height: 6rem;
     top: -2rem;
-    left: -3rem;
+    left: -6rem;
     position: absolute;
     z-index: -1;
   }
@@ -65,10 +78,16 @@ h2{
 
   
   a {
-    color: var(--black);
+    color: var(--mintgreen);
     text-decoration-color: var(--red);
     /* Chrome renders this weird with this font, so we turn it off */
     text-decoration-skip-ink: none;
+    font-weight: 600;
+  }
+
+    a:hover {
+    color: var(--yellow);
+    
   }
 
   mark, .mark {
