@@ -24,28 +24,26 @@ const FAQListStyles = styled.section`
 
 const SingleFAQ = ({ faq }) => (
   <>
-    <FAQListStyles>
-      <Accordion
-        sx={{
-          backgroundColor: 'transparent',
-          color: 'white',
-          boxShadow: 'none',
-        }}
+    <Accordion
+      sx={{
+        backgroundColor: 'transparent',
+        color: 'white',
+        boxShadow: 'none',
+      }}
+    >
+      <AccordionSummary
+        expandIcon={
+          <AddIcon sx={{ fontSize: '4rem', color: 'var(--yellow)' }} />
+        }
+        aria-controls="panel1a-content"
+        id="panel1a-header"
       >
-        <AccordionSummary
-          expandIcon={
-            <AddIcon sx={{ fontSize: '4rem', color: 'var(--yellow)' }} />
-          }
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <h4>{faq.question}</h4>
-        </AccordionSummary>
-        <AccordionDetails>
-          <p>{faq.answer}</p>
-        </AccordionDetails>
-      </Accordion>
-    </FAQListStyles>
+        <h4>{faq.question}</h4>
+      </AccordionSummary>
+      <AccordionDetails>
+        <p>{faq.answer}</p>
+      </AccordionDetails>
+    </Accordion>
   </>
 );
 
@@ -61,16 +59,18 @@ const FAQList = ({ faqs }) => {
   });
   return (
     <>
-      {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
-        <div key={category} id={category.toLowerCase()}>
-          <div className="funTitle green">
-            <h3 className="catName">{category}</h3>
+      <FAQListStyles>
+        {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
+          <div key={category} id={category.toLowerCase()}>
+            <div className="funTitle green">
+              <h3 className="catName">{category}</h3>
+            </div>
+            {faqsInCategory.map((faq) => (
+              <SingleFAQ faq={faq} key={faq.id} />
+            ))}
           </div>
-          {faqsInCategory.map((faq) => (
-            <SingleFAQ faq={faq} key={faq.id} />
-          ))}
-        </div>
-      ))}
+        ))}
+      </FAQListStyles>
     </>
   );
 };

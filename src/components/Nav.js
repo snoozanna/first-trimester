@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'gatsby';
 import Drawer from '@mui/material/Drawer';
 import styled from 'styled-components';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { MenuContext } from '../context/menu.context';
 // import '../styles/components/Nav.css';
 
@@ -50,9 +51,9 @@ const NavStyles = styled.nav`
     &:hover {
       color: var(--mintgreen);
     }
-    &[aria-current='page'] {
+    /* &[aria-current='page'] {
       color: var(--yellow);
-    }
+    } */
   }
 `;
 
@@ -87,7 +88,9 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/who">Who can participate?</Link>
+              <AnchorLink to="/#who" title="Who can participate?">
+                Who can participate?
+              </AnchorLink>
             </li>
 
             <li>

@@ -1,56 +1,17 @@
 import { graphql } from 'gatsby';
 import React, { useContext, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
-import styled from 'styled-components';
-import ProcessStepsList from '../components/ProcessStepsList';
-import { devices } from '../styles/breakpoints.js';
-import MenuContext from '../context/menu.context';
+import { MenuContext } from '../context/menu.context';
+import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper';
 
-// import SEO from '../components/SEO';
-const StepsPageStyles = styled.section`
-  padding: 5rem;
-  min-height: 60vh;
-  /* margin: -1vw; */
-  display: flex;
-  flex-direction: column;
-  .hero-text-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  @media ${devices.mobileL} {
-    padding: 2rem;
-  }
-`;
-
-const StepsPage = ({ data, pageContext, location }) => {
+const StepsPage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
   const { pathname } = location;
-  const steps = data.steps.nodes;
 
   useEffect(() => {
     setCurrentPage(pathname);
   }, []);
 
-  return (
-    <StepsPageStyles>
-      {/* <SEO
-        title={
-          pageContext.topping
-            ? `Pizza's With ${pageContext.topping}`
-            : `All Pizzas`
-        }
-      /> */}
-      {/* <div className="hero-text-wrapper">
-        <div className="funTitle">
-          <div className="color green" />
-          <h3>What is the process, you ask?</h3>
-        </div>
-      </div> */}
-
-      <ProcessStepsList steps={steps} />
-    </StepsPageStyles>
-  );
+  return <StepsPageWrapper data={data.steps} />;
 };
 export default StepsPage;
 

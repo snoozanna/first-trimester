@@ -42,45 +42,23 @@ const MainStyles = styled.main`
   }
 `;
 
-const Layout = ({ children }) => {
-  // Function to handle the scroll event
-  const handleScroll = () => {
-    // Check if the user has scrolled to the bottom of the page
-    const isAtBottom =
-      window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyles />
+    <Typography />
+    {/* <SiteBorderStyles> */}
+    <ContentStyles>
+      <Header />
+      <MainStyles>
+        {/* <ScrollReveal> */}
+        {children}
 
-    // If at the bottom, trigger the transition to SecretPage2
-    if (isAtBottom) {
-      // Use Gatsby's navigate to programmatically navigate to the next secret page
-      // navigate('/book');
-      console.log('at the bottom');
-    }
-    // Add a scroll event listener when the component mounts
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  return (
-    <>
-      <GlobalStyles />
-      <Typography />
-      {/* <SiteBorderStyles> */}
-      <ContentStyles>
-        <Header />
-        <MainStyles>
-          {/* <ScrollReveal> */}
-          {children}
-
-          {/* </ScrollReveal> */}
-        </MainStyles>
-        <Footer />
-      </ContentStyles>
-      {/* </SiteBorderStyles> */}
-    </>
-  );
-};
+        {/* </ScrollReveal> */}
+      </MainStyles>
+      <Footer />
+    </ContentStyles>
+    {/* </SiteBorderStyles> */}
+  </>
+);
 
 export default Layout;

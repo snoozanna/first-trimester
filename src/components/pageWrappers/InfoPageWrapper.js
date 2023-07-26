@@ -1,5 +1,4 @@
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { PortableText } from '@portabletext/react';
@@ -25,11 +24,9 @@ const InfoPageStyles = styled.section`
   }
 `;
 
-// const InfoPageWrapper = ({ data, location }) => {
-const InfoPageWrapper = ({ data }) => {
+const InfoPageWrapper = forwardRef(({ data }, ref) => {
   const { isBSLShowing } = useContext(AccessContext);
-  // const { setCurrentPage } = useContext(MenuContext);
-  // const { pathname } = location;
+  InfoPageWrapper.displayName = 'InfoPageWrapper';
   const info = data.nodes[0];
 
   // useEffect(() => {
@@ -38,7 +35,7 @@ const InfoPageWrapper = ({ data }) => {
 
   return (
     <>
-      <InfoPageStyles className="narrow">
+      <InfoPageStyles className="narrow" ref={ref}>
         <div className="hero-text-wrapper">
           <div className="funTitle">
             <div className="color green" />
@@ -50,5 +47,5 @@ const InfoPageWrapper = ({ data }) => {
       </InfoPageStyles>
     </>
   );
-};
+});
 export default InfoPageWrapper;

@@ -1,12 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect } from 'react';
-import styled from 'styled-components';
 
-import { PortableText } from '@portabletext/react';
-
-import Video from '../components/Video';
-import AccessContext from '../context/access.context';
-import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context';
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper';
 

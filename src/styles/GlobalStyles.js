@@ -117,14 +117,8 @@ button * {
   /* minor vertical centering. Works for images IF there is a baseline (i.e. they are displayed inline or inline-block) */
 }
 
- section.narrow{
-  max-width: 1000px;
-  margin:auto;
- }
 
-  section.wide{
-  max-width: 100vw;
- }
+ 
 
   fieldset {
     border-color: rgba(0,0,0,0.1);
@@ -239,6 +233,20 @@ ul.typographic {
   main{
     margin-block-end: 8rem;
   }
+
+  section{
+    min-height: 100vh;
+    margin-block-end:10rem;
+  }
+   section.wide{
+  max-width: 100vw;
+ }
+
+  section.narrow {
+    max-width: 1000px;
+    margin: auto;
+        margin-block-end:10rem;
+}
 
   @media ${devices.mobileL} {
 

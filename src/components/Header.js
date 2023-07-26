@@ -60,7 +60,7 @@ const MenuToggleButtonStyles = styled.div`
 `;
 
 const Header = () => {
-  let pageToShow = 'First Trimester';
+  let pageToShow = '';
   const { isOpen, toggle, currentPage } = useContext(MenuContext);
   const isBrowser = typeof window !== 'undefined';
   const findPageToShow = () => {
@@ -92,7 +92,7 @@ const Header = () => {
           pageToShow = <ScrollText />;
           break;
         default:
-          pageToShow = <h2>First Trimester</h2>;
+          pageToShow = '';
       }
     } else {
       return pageToShow;
@@ -118,7 +118,7 @@ const Header = () => {
         {/* <div className="siteTitle">
           <h1>First Trimester</h1>
         </div> */}
-        {/* ({isBrowser ? pageToShow() : `First Trimester`})  */}
+
         <div className="flex-col">{isBrowser ? findPageToShow() : ''}</div>
       </HeaderStyles>
 

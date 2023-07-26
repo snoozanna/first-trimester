@@ -35,7 +35,11 @@ const Footer = () => {
       <h3 className="tagline">Could you be our ideal sperm donor?</h3>
     </div> */}
       <BSLToggle />
-      {currentPage !== '/donate' && currentPage !== '/' ? <HeroButton /> : ''}
+      {currentPage !== '/participate' && currentPage !== '/' ? (
+        <HeroButton />
+      ) : (
+        ''
+      )}
     </FooterStyles>
   );
 };

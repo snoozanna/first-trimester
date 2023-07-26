@@ -1,11 +1,12 @@
-import { Box, Grid } from '@material-ui/core';
 import { Link, graphql } from 'gatsby';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
 import HomePageHeroButton from '../components/HomePageHeroButton.js';
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
+import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
+import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
 
 const HomePageStyles = styled.section`
   /* padding: clamp(5px, 5vw, 25px); */
@@ -84,12 +85,68 @@ const HomePageStyles = styled.section`
 
 const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
+  // const [activeSection, setActiveSection] = useState('home');
+  // const { setCurrentPage } = useContext(MenuContext);
+
   const { pathname } = location;
 
+  // create the refs
+  const infoPageRef = useRef(null);
+  const whoPageRef = useRef(null);
+  const processPageRef = useRef(null);
+  // const headerElement = headerRef.current;
+  console.log(infoPageRef);
+
+  const handleScroll = () => {
+    const options = {
+      threshold: 0.5, // Set the threshold to 20% visibility
+    };
+
+    // const infoPageElement = infoPageRef.current;
+    // const whoPageElement = whoPageRef.current;
+    // const processPageElement = processPageRef.current;
+    // console.log(headerElement, infoPageElement, whoPageElement);
+    // // Get the boundingClientRect for the header and each section
+    // const headerRect = headerElement.getBoundingClientRect();
+    // const infoPageRect = infoPageElement.getBoundingClientRect();
+    // const whoPageRect = whoPageElement.getBoundingClientRect();
+    // const processPageRect = processPageElement.getBoundingClientRect();
+    const infoPageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentPage('/info');
+        }
+      });
+    }, options);
+
+    const whoPageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentPage('/who');
+        }
+      });
+    }, options);
+
+    const processPageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentPage('/process');
+        }
+      });
+    }, options);
+
+    infoPageObserver.observe(infoPageRef.current);
+    whoPageObserver.observe(whoPageRef.current);
+    processPageObserver.observe(processPageRef.current);
+  };
+
   useEffect(() => {
-    setCurrentPage(pathname);
+    setCurrentPage('/');
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
-  console.log(data);
 
   return (
     <>
@@ -104,12 +161,17 @@ const HomePage = ({ data, location }) => {
             Lorem ipsum dolor sit amet consectetur
           </span>
         </div>
+
         <HomePageHeroButton />
       </HomePageStyles>
-      {/* <InfoPageWrapper data={data.info} /> */}
+      <InfoPageWrapper data={data.info} ref={infoPageRef} />
+
+      <WhoPageWrapper data={data.participate} ref={whoPageRef} />
+      <StepsPageWrapper data={data.steps} ref={processPageRef} />
     </>
   );
 };
+
 export default HomePage;
 
 export const query = graphql`
@@ -120,6 +182,22 @@ export const query = graphql`
         # heading
         bslvid
         infoCopy: _rawInfoCopy(resolveReferences: { maxDepth: 5 })
+      }
+    }
+    participate: allSanityParticipate {
+      nodes {
+        id
+        heading
+        bslvid
+        copy: _rawCopy(resolveReferences: { maxDepth: 5 })
+      }
+    }
+    steps: allSanitySteps(sort: { fields: stepNumber, order: ASC }) {
+      nodes {
+        stepNumber
+        id
+        heading
+        explanation
       }
     }
   }

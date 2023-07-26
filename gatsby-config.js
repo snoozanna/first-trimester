@@ -15,6 +15,12 @@ module.exports = {
     `gatsby-plugin-material-ui`,
     'gatsby-plugin-styled-components',
     {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -50,
+      },
+    },
+    {
       // this is the name of the plugin you are adding
       resolve: 'gatsby-source-sanity',
       options: {
