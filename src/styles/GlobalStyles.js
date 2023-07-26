@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     --pink:#ff87e5;
     --mustyblue: #5E87EF;
     --mintgreen: #32D7B9;
+    --lightgreen: #98e9d4;
     /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
      --purple:#d866a7;
     --clr-neon: hsl(300 85% 73%);

@@ -44,8 +44,7 @@ const ParticipatePage = ({ data, location }) => {
   return (
     <ParticipatePageStyles className="narrow">
       <div className="hero-text-wrapper">
-        <div className="funTitle">
-          <div className="color green" />
+        <div className="funTitle green">
           <h3>{participate.heading}</h3>
         </div>
         <PortableText value={participate.copy} />

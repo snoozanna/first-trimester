@@ -51,29 +51,27 @@ h2{
   }
 
   .funTitle{
-
-    position: relative;
+    border-bottom: 2px solid var(--yellow);
     width: fit-content;
-    margin-block-end: 1rem;
+ line-height: 5rem;
+  
   }
 
-    .funTitle > .color{
+  .funTitle > h3{
+  font-weight: 600;
+     width: calc(fit-content + 5rem);
+  }
 
-        min-width: 100%;
-       width: calc(100% + 5rem);
-    height: 6rem;
-    top: -2rem;
-    left: -6rem;
-    position: absolute;
-    z-index: -1;
+    .funTitle > h3.catName{
+    font-family: var(--headings);
   }
 
   .funTitle > .color.pink{
-    background-color: var(--pink);
+    color: var(--pink);
   }
 
-   .funTitle > .color.green{
-    background-color: var(--mintgreen);
+   .funTitle.green{
+    color: var(--lightgreen);
   }
 
   
@@ -115,6 +113,10 @@ h2{
 }
   h3{
     font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+  }
+   h4{
+    font-size: 2.2rem;
     letter-spacing: 0.15rem;
   }
   }

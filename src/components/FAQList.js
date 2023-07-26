@@ -62,10 +62,9 @@ const FAQList = ({ faqs }) => {
   return (
     <>
       {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
-        <div key={category}>
-          <div className="funTitle">
-            <div className="color green" />
-            <h3>{category}</h3>
+        <div key={category} id={category.toLowerCase()}>
+          <div className="funTitle green">
+            <h3 className="catName">{category}</h3>
           </div>
           {faqsInCategory.map((faq) => (
             <SingleFAQ faq={faq} key={faq.id} />

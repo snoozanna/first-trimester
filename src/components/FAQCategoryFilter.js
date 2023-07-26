@@ -1,8 +1,9 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
+
 import React from 'react';
 import styled from 'styled-components';
 
-const ToppingsStyles = styled.div`
+const FAQCatStyles = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -60,19 +61,22 @@ const FAQCategoryFilter = () => {
   const catsToShow = categories.nodes;
   // Loop over the list of toppings and
   return (
-    <ToppingsStyles>
+    <FAQCatStyles>
       <Link to="/faqs">
         <span>All</span>
       </Link>
 
-      {catsToShow.map((category) => (
-        <Link to="/">
+      {catsToShow.map((category) => {
+        const cat = category.category;
+        console.log(cat);
+
+        return (
           <div key={category.id}>
             <span>{category.category}</span>
           </div>
-        </Link>
-      ))}
-    </ToppingsStyles>
+        );
+      })}
+    </FAQCatStyles>
   );
 };
 export default FAQCategoryFilter;

@@ -30,7 +30,7 @@ const FAQPage = ({ data, pageContext, location }) => {
   return (
     <FAQPageStyles className="narrow">
       <SEO title="FAQs" />
-      <FAQCategoryFilter />
+      {/* <FAQCategoryFilter /> */}
       <FAQList faqs={faqs} />
     </FAQPageStyles>
   );

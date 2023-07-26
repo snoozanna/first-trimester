@@ -9,7 +9,7 @@ import { devices } from '../styles/breakpoints';
 
 const FooterStyles = styled.footer`
 /* background-color:var(--yellow); */
-position:fixed;
+position:sticky;
 bottom:0;
 padding:  var(--padding);
 padding-top: 0;

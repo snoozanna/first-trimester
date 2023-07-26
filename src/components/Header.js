@@ -19,7 +19,14 @@ const HeaderStyles = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 2rem; /* margin-left: -10rem; */
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: right;
+  }
   .scroller-wrapper {
     display: flex;
     align-items: center;
@@ -38,6 +45,10 @@ const HeaderStyles = styled.header`
   @media ${devices.mobileL} {
     padding: 0 1rem;
     margin-bottom: var(--padding);
+    .siteTitle > h1 {
+      text-align: center;
+      font-size: 2rem;
+    }
     h2 {
       font-size: 2.8rem;
     }
@@ -72,10 +83,10 @@ const Header = () => {
           pageToShow = <h2>FAQs</h2>;
           break;
         case '/book':
-          pageToShow = <h2>Book tickets</h2>;
+          pageToShow = <h2>Book</h2>;
           break;
         case '/participate':
-          pageToShow = <h2>Apply to Participate</h2>;
+          pageToShow = <h2>Apply</h2>;
           break;
         case '/':
           pageToShow = <ScrollText />;
@@ -104,9 +115,11 @@ const Header = () => {
             <img src={icon} alt="baby" />
           </MenuToggleButtonStyles>
         </IconButton>
+        {/* <div className="siteTitle">
+          <h1>First Trimester</h1>
+        </div> */}
         {/* ({isBrowser ? pageToShow() : `First Trimester`})  */}
-        <h1>First Trimester</h1>
-        {isBrowser ? findPageToShow() : <h2>First Trimester</h2>}
+        <div className="flex-col">{isBrowser ? findPageToShow() : ''}</div>
       </HeaderStyles>
 
       {isOpen ? <Nav /> : ''}
