@@ -33,7 +33,7 @@ const HeaderStyles = styled.header`
     margin-left: -4rem;
     margin-right: -4rem;
     margin-top: -5rem;
-    /* padding-top: 3rem; */
+    justify-content: end;
     .siteTitle > h1 {
       text-align: center;
       font-size: 2rem;
