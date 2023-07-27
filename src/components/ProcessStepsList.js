@@ -13,7 +13,7 @@ const StepStyles = styled.div`
   &.bgpink {
     background-color: #ef5ea8;
   }
-  padding: 4rem;
+  padding: 2.5rem;
   position: relative;
   min-height: 300px;
   display: flex;
@@ -28,9 +28,9 @@ const StepStyles = styled.div`
     color: black;
   }
   h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: end;
-    margin-inline-end: -7rem;
+    margin-inline-end: -4rem;
     margin-bottom: 2rem;
   }
   .step-number-wrapper {
