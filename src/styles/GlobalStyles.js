@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
      --purple:#d866a7;
     --clr-neon: hsl(300 85% 73%);
   --clr-bg: hsl(323 21% 16%);
+  --clr-blue-neon: #32D7B9;
     --headings: "KantataAksara";
     --subheadings: "Inconsolata";
     --body:"Roboto";

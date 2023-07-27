@@ -39,9 +39,8 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
       <HeaderMob title="Info" />
       <InfoPageStyles className="narrow" ref={ref} id="info">
         <div className="hero-text-wrapper">
-          <div className="funTitle">
-            <div className="color green" />
-            <h3>Hello!</h3>
+          <div className="funTitle green">
+            <h3 className="catName">Hello!</h3>
           </div>
           <PortableText value={info.infoCopy} />
         </div>

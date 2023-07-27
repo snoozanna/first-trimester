@@ -49,7 +49,7 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
       <ParticipatePageStyles className="narrow" id="who" ref={ref}>
         <div className="hero-text-wrapper">
           <div className="funTitle green">
-            <h3>{participate.heading}</h3>
+            <h3 className="catName">{participate.heading}</h3>
           </div>
           <PortableText value={participate.copy} />
           <p>

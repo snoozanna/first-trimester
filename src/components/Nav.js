@@ -84,7 +84,9 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/info">Info</Link>
+              <AnchorLink to="/#info" title="Info">
+                Info
+              </AnchorLink>
             </li>
 
             <li>
