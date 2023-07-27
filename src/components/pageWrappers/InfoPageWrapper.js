@@ -7,6 +7,7 @@ import Video from '../Video';
 import AccessContext from '../../context/access.context';
 import { devices } from '../../styles/breakpoints';
 import { MenuContext } from '../../context/menu.context';
+import HeaderMob from '../HeaderMob';
 
 const InfoPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -35,7 +36,8 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-      <InfoPageStyles className="narrow" ref={ref}>
+      <HeaderMob title="Info" />
+      <InfoPageStyles className="narrow" ref={ref} id="info">
         <div className="hero-text-wrapper">
           <div className="funTitle">
             <div className="color green" />

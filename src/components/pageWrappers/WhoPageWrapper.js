@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 import { PortableText } from '@portabletext/react';
 // import { MenuContext } from '../context/menu.context';
+import HeaderMob from '../HeaderMob';
 
 const ParticipatePageStyles = styled.section`
   display: grid;
@@ -43,24 +44,27 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
   // }, []);
 
   return (
-    <ParticipatePageStyles className="narrow" id="who" ref={ref}>
-      <div className="hero-text-wrapper">
-        <div className="funTitle green">
-          <h3>{participate.heading}</h3>
+    <>
+      <HeaderMob title="Who can participate?" />
+      <ParticipatePageStyles className="narrow" id="who" ref={ref}>
+        <div className="hero-text-wrapper">
+          <div className="funTitle green">
+            <h3>{participate.heading}</h3>
+          </div>
+          <PortableText value={participate.copy} />
+          <p>
+            Read
+            <Link to="/faqs"> FAQs </Link>to find out more.
+          </p>
         </div>
-        <PortableText value={participate.copy} />
-        <p>
-          Read
-          <Link to="/faqs"> FAQs </Link>to find out more.
-        </p>
-      </div>
-      <div className="hero-img-wrapper">
-        <span className="tagline">
-          {' '}
-          a funny picture of Krishna and Rent holding a doll or something
-        </span>
-      </div>
-    </ParticipatePageStyles>
+        <div className="hero-img-wrapper">
+          <span className="tagline">
+            {' '}
+            a funny picture of Krishna and Rent holding a doll or something
+          </span>
+        </div>
+      </ParticipatePageStyles>
+    </>
   );
 });
 

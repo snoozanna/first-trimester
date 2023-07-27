@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { navigate } from 'gatsby';
-import Header from './Header';
+import NavButton from './NavButton';
 import Footer from './Footer';
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
@@ -48,7 +48,7 @@ const Layout = ({ children }) => (
     <Typography />
     {/* <SiteBorderStyles> */}
     <ContentStyles>
-      <Header />
+      <NavButton />
       <MainStyles>
         {/* <ScrollReveal> */}
         {children}

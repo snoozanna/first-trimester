@@ -8,14 +8,15 @@ import icon from '../assets/images/baby.png';
 import Nav from './Nav';
 import ScrollText from './ScrollText';
 
-const HeaderStyles = styled.header`
-  background-color: var(--purple);
+const NavButtonStyles = styled.div`
+  width: fit-content;
   /* margin: -1vw; */
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 999;
-  margin-bottom: 5rem;
   padding: 1rem var(--padding);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +46,7 @@ const HeaderStyles = styled.header`
   @media ${devices.mobileL} {
     padding: 0 1rem;
     margin-bottom: var(--padding);
+    /* padding-top: 2rem; */
     .siteTitle > h1 {
       text-align: center;
       font-size: 2rem;
@@ -59,7 +61,7 @@ const MenuToggleButtonStyles = styled.div`
   width: 40px;
 `;
 
-const Header = () => {
+const NavButton = () => {
   let pageToShow = '';
   const { isOpen, toggle, currentPage } = useContext(MenuContext);
   const isBrowser = typeof window !== 'undefined';
@@ -103,7 +105,7 @@ const Header = () => {
   return (
     <>
       {/* <Scroll /> */}
-      <HeaderStyles>
+      <NavButtonStyles>
         <IconButton
           edge="start"
           color="inherit"
@@ -115,15 +117,10 @@ const Header = () => {
             <img src={icon} alt="baby" />
           </MenuToggleButtonStyles>
         </IconButton>
-        {/* <div className="siteTitle">
-          <h1>First Trimester</h1>
-        </div> */}
-
-        <div className="flex-col">{isBrowser ? findPageToShow() : ''}</div>
-      </HeaderStyles>
+      </NavButtonStyles>
 
       {isOpen ? <Nav /> : ''}
     </>
   );
 };
-export default Header;
+export default NavButton;

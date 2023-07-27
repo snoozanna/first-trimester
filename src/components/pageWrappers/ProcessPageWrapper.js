@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import ProcessStepsList from '../ProcessStepsList';
 import { devices } from '../../styles/breakpoints';
+import HeaderMob from '../HeaderMob';
 
 // import SEO from '../components/SEO';
 const StepsPageStyles = styled.section`
@@ -27,9 +28,12 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
   const steps = data.nodes;
 
   return (
-    <StepsPageStyles ref={ref}>
-      <ProcessStepsList steps={steps} />
-    </StepsPageStyles>
+    <>
+      <HeaderMob title="Process" />
+      <StepsPageStyles ref={ref} id="process">
+        <ProcessStepsList steps={steps} />
+      </StepsPageStyles>
+    </>
   );
 });
 export default StepsPageWrapper;

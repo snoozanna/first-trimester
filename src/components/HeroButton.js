@@ -67,7 +67,7 @@ const HeroButtonStyles = styled.div`
 
 const HeroButton = () => (
   <HeroButtonStyles>
-    <Link to="/donate" className="neon-button">
+    <Link to="/participate" className="neon-button">
       <div className="hero-button-text-wrapper">
         <span>Apply </span>
         <span> today!</span>

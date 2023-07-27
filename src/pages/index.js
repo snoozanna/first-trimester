@@ -7,6 +7,9 @@ import HomePageHeroButton from '../components/HomePageHeroButton.js';
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
 import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
 import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
+import HeaderMob from '../components/HeaderMob.js';
+import FAQPageWrapper from '../components/pageWrappers/FAQPageWrapper.js';
+import HugeButton from '../components/HugeButton.js';
 
 const HomePageStyles = styled.section`
   /* padding: clamp(5px, 5vw, 25px); */
@@ -94,8 +97,8 @@ const HomePage = ({ data, location }) => {
   const infoPageRef = useRef(null);
   const whoPageRef = useRef(null);
   const processPageRef = useRef(null);
+  const FAQPageRef = useRef(null);
   // const headerElement = headerRef.current;
-  console.log(infoPageRef);
 
   const handleScroll = () => {
     const options = {
@@ -135,9 +138,18 @@ const HomePage = ({ data, location }) => {
       });
     }, options);
 
+    const FAQPageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentPage('/faqs');
+        }
+      });
+    }, options);
+
     infoPageObserver.observe(infoPageRef.current);
     whoPageObserver.observe(whoPageRef.current);
     processPageObserver.observe(processPageRef.current);
+    FAQPageObserver.observe(FAQPageRef.current);
   };
 
   useEffect(() => {
@@ -150,6 +162,7 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
+      <HeaderMob title="Krishna Istha" />
       <HomePageStyles className="narrow">
         <div className="hero-img-wrapper">
           <span className="tagline">Show image</span>
@@ -168,6 +181,8 @@ const HomePage = ({ data, location }) => {
 
       <WhoPageWrapper data={data.participate} ref={whoPageRef} />
       <StepsPageWrapper data={data.steps} ref={processPageRef} />
+      <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
+      <HugeButton />
     </>
   );
 };
@@ -175,7 +190,7 @@ const HomePage = ({ data, location }) => {
 export default HomePage;
 
 export const query = graphql`
-  query HomeQuery {
+  query HomeQuery($FAQRegex: String) {
     info: allSanityInfo {
       nodes {
         id
@@ -198,6 +213,20 @@ export const query = graphql`
         id
         heading
         explanation
+      }
+    }
+    faqs: allSanityFaq(
+      filter: {
+        faqCategories: { elemMatch: { category: { regex: $FAQRegex } } }
+      }
+    ) {
+      nodes {
+        question
+        id
+        answer
+        faqCategories {
+          category
+        }
       }
     }
   }

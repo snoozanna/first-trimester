@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 
-const FAQListStyles = styled.section`
+const FAQListStyles = styled.div`
   display: grid;
   /* Take your row sizing not from pizza styles div but the pizza styles grid  */
   @supports not (grid-template-rows: subgrid) {

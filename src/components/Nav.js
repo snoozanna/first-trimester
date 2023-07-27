@@ -94,11 +94,15 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/process">Process</Link>
+              <AnchorLink to="/#process" title="Process">
+                Process
+              </AnchorLink>
             </li>
 
             <li>
-              <Link to="/faqs">FAQs</Link>
+              <AnchorLink to="/#faqs" title="FAQs">
+                FAQs
+              </AnchorLink>
             </li>
 
             <li>

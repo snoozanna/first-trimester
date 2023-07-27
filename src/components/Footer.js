@@ -9,6 +9,7 @@ import { devices } from '../styles/breakpoints';
 
 const FooterStyles = styled.footer`
 /* background-color:var(--yellow); */
+z-index: 9999;
 position:sticky;
 bottom:0;
 padding:  var(--padding);
@@ -29,6 +30,7 @@ width: 100vw;
 
 const Footer = () => {
   const { currentPage } = useContext(MenuContext);
+  console.log(currentPage);
   return (
     <FooterStyles>
       {/* <div className="scroller-wrapper">

@@ -6,6 +6,7 @@ import DonateForm from '../components/DonateForm';
 import { FormContext } from '../context/form.context';
 import { MenuContext } from '../context/menu.context';
 import { devices } from '../styles/breakpoints.js';
+import HeaderMob from '../components/HeaderMob';
 
 const DonatePageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -40,6 +41,7 @@ const DonatePage = ({ location }) => {
 
   return (
     <>
+      <HeaderMob title="Apply to Participate" />
       <DonatePageStyles className="narrow">
         <div className="info-text-wrapper">
           <p>
