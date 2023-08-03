@@ -30,7 +30,6 @@
     "@mui/material": "^5.13.7",
     "@mui/system": "^5",
     "@portabletext/react": "^3.0.4",
-    "@react-spring/web": "^9.7.3",
     "babel-plugin-styled-components": "^1.11.1",
     "dotenv": "^16.3.1",
     "gatsby": "^2.24.63",
@@ -54,7 +53,6 @@
     "react-hook-form": "^7.45.1",
     "react-icons": "^4.10.1",
     "react-reveal": "^1.2.2",
-    "react-spring": "^9.7.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {

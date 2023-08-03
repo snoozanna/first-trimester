@@ -1,6 +1,9 @@
 import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect, useRef, useState } from 'react';
+// import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
+import krishna from '../assets/images/krishnaHeadShot.jpg';
+import sperm from '../assets/images/sperm.gif';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
 import HomePageHeroButton from '../components/HomePageHeroButton.js';
@@ -166,14 +169,15 @@ const HomePage = ({ data, location }) => {
       <HomePageStyles className="narrow">
         <div className="hero-img-wrapper">
           <span className="tagline">Show image</span>
+          {/* <img src={krishna} alt="Krishna" /> */}
         </div>
-
         <div className="hero-text-wrapper">
           <h1 className="site-title">First Trimester</h1>
           <span className="tagline">
             Lorem ipsum dolor sit amet consectetur
           </span>
         </div>
+        {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
 
         <HomePageHeroButton />
       </HomePageStyles>

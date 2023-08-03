@@ -45,6 +45,10 @@ module.exports = {
             file: `https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap`,
           },
           {
+            name: `Inter`,
+            file: `https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap`,
+          },
+          {
             name: `Glory`,
             file: `https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,300;0,600;0,700;1,300;1,500&display=swap`,
           },

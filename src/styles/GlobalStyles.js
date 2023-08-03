@@ -16,13 +16,13 @@ const GlobalStyles = createGlobalStyle`
     --mintgreen: #32D7B9;
     --lightgreen: #98e9d4;
     /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
-     --purple:#d866a7;
+     --purple:#ef5ea8;
     --clr-neon: hsl(300 85% 73%);
   --clr-bg: hsl(323 21% 16%);
   --clr-blue-neon: #32D7B9;
-    --headings: "KantataAksara";
+    --headings: "Inter";
     --subheadings: "Inconsolata";
-    --body:"Roboto";
+    --body:"Inter";
     --padding: 3rem;
   }
 
@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
     /* background: rgb(6,6,171);
 background: radial-gradient(circle, rgba(6,6,171,1) 0%, rgba(8,3,83,1) 100%); */
 background: rgb(62,49,222);
-background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(255,135,229,1) 100%);
+/* background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(255,135,229,1) 100%); */
     /* background-size: 450px; */
     /* background-attachment: fixed; */
     font-size: 10px;
