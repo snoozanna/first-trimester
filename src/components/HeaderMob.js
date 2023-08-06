@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+
 import IconButton from '@material-ui/core/IconButton';
 // import { animated } from '@react-spring/web';
 import { MenuContext } from '../context/menu.context';
@@ -26,6 +27,7 @@ const HeaderStyles = styled.header`
     flex-direction: column;
     justify-content: end;
     text-align: right;
+    max-width: 90%;
   }
 
   @media ${devices.mobileL} {
@@ -39,7 +41,7 @@ const HeaderStyles = styled.header`
       font-size: 2rem;
     }
     h2 {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
     }
   }
 `;

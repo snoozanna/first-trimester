@@ -29,10 +29,8 @@ const GlobalStyles = createGlobalStyle`
   html {
     /* background-image: url(${bg}); */
     background-color: var(--blue) ;
-    /* background: rgb(6,6,171);
-background: radial-gradient(circle, rgba(6,6,171,1) 0%, rgba(8,3,83,1) 100%); */
-background: rgb(62,49,222);
-/* background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(255,135,229,1) 100%); */
+  background: rgb(62,49,222);
+background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(129,73,245,1) 100%);
     /* background-size: 450px; */
     /* background-attachment: fixed; */
     font-size: 10px;

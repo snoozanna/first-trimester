@@ -2,8 +2,9 @@ import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 // import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
-import krishna from '../assets/images/krishnaHeadShot.jpg';
+
 import sperm from '../assets/images/sperm.gif';
+import logoText from '../assets/images/logo-text.png';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
 import HomePageHeroButton from '../components/HomePageHeroButton.js';
@@ -20,14 +21,14 @@ const HomePageStyles = styled.section`
 
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-template-rows: auto auto;
   grid-template-areas:
     'a a b b'
-    'a a . d';
+    'a a . d'; */
   /* gap: 2rem; */
   .hero-text-wrapper {
     grid-area: b;
@@ -59,6 +60,7 @@ const HomePageStyles = styled.section`
   }
 
   @media ${devices.mobileL} {
+    min-height: 85vh;
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: auto auto auto;
     grid-template-areas:
@@ -167,26 +169,21 @@ const HomePage = ({ data, location }) => {
     <>
       <HeaderMob title="Krishna Istha" />
       <HomePageStyles className="narrow">
-        <div className="hero-img-wrapper">
-          <span className="tagline">Show image</span>
-          {/* <img src={krishna} alt="Krishna" /> */}
-        </div>
         <div className="hero-text-wrapper">
-          <h1 className="site-title">First Trimester</h1>
-          <span className="tagline">
-            Lorem ipsum dolor sit amet consectetur
-          </span>
+          {/* <h1 className="site-title">First Trimester</h1> */}
+          <img src={logoText} alt="logo" />
+          <span className="tagline">Could you be our ideal sperm donor?</span>
         </div>
         {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
 
-        <HomePageHeroButton />
+        {/* <HomePageHeroButton /> */}
       </HomePageStyles>
       <InfoPageWrapper data={data.info} ref={infoPageRef} />
 
       <WhoPageWrapper data={data.participate} ref={whoPageRef} />
       <StepsPageWrapper data={data.steps} ref={processPageRef} />
       <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
-      <HugeButton />
+      {/* <HugeButton /> */}
     </>
   );
 };

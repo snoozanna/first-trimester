@@ -1,7 +1,9 @@
 import { Grid } from '@material-ui/core';
+
 import Box from '@mui/material/Box';
 import React from 'react';
 import styled from 'styled-components';
+import AddIcon from '@mui/icons-material/Add';
 
 const StepStyles = styled.div`
   &.bggreen {
@@ -30,7 +32,7 @@ const StepStyles = styled.div`
   h2 {
     font-size: 3.5rem;
     text-align: end;
-    margin-inline-end: -4rem;
+    margin-block-start: 2rem;
     margin-bottom: 2rem;
   }
   .step-number-wrapper {
@@ -45,6 +47,7 @@ const StepStyles = styled.div`
 
     .step-number {
       font-size: 4rem;
+      font-weight: 600;
       font-family: var(--headings);
     }
   }
@@ -84,13 +87,12 @@ const ProcessStepsList = ({ steps }) => {
         spacing={10}
         // columns={{ xs: 1, sm: 2, md: 12 }}
       >
-        {/* <ProcessGridStyles> */}
         {steps.map((step, i) => {
           const bgColor = bgOptions[i % bgOptions.length];
-
           return <SingleStep step={step} key={step.id} bgColor={bgColor} />;
         })}
-        {/* </ProcessGridStyles> */}
+
+        {/* <Accordion /> */}
       </Grid>
     </Box>
   );

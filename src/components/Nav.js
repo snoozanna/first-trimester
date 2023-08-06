@@ -108,7 +108,9 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/access">Accessibility</Link>
+              <AnchorLink to="/#accessiblity" title="Accessiblity">
+                Accessiblity
+              </AnchorLink>
             </li>
 
             <li>
@@ -116,7 +118,7 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/book">Book tickets</Link>
+              <Link to="/">Book tickets</Link>
             </li>
           </ul>
         </NavStyles>

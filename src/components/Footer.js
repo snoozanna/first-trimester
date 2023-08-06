@@ -16,8 +16,8 @@ padding:  var(--padding);
 padding-top: 0;
 width: 100vw;
   display: flex;
-  justify-content: flex-start;
-  justify-content: space-between; 
+  justify-content: flex-end;
+
    align-items:end;
   .scroller-wrapper{
     back
@@ -36,7 +36,7 @@ const Footer = () => {
       {/* <div className="scroller-wrapper">
       <h3 className="tagline">Could you be our ideal sperm donor?</h3>
     </div> */}
-      <BSLToggle />
+      {/* <BSLToggle /> */}
       {currentPage !== '/participate' && currentPage !== '/' ? (
         <HeroButton />
       ) : (

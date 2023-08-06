@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, forwardRef } from 'react';
 import styled from 'styled-components';
-
 import { PortableText } from '@portabletext/react';
+import krishna from '../../assets/images/krishnaHeadShot.jpg';
 
 import Video from '../Video';
 import AccessContext from '../../context/access.context';
@@ -10,10 +10,13 @@ import { MenuContext } from '../../context/menu.context';
 import HeaderMob from '../HeaderMob';
 
 const InfoPageStyles = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 4rem;
+  grid-auto-rows: auto;
   padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
-  display: flex;
   .info-text-wrapper {
     display: flex;
     justify-content: center;
@@ -38,6 +41,10 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
     <>
       <HeaderMob title="Info" />
       <InfoPageStyles className="narrow" ref={ref} id="info">
+        <div className="hero-img-wrapper">
+          {/* <span className="tagline">Show image</span> */}
+          <img src={krishna} alt="Krishna" />
+        </div>
         <div className="hero-text-wrapper">
           <div className="funTitle green">
             <h3 className="catName">Hello!</h3>

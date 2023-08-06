@@ -4,7 +4,8 @@ import IconButton from '@material-ui/core/IconButton';
 // import { animated } from '@react-spring/web';
 import { MenuContext } from '../context/menu.context';
 import { devices } from '../styles/breakpoints.js';
-import icon from '../assets/images/baby.png';
+import icon from '../assets/images/sperm.gif';
+// import sperm from '../assets/images/sperm.gif';
 import Nav from './Nav';
 import ScrollText from './ScrollText';
 

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, forwardRef } from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import ProcessStepsList from '../ProcessStepsList';
+import ProcessStepsListEx from '../ProcessStepsListEx';
 import { devices } from '../../styles/breakpoints';
 import HeaderMob from '../HeaderMob';
 
@@ -31,7 +32,7 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
     <>
       <HeaderMob title="Process" />
       <StepsPageStyles ref={ref} id="process">
-        <ProcessStepsList steps={steps} />
+        <ProcessStepsListEx steps={steps} />
       </StepsPageStyles>
     </>
   );
