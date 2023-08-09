@@ -25,12 +25,12 @@ const HeaderPageStyles = styled.div`
   .site-logo {
     position: fixed;
     right: 0;
-
+    top: 0;
     /* static */
     /* transform: rotate(-21deg) translate(-19px, 36px); */
     /* max-width: 200px; */
     /* gif */
-    transform: rotate(45deg) translate(-12px, 108px);
+    transform: rotate(45deg) translate(-46px, 47px);
     max-width: 80px;
   }
   .site-title {
@@ -54,18 +54,13 @@ const HeaderPageStyles = styled.div`
     margin-left: -4rem;
     margin-right: -4rem;
     margin-top: -5rem;
-    justify-content: center;
-    .siteTitle > h1 {
-      text-align: center;
-      font-size: 2rem;
-    }
     h2 {
       font-size: 2.4rem;
-      /* text-align: center; */
     }
     .site-logo {
-      transform: rotate(45deg) translate(15px, 97px);
-      max-width: 60px;
+      transform: rotate(45deg) translate(-42px, 39px);
+      max-width: 70px;
+      top: 0;
     }
   }
 `;

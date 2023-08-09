@@ -72,7 +72,8 @@ const HeaderHome = () => {
       {/* <Scroll /> */}
       <HeaderStyles>
         <NavButton />
-        <div className="">{/* <h2>{title}</h2> */}</div>
+        <div className="">{/* <h2>First Trimester</h2> */}</div>
+        <div />
         <div className="site-logo">
           <img src={logoText} alt="logo" />
         </div>

@@ -54,7 +54,7 @@ h2{
   .funTitle{
     border-bottom: 2px solid var(--yellow);
     width: fit-content;
- line-height: 5rem;
+ /* line-height: 5rem; */
  margin-block-end:1rem;
   
   }
@@ -63,6 +63,7 @@ h2{
   .funTitle > h3{
   font-weight: 600;
      width: calc(fit-content + 5rem);
+     padding-bottom: 5px;
   }
 
     .funTitle > h3.catName{

@@ -9,14 +9,18 @@ import { Grid } from '@mui/material';
 
 const StepStyles = styled.div`
   &.bggreen {
-    background-color: #32d7b9;
+    /* background-color: #32d7b9; */
+    background-color: transparent;
   }
   &.bgyellow {
-    background-color: #fdc24c;
+    /* background-color: #fdc24c; */
+    background-color: transparent;
   }
   &.bgpink {
-    background-color: #ef5ea8;
+    /* background-color: #ef5ea8; */
+    background-color: transparent;
   }
+  border: solid 2px white;
   padding: 2.5rem;
   position: relative;
   /* min-height: 300px; */
@@ -32,7 +36,7 @@ const StepStyles = styled.div`
     color: white;
   }
   h2 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     text-align: center;
     width: 100%;
   }
@@ -40,7 +44,7 @@ const StepStyles = styled.div`
     width: 100%;
   }
   .step-number-wrapper {
-    background-color: var(--mustyblue);
+    background-color: var(--mintgreen);
     width: fit-content;
     padding: 1rem 2rem;
     border-radius: 50%;
@@ -53,6 +57,7 @@ const StepStyles = styled.div`
       font-size: 4rem;
       font-weight: 600;
       font-family: var(--headings);
+      color: var(--black);
     }
   }
 `;

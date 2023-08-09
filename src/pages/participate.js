@@ -53,6 +53,9 @@ const IntroTextStyles = styled.div`
       max-width: 20px;
     }
   }
+  @media ${devices.mobileL} {
+    padding: 0;
+  }
 `;
 
 const DonatePage = ({ location }) => {
