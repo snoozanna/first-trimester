@@ -37,6 +37,9 @@ const MenuToggleButtonStyles = styled.div`
   img {
     width: 30px;
   }
+  @media ${devices.mobileL} {
+    width: 25px;
+  }
 `;
 
 const NavButton = () => {

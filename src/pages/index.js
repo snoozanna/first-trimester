@@ -74,7 +74,7 @@ const HomePageStyles = styled.section`
       grid-row-end: 2;
       grid-column-start: 1;
       grid-column-end: 4;
-      align-items: end;
+      align-items: start;
       .site-title {
         font-size: 6rem;
         margin-bottom: 2rem;
@@ -173,8 +173,8 @@ const HomePage = ({ data, location }) => {
         <div className="hero-text-wrapper">
           {/* <h1 className="site-title">First Trimester</h1> */}
           {/* <img src={logoText} alt="logo" /> */}
-          <span>Main image</span>
-          <span className="tagline">Could you be our ideal sperm donor?</span>
+          <p>Main image</p>
+          <h3 className="tagline">Could you be our ideal sperm donor?</h3>
         </div>
         {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
 
