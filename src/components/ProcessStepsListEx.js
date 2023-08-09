@@ -24,12 +24,12 @@ const StepStyles = styled.div`
   justify-content: space-around;
   flex-direction: column;
   align-items: baseline;
-  width: 100%%;
+  width: fit-content;
   border-radius: 20px;
   h2,
   p {
     margin: 0;
-    color: black;
+    color: white;
   }
   h2 {
     font-size: 3.5rem;

@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
     --lightgreen: #98e9d4;
     /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
      --purple:#ef5ea8;
+     --brightpurple:rgba(129,73,245,1);
     --clr-neon: hsl(300 85% 73%);
   --clr-bg: hsl(323 21% 16%);
   --clr-blue-neon: #32D7B9;
@@ -43,6 +44,7 @@ body {
     font-size: 1.6rem;
   margin: 0;
   color: white;
+  width: 100vw
 }
 
 *,
@@ -125,7 +127,7 @@ button * {
   }
 
   button {
-    background: var(--pink);
+    background: var(--purple);
     color: white;
     border: 0;
     padding: 0.6rem 1rem;
@@ -165,7 +167,7 @@ button * {
   hr {
     border: 0;
     height: 8px;
-    background-image: url(${stripes});
+    /* background-image: url(${stripes}); */
     background-size: 1500px;
   }
 
@@ -241,11 +243,14 @@ ul.typographic {
   max-width: 100vw;
  }
 
-  section.narrow {
+  section.narrow, .section.narrow {
     max-width: 1000px;
     margin: auto;
-        margin-block-end:10rem;
+
 }
+ section.narrow{
+ margin-block-end:10rem;
+ }
 
   @media ${devices.mobileL} {
 

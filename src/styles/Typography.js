@@ -1,13 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 import { devices } from './breakpoints.js';
-import heading from '../assets/fonts/KantataAksara.ttf';
 
 const Typography = createGlobalStyle`
 
- @font-face {
-    font-family: KantataAksara;
-    src: url(${heading});
-  } 
+
 
   html {
      font-family: "Roboto", -apple-system, 
@@ -29,15 +25,20 @@ const Typography = createGlobalStyle`
   h1, h2{
     font-family: var(--headings);
     text-transform:uppercase;
+    font-weight: 500;
+    letter-spacing:0.3rem;
+    font-variation-settings: 'wght' 900;
+    
   }
   h3,h4,h5,h6{
     font-family: var(--subheadings); 
+    font-variation-settings: 'wght' 600;
   }
 h2{
   font-size:4rem;
 }
   h3{
-    font-size: 3.5rem;
+    font-size: 3.3rem;
     letter-spacing: 0.15rem;
   }
 
@@ -58,13 +59,14 @@ h2{
   
   }
 
+
   .funTitle > h3{
   font-weight: 600;
      width: calc(fit-content + 5rem);
   }
 
     .funTitle > h3.catName{
-    font-family: var(--headings);
+    font-family: var(--subheadings);
   }
 
   .funTitle > .color.pink{
@@ -73,6 +75,16 @@ h2{
 
    .funTitle.green{
     color: var(--lightgreen);
+  }
+
+  span.emphasis{
+   font-family: var(--subheadings);
+  font-variation-settings: 'wght' 900;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+     color: var(--lightgreen);
+     text-transform:uppercase;
+     margin-block-end:2rem;
   }
 
   

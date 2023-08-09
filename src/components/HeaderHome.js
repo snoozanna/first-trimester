@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-
-import IconButton from '@material-ui/core/IconButton';
 // import { animated } from '@react-spring/web';
+// import logoText from '../assets/images/FTLogo_white.png';
+import logoText from '../assets/images/text_sperm.gif';
 import { MenuContext } from '../context/menu.context';
 import { devices } from '../styles/breakpoints.js';
-import logoText from '../assets/images/text_sperm.gif';
+import NavButton from './NavButton';
 import Nav from './Nav';
 import ScrollText from './ScrollText';
-import NavButton from './NavButton';
 
-const HeaderPageStyles = styled.div`
+const HeaderStyles = styled.header`
   background-color: var(--purple);
   /* margin: -1vw; */
   position: sticky;
@@ -54,14 +53,8 @@ const HeaderPageStyles = styled.div`
     margin-left: -4rem;
     margin-right: -4rem;
     margin-top: -5rem;
-    justify-content: center;
-    .siteTitle > h1 {
-      text-align: center;
-      font-size: 2rem;
-    }
     h2 {
       font-size: 2.4rem;
-      /* text-align: center; */
     }
     .site-logo {
       transform: rotate(45deg) translate(15px, 97px);
@@ -70,23 +63,20 @@ const HeaderPageStyles = styled.div`
   }
 `;
 
-const HeaderPage = ({ title }) => {
+const HeaderHome = () => {
   console.log('');
 
   return (
     <>
       {/* <Scroll /> */}
-      <HeaderPageStyles>
+      <HeaderStyles>
         <NavButton />
-        <div className="page-title">
-          <h2>{title}</h2>
-        </div>
-        <div />
+        <div className="">{/* <h2>{title}</h2> */}</div>
         <div className="site-logo">
           <img src={logoText} alt="logo" />
         </div>
-      </HeaderPageStyles>
+      </HeaderStyles>
     </>
   );
 };
-export default HeaderPage;
+export default HeaderHome;

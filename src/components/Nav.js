@@ -11,7 +11,14 @@ const NavWrapperStyles = styled.div`
 `;
 const NavStyles = styled.nav`
   height: 100%;
-  background-color: var(--pink);
+  background-color: var(--purple);
+  padding: 2rem;
+  z-index: 9999;
+  color: white;
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
   .logo {
     transform: translateY(-25%;);
   }
@@ -26,7 +33,7 @@ const NavStyles = styled.nav`
     grid-gap: 2rem;
     align-items: center;
     flex-direction: column;
-    background-color: var(--mustyblue);
+    background-color: var(--purple);
     padding: 2rem;
   }
   li {
@@ -49,7 +56,7 @@ const NavStyles = styled.nav`
     font-size: 2.5rem;
     text-decoration: none;
     &:hover {
-      color: var(--mintgreen);
+      color: var(--brightpurple);
     }
     /* &[aria-current='page'] {
       color: var(--yellow);
@@ -77,7 +84,7 @@ const Nav = () => {
         onKeyDown={handleDrawer()}
       >
         <NavStyles>
-          {/* <h2>First Trimester</h2> */}
+          <h2>First Trimester</h2>
           <ul>
             <li>
               <Link to="/">Home</Link>

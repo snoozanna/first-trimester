@@ -6,7 +6,7 @@ import FAQCategoryFilter from '../FAQCategoryFilter';
 // import SEO from '../SEO';
 import { devices } from '../../styles/breakpoints';
 
-import HeaderMob from '../HeaderMob';
+import HeaderPage from '../HeaderPage';
 
 const FAQPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -27,7 +27,7 @@ const FAQPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-      <HeaderMob title="FAQs" />
+      <HeaderPage title="FAQs" />
       <FAQPageStyles className="narrow" ref={ref} id="faqs">
         {/* <SEO title="FAQs" /> */}
         {/* <FAQCategoryFilter /> */}

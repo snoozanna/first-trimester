@@ -4,14 +4,15 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import sperm from '../assets/images/sperm.gif';
-import logoText from '../assets/images/logo-text.png';
+import logoText from '../assets/images/FTLogo_white.png';
+
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
 import HomePageHeroButton from '../components/HomePageHeroButton.js';
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
 import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
 import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
-import HeaderMob from '../components/HeaderMob.js';
+import HeaderHome from '../components/HeaderHome.js';
 import FAQPageWrapper from '../components/pageWrappers/FAQPageWrapper.js';
 import HugeButton from '../components/HugeButton.js';
 
@@ -167,11 +168,12 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
-      <HeaderMob title="Krishna Istha" />
+      <HeaderHome />
       <HomePageStyles className="narrow">
         <div className="hero-text-wrapper">
           {/* <h1 className="site-title">First Trimester</h1> */}
-          <img src={logoText} alt="logo" />
+          {/* <img src={logoText} alt="logo" /> */}
+          <span>Main image</span>
           <span className="tagline">Could you be our ideal sperm donor?</span>
         </div>
         {/* <img src={sperm} alt="A wiggling sperm gif" /> */}

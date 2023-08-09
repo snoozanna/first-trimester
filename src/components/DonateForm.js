@@ -53,8 +53,8 @@ const InputItemStyles = styled.div`
     background-color: 'pink';
   }
   input:focus {
-    background-color: var(--mustyblue);
-    color: white;
+    background-color: var(--mintgreen);
+    color: black;
     font-weight: 900;
     font-size: 2rem;
     border: none;
@@ -81,7 +81,7 @@ export default function DonateForm({ showForm, showWidget }) {
   };
 
   return (
-    <FormStyles onSubmit={handleSubmit(onSubmit)}>
+    <FormStyles onSubmit={handleSubmit(onSubmit)} className>
       <InputItemStyles>
         <label htmlFor="userFirstName">First Name</label>
         <input

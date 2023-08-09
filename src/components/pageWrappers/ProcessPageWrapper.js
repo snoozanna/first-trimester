@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import ProcessStepsList from '../ProcessStepsList';
 import ProcessStepsListEx from '../ProcessStepsListEx';
 import { devices } from '../../styles/breakpoints';
-import HeaderMob from '../HeaderMob';
+import HeaderPage from '../HeaderPage';
 
 // import SEO from '../components/SEO';
 const StepsPageStyles = styled.section`
@@ -30,7 +30,7 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-      <HeaderMob title="Process" />
+      <HeaderPage title="Process" />
       <StepsPageStyles ref={ref} id="process">
         <ProcessStepsListEx steps={steps} />
       </StepsPageStyles>

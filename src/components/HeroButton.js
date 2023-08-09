@@ -22,16 +22,17 @@ const HeroButtonStyles = styled.div`
   /* neon button  */
   .neon-button {
     font-size: 4rem;
-    background: var(--clr-neon);
+    background: var(--clr-blue-neon);
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    color: var(--clr-neon);
-    border: var(--clr-neon) 0.125em solid;
+    color: var(--clr-blue-neon);
+    border: var(--clr-blue-neon) 0.125em solid;
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+    box-shadow: inset 0 0 0.5em 0 var(--clr-blue-neon),
+      0 0 0.5em 0 var(--clr-blue-neon);
 
     position: relative;
   }

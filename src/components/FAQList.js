@@ -5,6 +5,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
+import Video from './Video';
+import { devices } from '../styles/breakpoints';
 
 const FAQListStyles = styled.div`
   display: grid;
@@ -19,6 +21,16 @@ const FAQListStyles = styled.div`
   h2,
   p {
     margin: 0;
+  }
+  .category-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  @media ${devices.mobileL} {
+    .category-wrapper {
+      flex-direction: column;
+    }
   }
 `;
 
@@ -61,13 +73,17 @@ const FAQList = ({ faqs }) => {
     <>
       <FAQListStyles>
         {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
-          <div key={category} id={category.toLowerCase()}>
-            <div className="funTitle green">
-              <h3 className="catName">{category}</h3>
+          <div className="category-wrapper">
+            <div key={category} id={category.toLowerCase()}>
+              <div className="funTitle green">
+                <h3 className="catName">{category}</h3>
+              </div>
+
+              {faqsInCategory.map((faq) => (
+                <SingleFAQ faq={faq} key={faq.id} />
+              ))}
             </div>
-            {faqsInCategory.map((faq) => (
-              <SingleFAQ faq={faq} key={faq.id} />
-            ))}
+            <Video />
           </div>
         ))}
       </FAQListStyles>
