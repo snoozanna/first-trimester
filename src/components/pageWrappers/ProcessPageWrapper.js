@@ -16,13 +16,13 @@ const StepsPageStyles = styled.section`
   justify-content: center;
   align-items: center;
   .funTitle.green.subtitle {
-    margin-block-end: 4rem;
   }
   .hero-text-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-block-end: 4rem;
     .disclaimer {
       font-weight: 600;
       letter-spacing: 0.2rem;
@@ -50,7 +50,6 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
           <span className="disclaimer">Click each step to expand</span>
         </div>
         {/* <PortableText value={participate.copy} /> */}
-        <p />
         <ProcessStepsListEx steps={steps} />
       </StepsPageStyles>
     </>

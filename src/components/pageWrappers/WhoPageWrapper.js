@@ -54,7 +54,7 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
   return (
     <>
       <HeaderPage title="Who can participate?" />
-      <ParticipatePageStyles className="narrow" id="who" ref={ref}>
+      <ParticipatePageStyles className="narrow" ref={ref} id="who">
         <div className="hero-text-wrapper">
           <div className="funTitle green">
             <h3 className="catName">Everyone can participate!</h3>
