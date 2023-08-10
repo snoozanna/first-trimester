@@ -15,7 +15,8 @@ const VideoStyles = styled.div`
   color: black;
   @media ${devices.mobileL} {
     flex-direction: column;
-    min-width: 200px;
+    min-width: 250px;
+    min-height: 150px;
   }
 `;
 

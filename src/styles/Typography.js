@@ -14,6 +14,7 @@ const Typography = createGlobalStyle`
   p, li {
     letter-spacing: 0.5px;
     line-height: 3rem;
+    font-weight: 400;
   }
 
   
@@ -100,6 +101,10 @@ h2{
     a:hover {
     color: var(--yellow);
     
+  }
+
+  a.anchorlink{
+    margin: 0 5px;
   }
 
   mark, .mark {

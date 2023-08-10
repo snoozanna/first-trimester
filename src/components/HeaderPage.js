@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import IconButton from '@material-ui/core/IconButton';
-// import { animated } from '@react-spring/web';
-import { MenuContext } from '../context/menu.context';
 import { devices } from '../styles/breakpoints.js';
-
-import Nav from './Nav';
-import ScrollText from './ScrollText';
 
 const HeaderPageStyles = styled.div`
   background-color: var(--purple);
@@ -41,23 +35,18 @@ const HeaderPageStyles = styled.div`
   }
 `;
 
-const HeaderPage = ({ title }) => {
-  console.log('');
-
-  return (
-    <>
-      {/* <Scroll /> */}
-      <HeaderPageStyles>
-        <div />
-        <div className="page-title">
-          <h2>{title}</h2>
-        </div>
-        <div>
-          {/* <h2>Krishna Istha</h2>
+const HeaderPage = ({ title }) => (
+  <>
+    <HeaderPageStyles>
+      <div />
+      <div className="page-title">
+        <h2>{title}</h2>
+      </div>
+      <div>
+        {/* <h2>Krishna Istha</h2>
           <h1>First Trimester</h1> */}
-        </div>
-      </HeaderPageStyles>
-    </>
-  );
-};
+      </div>
+    </HeaderPageStyles>
+  </>
+);
 export default HeaderPage;

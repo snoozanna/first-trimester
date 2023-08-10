@@ -185,7 +185,7 @@ const HomePage = ({ data, location }) => {
       <WhoPageWrapper data={data.participate} ref={whoPageRef} />
       <StepsPageWrapper data={data.steps} ref={processPageRef} />
       <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
-      {/* <HugeButton /> */}
+      <HugeButton />
     </>
   );
 };

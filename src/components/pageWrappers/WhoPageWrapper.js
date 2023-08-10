@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 import { PortableText } from '@portabletext/react';
 // import { MenuContext } from '../context/menu.context';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import HeaderPage from '../HeaderPage';
 import Video from '../Video';
 
@@ -78,7 +79,10 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
           </p>
           <p>
             Read
-            <Link to="/faqs"> FAQs </Link>to find out more.
+            <AnchorLink to="/#faqs" title="FAQs" className="anchorlink">
+              FAQs
+            </AnchorLink>
+            to find out more.
           </p>
           <Video />
         </div>

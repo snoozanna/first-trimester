@@ -21,7 +21,7 @@ const StepStyles = styled.div`
     background-color: transparent;
   }
   border: solid 2px white;
-  padding: 2.5rem;
+  padding: 1rem;
   position: relative;
   /* min-height: 300px; */
   display: flex;
@@ -34,6 +34,7 @@ const StepStyles = styled.div`
   p {
     margin: 0;
     color: white;
+    font-weight: 400;
   }
   h2 {
     font-size: 2.5rem;
@@ -46,15 +47,16 @@ const StepStyles = styled.div`
   .step-number-wrapper {
     background-color: var(--mintgreen);
     width: fit-content;
-    padding: 1rem 2rem;
-    border-radius: 50%;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
     border: 2px solid white;
     position: absolute;
-    top: -5rem;
-    left: -5.5rem;
+    top: -3rem;
+    left: -4.5rem;
 
     .step-number {
-      font-size: 4rem;
+      font-size: 2rem;
       font-weight: 600;
       font-family: var(--headings);
       color: var(--black);
@@ -82,7 +84,7 @@ const SingleStep = ({ step, bgColor }) => (
             id="panel1a-header"
           >
             <div className="step-number-wrapper">
-              <span className="step-number">{step.stepNumber}</span>
+              <span className="step-number">Step {step.stepNumber}</span>
             </div>
 
             <div className="step-heading-wrapper">

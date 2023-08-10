@@ -50,7 +50,7 @@ const HeaderPageStyles = styled.div`
   }
 
   @media ${devices.mobileL} {
-    margin-bottom: var(--padding);
+    margin-bottom: 5rem;
     margin-left: -4rem;
     margin-right: -4rem;
     margin-top: -5rem;

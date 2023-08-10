@@ -5,7 +5,7 @@ import { devices } from '../styles/breakpoints';
 
 const HugeButtonStyles = styled.div`
   width: 100%;
-  background-color: var(--mustyblue);
+  background-color: var(--yellow);
   padding: 4rem;
   display: flex;
   justify-content: center;
@@ -21,17 +21,21 @@ const HugeButtonStyles = styled.div`
     }
   }
   .huge-button:hover {
-    background-color: var(--mintgreen);
+    background-color: var(--brightpurple);
     span {
-      color: black;
     }
+  }
+  @media ${devices.mobileL} {
+    background-color: transparent;
   }
 `;
 
 const HugeButton = () => (
   <HugeButtonStyles>
     <Link to="/participate" className="huge-button">
-      <span className="huge-button-text-wrapper">Apply to participate!</span>
+      <span className="huge-button-text-wrapper">
+        <h2>Apply to participate!</h2>
+      </span>
     </Link>
   </HugeButtonStyles>
 );
