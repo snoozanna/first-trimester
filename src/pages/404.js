@@ -11,24 +11,24 @@ const HomePageStyles = styled.section`
   justify-content: center;
   align-items: center;
 
-  
-
   @media ${devices.mobileL} {
     min-height: 85vh;
 
   }
 `;
 
-export default function FourOhFourPage() {
+const FourOhFourPage = () => {
   return (
   <>
     <HeaderHome />
     <HomePageStyles>
       <h3>Sorry, that page doesn't exist!</h3>
       <h4>
-        Head <Link to="/">Home</Link>
+        Head <Link to="/">Home?</Link>
       </h4>
     </HomePageStyles>
   </>
   )
 }
+
+export default FourOhFourPage;
