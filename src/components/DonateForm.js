@@ -20,6 +20,7 @@ const FormStyles = styled.form`
     color: black;
     font-weight: 600;
     margin-block-end: 0.5rem;
+    font-family: var(--headings)
   }
   button {
     width: fit-content;
@@ -40,6 +41,9 @@ const InputItemStyles = styled.div`
   margin-block-end: 2rem;
   select {
     max-width: 10rem;
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
   }
   input {
     line-height: 1.5;
@@ -49,8 +53,8 @@ const InputItemStyles = styled.div`
     border: none;
     border-radius: 10px;
   }
-  input[type='submit'] {
-    background-color: 'pink';
+  input[type="submit"] {
+    background-color: "pink";
   }
   input:focus {
     background-color: var(--mintgreen);

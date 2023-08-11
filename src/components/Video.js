@@ -21,7 +21,7 @@ const VideoStyles = styled.div`
   @media ${devices.tablet} {
     flex-direction: column;
     min-width: 150px;
-    min-height: 75px;
+    min-height: 150px;
   }
 `;
 

@@ -46,6 +46,9 @@ const IntroTextStyles = styled.div`
   font-variation-settings: 'wght' 600;
   ul.questions-list {
     /* list-style-type: "🤯"; */
+    li{
+      margin-block-end:1rem;
+    }
     li .bullet-wrapper {
       margin-inline-end: 10px;
     }
