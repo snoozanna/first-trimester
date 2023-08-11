@@ -6,6 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import Video from './Video';
+import { PortableText } from "@portabletext/react";
 import { devices } from '../styles/breakpoints';
 
 const FAQListStyles = styled.div`
@@ -38,14 +39,14 @@ const SingleFAQ = ({ faq }) => (
   <>
     <Accordion
       sx={{
-        backgroundColor: 'transparent',
-        color: 'white',
-        boxShadow: 'none',
+        backgroundColor: "transparent",
+        color: "white",
+        boxShadow: "none",
       }}
     >
       <AccordionSummary
         expandIcon={
-          <AddIcon sx={{ fontSize: '4rem', color: 'var(--yellow)' }} />
+          <AddIcon sx={{ fontSize: "4rem", color: "var(--yellow)" }} />
         }
         aria-controls="panel1a-content"
         id="panel1a-header"
@@ -53,7 +54,8 @@ const SingleFAQ = ({ faq }) => (
         <h4>{faq.question}</h4>
       </AccordionSummary>
       <AccordionDetails>
-        <p>{faq.answer}</p>
+        {/* <p>{faq.answer}</p> */}
+        <PortableText value={faq.answer} />
       </AccordionDetails>
     </Accordion>
   </>

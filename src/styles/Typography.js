@@ -79,7 +79,7 @@ h2{
     color: var(--lightgreen);
   }
 
-  span.emphasis{
+  span.emphasis, blockquote{
    font-family: var(--subheadings);
   font-variation-settings: 'wght' 900;
   font-size: 2rem;
@@ -87,6 +87,8 @@ h2{
      color: var(--lightgreen);
      text-transform:uppercase;
      margin-block-end:2rem;
+     margin-inline-start:inherit;
+     margin-inline-end:inherit;
   }
 
   

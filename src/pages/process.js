@@ -17,12 +17,12 @@ export default StepsPage;
 
 export const query = graphql`
   query ProcessQuery {
-    steps: allSanitySteps(sort: { fields: stepNumber, order: ASC }) {
+    steps: allSanitySteps(sort: { stepNumber: ASC }) {
       nodes {
         stepNumber
         id
         heading
-        explanation
+        explanation: _rawExplanation(resolveReferences: { maxDepth: 5 })
       }
     }
   }

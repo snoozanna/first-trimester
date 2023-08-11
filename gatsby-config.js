@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config({ path: '.env' });
 
@@ -14,6 +14,9 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-material-ui`,
     'gatsby-plugin-styled-components',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: {

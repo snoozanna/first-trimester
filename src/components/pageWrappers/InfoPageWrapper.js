@@ -72,26 +72,10 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
           </div>
           <div className="hero-text-wrapper">
             <div className="funTitle green">
-              <h3 className="catName">Hello!</h3>
+              <h3 className="catName">{info.heading}</h3>
             </div>
-            <p>
-              Hi, my name is Krishna and I am a performance artist. I am also
-              wanting to have a baby with my partner Logan, and we need your
-              help!
-            </p>
-            <p>
-              In order to have that baby, we must find a sperm donor. It made me
-              start to think of all the different qualities I may want in our
-              sperm donor. When you go on sperm donor websites, the qualities
-              listed are things like height, race, eye colour and whether or not
-              they have PHDs, but we don’t really care about those things.
-            </p>
 
-            <p>
-              Instead, a lot of the questions I had for these donors were about
-              the qualities I tend to care about in people — beyond genetics —
-              that you don’t find on sperm donor websites.
-            </p>
+            <PortableText value={info.firstCopy} />
             <QuestionsStyles className="questions">
               <ul className="questions-list">
                 <li data-sal="fade" data-sal-delay="400" data-sal-easing="ease">
@@ -110,13 +94,13 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Do you want children?{' '}
+                  Do you want children?{" "}
                 </li>
                 <li data-sal="fade" data-sal-delay="700" data-sal-easing="ease">
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Are you kind?{' '}
+                  Are you kind?{" "}
                 </li>
                 <li data-sal="fade" data-sal-delay="900" data-sal-easing="ease">
                   <span className="bullet-wrapper">
@@ -131,14 +115,7 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
         <HeroInfoStyles className="hero-content-wrapper section narrow">
           <Video url={info.bslvid} />
           <div>
-            <p>Do these things even matter in a donor?</p>
-            <p>I’m still not sure! That’s where we need YOUR help! </p>
-            <p>
-              Whether you have sperm to donate or not, I am conducting 10-minute
-              conversations live on stage, with as many people as I can, in
-              order to learn more about the kind of person I want to help me get
-              pregnant.
-            </p>
+            <PortableText value={info.secondCopy} />
           </div>
           {/* <PortableText value={info.infoCopy} /> */}
         </HeroInfoStyles>

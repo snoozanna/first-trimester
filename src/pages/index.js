@@ -1,6 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-// import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
 
 import sperm from '../assets/images/sperm.gif';
@@ -168,24 +168,38 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
-      <HeaderHome />
-      <HomePageStyles className="narrow">
-        <div className="hero-text-wrapper">
-          {/* <h1 className="site-title">First Trimester</h1> */}
-          {/* <img src={logoText} alt="logo" /> */}
-          <p>Main image</p>
-          <h3 className="tagline">Could you be our ideal sperm donor?</h3>
-        </div>
-        {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
+      {/* <Parallax pages={7} style={{ top: "0", left: "0" }}> */}
+        <HeaderHome />
 
-        {/* <HomePageHeroButton /> */}
-      </HomePageStyles>
-      <InfoPageWrapper data={data.info} ref={infoPageRef} />
+        <HomePageStyles className="narrow">
+          <div className="hero-text-wrapper">
+            {/* <h1 className="site-title">First Trimester</h1> */}
+            {/* <img src={logoText} alt="logo" /> */}
+            <p>Main image</p>
+            <h3 className="tagline">Could you be our ideal sperm donor?</h3>
+          </div>
+          {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
 
-      <WhoPageWrapper data={data.participate} ref={whoPageRef} />
-      <StepsPageWrapper data={data.steps} ref={processPageRef} />
-      <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
-      <HugeButton />
+          {/* <HomePageHeroButton /> */}
+        </HomePageStyles>
+
+        <InfoPageWrapper data={data.info} ref={infoPageRef} />
+        {/* <ParallaxLayer offset={2} speed={0.2}>
+          <img src={sperm} alt="logo" />  
+          <img src={sperm} alt="logo" />
+          <img src={sperm} alt="logo" />
+        </ParallaxLayer> */}
+        <WhoPageWrapper data={data.participate} ref={whoPageRef} />
+   
+          <StepsPageWrapper
+            data={data.steps}
+            ref={processPageRef}
+     
+          />
+ 
+        <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
+        <HugeButton />
+      {/* </Parallax> */}
     </>
   );
 };
@@ -197,9 +211,10 @@ export const query = graphql`
     info: allSanityInfo {
       nodes {
         id
-        # heading
         bslvid
-        infoCopy: _rawInfoCopy(resolveReferences: { maxDepth: 5 })
+        heading
+        firstCopy: _rawFirstCopy(resolveReferences: { maxDepth: 5 })
+        secondCopy: _rawSecondCopy(resolveReferences: { maxDepth: 5 })
       }
     }
     participate: allSanityParticipate {
@@ -210,12 +225,12 @@ export const query = graphql`
         copy: _rawCopy(resolveReferences: { maxDepth: 5 })
       }
     }
-    steps: allSanitySteps(sort: { fields: stepNumber, order: ASC }) {
+    steps: allSanitySteps(sort: { stepNumber: ASC }) {
       nodes {
         stepNumber
         id
         heading
-        explanation
+        explanation: _rawExplanation(resolveReferences: { maxDepth: 5 })
       }
     }
     faqs: allSanityFaq(
@@ -226,7 +241,7 @@ export const query = graphql`
       nodes {
         question
         id
-        answer
+        answer: _rawAnswer(resolveReferences: { maxDepth: 5 })
         faqCategories {
           category
         }

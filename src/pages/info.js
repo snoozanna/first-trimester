@@ -27,7 +27,8 @@ export const query = graphql`
         id
         # heading
         bslvid
-        infoCopy: _rawInfoCopy(resolveReferences: { maxDepth: 5 })
+        firstCopy: _rawFirstCopy(resolveReferences: { maxDepth: 5 })
+        secondCopy: _rawSecondCopy(resolveReferences: { maxDepth: 5 })
       }
     }
   }

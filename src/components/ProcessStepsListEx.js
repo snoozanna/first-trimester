@@ -6,6 +6,7 @@ import React from 'react';
 import styled from 'styled-components';
 import AddIcon from '@mui/icons-material/Add';
 import { Grid } from '@mui/material';
+import { PortableText } from '@portabletext/react';
 
 const StepStyles = styled.div`
   &.bggreen {
@@ -70,16 +71,16 @@ const SingleStep = ({ step, bgColor }) => (
       <StepStyles className={`bg${bgColor}`}>
         <Accordion
           sx={{
-            backgroundColor: 'transparent',
-            color: 'white',
-            boxShadow: 'none',
+            backgroundColor: "transparent",
+            color: "white",
+            boxShadow: "none",
           }}
         >
           <AccordionSummary
             // expandIcon={
             //   <AddIcon sx={{ fontSize: '4rem', color: 'var(--yellow)' }} />
             // }
-            sx={{ textAlign: 'center', width: '100%' }}
+            sx={{ textAlign: "center", width: "100%" }}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -92,7 +93,8 @@ const SingleStep = ({ step, bgColor }) => (
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <p>{step.explanation}</p>
+            {/* <p>{step.explanation}</p> */}
+             <PortableText value={step.explanation} />
           </AccordionDetails>
         </Accordion>
       </StepStyles>

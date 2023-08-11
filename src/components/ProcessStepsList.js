@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import React from 'react';
 import styled from 'styled-components';
 import AddIcon from '@mui/icons-material/Add';
+import { PortableText } from '@portabletext/react';
 
 const StepStyles = styled.div`
   &.bggreen {
@@ -63,7 +64,8 @@ const SingleStep = ({ step, bgColor }) => (
 
         <div className="step-info-wrapper">
           <h2>{step.heading}</h2>
-          <p>{step.explanation}</p>
+          {/* <p>{step.explanation}</p> */}
+          <PortableText value={step.explanation} />
         </div>
       </StepStyles>
     </Grid>

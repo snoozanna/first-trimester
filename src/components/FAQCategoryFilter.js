@@ -45,7 +45,7 @@ const FAQCategoryFilter = () => {
         nodes {
           question
           id
-          answer
+          answer: _rawAnswer(resolveReferences: { maxDepth: 5 })
           faqCategories {
             category
           }
