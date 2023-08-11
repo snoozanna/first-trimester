@@ -49,7 +49,7 @@ const HeaderPageStyles = styled.div`
     }
   }
 
-  @media ${devices.mobileL} {
+  @media ${devices.tablet} {
     margin-bottom: 5rem;
     margin-left: -4rem;
     margin-right: -4rem;

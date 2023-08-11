@@ -22,7 +22,7 @@ const HeaderPageStyles = styled.div`
     text-align: center;
   }
 
-  @media ${devices.mobileL} {
+  @media ${devices.tablet} {
     margin-bottom: var(--padding);
     margin-left: -4rem;
     margin-right: -4rem;

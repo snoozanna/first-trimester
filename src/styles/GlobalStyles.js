@@ -253,6 +253,13 @@ ul.typographic {
  }
 
   @media ${devices.mobileL} {
+main{
+  padding: var(--padding);
+   
+}
+}
+
+ @media ${devices.tablet} {
 
 main{
   padding: var(--padding);
