@@ -20,7 +20,7 @@ const HomePageStyles = styled.section`
 const FourOhFourPage = () => {
   return (
   <>
-    <HeaderHome v="Home"/>
+    <Header v="Home"/>
     <HomePageStyles>
       <h3>Sorry, that page doesn't exist!</h3>
       <h4>
