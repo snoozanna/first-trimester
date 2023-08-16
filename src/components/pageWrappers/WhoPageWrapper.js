@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, forwardRef } from 'react';
+import React, {  forwardRef } from 'react';
 import styled from 'styled-components';
-import { Link, graphql } from 'gatsby';
 import { PortableText } from '@portabletext/react';
-// import { MenuContext } from '../context/menu.context';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
-import HeaderPage from '../HeaderPage';
 import Video from '../Video';
+import Header from '../Header';
 
 const ParticipatePageStyles = styled.section`
   display: grid;
@@ -42,18 +40,15 @@ const ParticipatePageStyles = styled.section`
   }
 `;
 const WhoPageWrapper = forwardRef(({ data }, ref) => {
-  // const { setCurrentPage } = useContext(MenuContext);
-  // const { pathname } = location;
+
   WhoPageWrapper.displayName = 'WhoPageWrapper';
   const participate = data.nodes[0];
 
-  // useEffect(() => {
-  //   setCurrentPage(pathname);
-  // }, []);
 
   return (
     <>
-      <HeaderPage title="Who can participate?" />
+
+      <Header v="ScrollPage" title="Who can participate?" />
       <ParticipatePageStyles className="narrow" ref={ref} id="who">
         <div className="hero-text-wrapper">
           <div className="funTitle green">
@@ -61,7 +56,7 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
           </div>
           <span className="disclaimer">As long as you are over 18</span>
           <PortableText value={participate.copy} />
-        
+
           <p>
             Read
             <AnchorLink to="/#faqs" title="FAQs" className="anchorlink">
@@ -73,7 +68,7 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
         </div>
         <div className="hero-img-wrapper">
           <span className="tagline">
-            {' '}
+            {" "}
             a funny picture of Krishna and Rent holding a doll or something
           </span>
         </div>

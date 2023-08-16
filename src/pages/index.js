@@ -3,16 +3,16 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
 
-import sperm from '../assets/images/sperm.gif';
-import logoText from '../assets/images/FTLogo_white.png';
+
 
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
-import HomePageHeroButton from '../components/HomePageHeroButton.js';
+
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
 import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
 import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
-import HeaderHome from '../components/HeaderHome.js';
+import Header from '../components/Header.js';
+// import HeaderHome from "../components/HeaderHome.js";
 import FAQPageWrapper from '../components/pageWrappers/FAQPageWrapper.js';
 import HugeButton from '../components/HugeButton.js';
 
@@ -22,7 +22,7 @@ const HomePageStyles = styled.section`
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-
+  margin-block-start: 10rem;
   .hero-text-wrapper {
     grid-area: b;
     display: flex;
@@ -57,9 +57,9 @@ const HomePageStyles = styled.section`
     grid-template-columns: repeat(3, minmax(50px, 1fr));
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      'a a .'
-      'a a b'
-      '. e d';
+      "a a ."
+      "a a b"
+      ". e d";
     gap: 2rem;
     .hero-text-wrapper {
       grid-row-start: 2;
@@ -161,12 +161,13 @@ const HomePage = ({ data, location }) => {
   return (
     <>
       {/* <Parallax pages={7} style={{ top: "0", left: "0" }}> */}
-        <HeaderHome />
-
+      <Header v="Home" />
+      {/* <HeaderHome /> */}
+      <main>
         <HomePageStyles className="narrow">
           <div className="hero-text-wrapper">
             {/* <h1 className="site-title">First Trimester</h1> */}
-            {/* <img src={logoText} alt="logo" /> */}
+            {/* <img src={logoText} alt="a wiggling sperm logo which reads Krishna Istha" /> */}
             <p>Main image</p>
             <h3 className="tagline">Could you be our ideal sperm donor?</h3>
           </div>
@@ -182,16 +183,13 @@ const HomePage = ({ data, location }) => {
           <img src={sperm} alt="logo" />
         </ParallaxLayer> */}
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
-   
-          <StepsPageWrapper
-            data={data.steps}
-            ref={processPageRef}
-     
-          />
- 
+
+        <StepsPageWrapper data={data.steps} ref={processPageRef} />
+
         <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
         <HugeButton />
-      {/* </Parallax> */}
+        {/* </Parallax> */}
+      </main>
     </>
   );
 };

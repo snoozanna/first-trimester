@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
 import krishna from '../../assets/images/krishnaHeadShot.jpg';
 import spermAlone from '../../assets/images/SpermAlone.png';
 import Video from '../Video';
-import AccessContext from '../../context/access.context';
+
 import { devices } from '../../styles/breakpoints';
-import { MenuContext } from '../../context/menu.context';
-import HeaderPage from '../HeaderPage';
+
+import Header from '../Header';
+
 
 const InfoPageStyles = styled.section`
   min-height: 60vh;
@@ -63,7 +64,8 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-      <HeaderPage title="Info" />
+      <Header v="ScrollPage" title="Info" />
+      {/* <HeaderPage title="Info" /> */}
       <InfoPageStyles ref={ref} id="info">
         <HeroInfoStyles className="hero-content-wrapper section narrow">
           <div className="hero-img-wrapper">

@@ -16,6 +16,7 @@ const NavButtonStyles = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  z-index: 99;
   .flex-col {
     display: flex;
     flex-direction: column;

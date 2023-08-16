@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { devices } from '../styles/breakpoints';
 import { Link } from 'gatsby';
-import HeaderHome from '../components/HeaderHome';
+import Header from '../components/Header';
 
 const HomePageStyles = styled.section`
   min-height: 70vh;
@@ -20,7 +20,7 @@ const HomePageStyles = styled.section`
 const FourOhFourPage = () => {
   return (
   <>
-    <HeaderHome />
+    <HeaderHome v="Home"/>
     <HomePageStyles>
       <h3>Sorry, that page doesn't exist!</h3>
       <h4>

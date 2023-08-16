@@ -7,6 +7,11 @@ import styled from 'styled-components';
 import AddIcon from '@mui/icons-material/Add';
 import { Grid } from '@mui/material';
 import { PortableText } from '@portabletext/react';
+import { devices } from '../styles/breakpoints';
+
+const StepsWrapperStyles = styled.div`
+margin-bottom: 5rem;
+`
 
 const StepStyles = styled.div`
   &.bggreen {
@@ -31,6 +36,7 @@ const StepStyles = styled.div`
   align-items: baseline;
   width: fit-content;
   border-radius: 20px;
+
   h2,
   p {
     margin: 0;
@@ -63,11 +69,18 @@ const StepStyles = styled.div`
       color: var(--black);
     }
   }
+
+  
+    @media ${devices.mobileL} {
+    .step-number-wrapper {
+      left: -2.5rem;
+    }
+  }
 `;
 
 const SingleStep = ({ step, bgColor }) => (
   <>
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={4} >
       <StepStyles className={`bg${bgColor}`}>
         <Accordion
           sx={{
@@ -105,7 +118,7 @@ const SingleStep = ({ step, bgColor }) => (
 const ProcessStepsList = ({ steps }) => {
   const bgOptions = ['yellow', 'pink', 'green'];
   return (
-    <>
+    <StepsWrapperStyles>
       <Box
         sx={{
           flexGrow: 1,
@@ -128,7 +141,7 @@ const ProcessStepsList = ({ steps }) => {
           {/* <Accordion /> */}
         </Grid>
       </Box>
-    </>
+    </StepsWrapperStyles>
   );
 };
 

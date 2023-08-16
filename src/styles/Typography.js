@@ -130,14 +130,14 @@ h2{
   }
    @media ${devices.mobileL} {
   h2{
-  font-size:3.5rem;
+  font-size:2.6rem;
 }
   h3{
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     letter-spacing: 0.15rem;
   }
    h4{
-    font-size: 2.2rem;
+    font-size: 2rem;
     letter-spacing: 0.15rem;
   }
   }

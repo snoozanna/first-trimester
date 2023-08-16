@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import { MenuContext } from '../context/menu.context';
-import Nav from './Nav';
-import BSLToggle from './BSLToggle';
+
+
 import HeroButton from './HeroButton';
 import { devices } from '../styles/breakpoints';
 

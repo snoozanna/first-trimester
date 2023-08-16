@@ -1,48 +1,38 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { navigate } from 'gatsby';
-import NavButton from './NavButton';
 import Footer from './Footer';
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
-import stripes from '../assets/images/stripes.svg';
+
 // import { ScrollReveal } from 'gatsby-plugin-scroll-reveal';
 import { devices } from '../styles/breakpoints.js';
 
 
 
-const ContentStyles = styled.div`
-  /* background: white;*/
-  /* padding: 2rem;
-  padding: clamp(5px, 1vw, 25px); */
-  min-height: 100vh;
-  /* margin: 12rem auto 4rem auto; */
-`;
 
-const MainStyles = styled.main`
+
+const LayoutStyles = styled.div`
+  min-height: 100vh;
   @media ${devices.mobileL} {
     margin-bottom: 8rem;
   }
 `;
 
-const Layout = ({ children }) => (
-  <>
+const Layout = ({ children, location }) => {
+  console.log("location.pathname", location.pathname)
+  return(
+ <>
     <GlobalStyles />
     <Typography />
-    {/* <SiteBorderStyles> */}
-    <ContentStyles>
-      {/* <NavButton /> */}
-      <MainStyles>
-        {/* <ScrollReveal> */}
-        {children}
 
-        {/* </ScrollReveal> */}
-      </MainStyles>
-      <Footer />
-    </ContentStyles>
-    {/* </SiteBorderStyles> */}
+    <LayoutStyles>
+      {children}
+    {location.pathname !== "/participate/" ? <Footer /> : null}
+    </LayoutStyles>
   </>
-);
+
+  )
+};
 
 export default Layout;

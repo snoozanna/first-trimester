@@ -4,7 +4,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AddIcon from '@mui/icons-material/Add';
-import CloseIcon from '@mui/icons-material/Close';
 import Video from './Video';
 import { PortableText } from "@portabletext/react";
 import { devices } from '../styles/breakpoints';

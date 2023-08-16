@@ -1,12 +1,13 @@
 import { Link, graphql } from 'gatsby';
-import React, { useContext, useEffect, forwardRef } from 'react';
+import React, {  forwardRef } from 'react';
 import styled from 'styled-components';
 import FAQList from '../FAQList';
-import FAQCategoryFilter from '../FAQCategoryFilter';
+
 // import SEO from '../SEO';
 import { devices } from '../../styles/breakpoints';
 
-import HeaderPage from '../HeaderPage';
+
+import Header from '../Header';
 
 const FAQPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
@@ -27,10 +28,11 @@ const FAQPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-      <HeaderPage title="FAQs" />
+  
+      <Header v="ScrollPage" title="FAQs" />
       <FAQPageStyles className="narrow" ref={ref} id="faqs">
         {/* <SEO title="FAQs" /> */}
-        {/* <FAQCategoryFilter /> */}
+   
         <FAQList faqs={faqs} />
       </FAQPageStyles>
     </>

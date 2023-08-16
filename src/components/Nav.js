@@ -13,7 +13,7 @@ const NavStyles = styled.nav`
   height: 100%;
   background-color: var(--purple);
   padding: 2rem;
-  z-index: 9999;
+  z-index: 99999;
   color: white;
   h2 {
     font-size: 2rem;
@@ -123,9 +123,13 @@ const Nav = () => {
             <li>
               <Link to="/participate">Apply to Participate</Link>
             </li>
-
             <li>
-              <Link to="/">Book tickets</Link>
+              <a
+                href="https://bac.org.uk/whats-on/first-trimester/"
+                rel="noreferrer" target="blank"
+              >
+                Book tickets
+              </a>
             </li>
           </ul>
         </NavStyles>

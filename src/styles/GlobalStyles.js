@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
     --subheadings: "Inconsolata";
     --body:"Inter";
     --padding: 3rem;
+    --padding-mob:1.5rem;
   }
 
   html {
@@ -233,11 +234,13 @@ ul.typographic {
 
   main{
     margin-block-end: 8rem;
+     padding: var(--padding);
   }
 
   section{
     min-height: 100vh;
     margin-block-end:10rem;
+    
   }
    section.wide{
   max-width: 100vw;
@@ -245,7 +248,8 @@ ul.typographic {
 
   section.narrow, .section.narrow {
     max-width: 1000px;
-    margin: auto;
+    margin-left: auto;
+     margin-right: auto;
 
 }
  section.narrow{
@@ -254,7 +258,7 @@ ul.typographic {
 
   @media ${devices.mobileL} {
 main{
-  padding: var(--padding);
+  padding: var(--padding-mob);
    
 }
 }
