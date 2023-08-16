@@ -11,9 +11,10 @@ import { MenuContext } from '../context/menu.context.js';
 import InfoPageWrapper from '../components/pageWrappers/InfoPageWrapper.js';
 import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
 import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
+import FAQPageWrapper from "../components/pageWrappers/FAQPageWrapper.js";
 import Header from '../components/Header.js';
-// import HeaderHome from "../components/HeaderHome.js";
-import FAQPageWrapper from '../components/pageWrappers/FAQPageWrapper.js';
+
+
 import HugeButton from '../components/HugeButton.js';
 
 const HomePageStyles = styled.section`
@@ -81,15 +82,14 @@ const HomePageStyles = styled.section`
       height: 300px;
       width: inherit;
     }
+ 
   }
 `;
 
 const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
-  // const [activeSection, setActiveSection] = useState('home');
-  // const { setCurrentPage } = useContext(MenuContext);
-
-  const { pathname } = location;
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
 
   // create the refs
   const infoPageRef = useRef(null);
@@ -102,16 +102,14 @@ const HomePage = ({ data, location }) => {
     const options = {
       threshold: 0.5, // Set the threshold to 20% visibility
     };
+     const currentScrollPos = window.scrollY;
+     const isVisible =
+       prevScrollPos > currentScrollPos || currentScrollPos < 200;
 
-    // const infoPageElement = infoPageRef.current;
-    // const whoPageElement = whoPageRef.current;
-    // const processPageElement = processPageRef.current;
-    // console.log(headerElement, infoPageElement, whoPageElement);
-    // // Get the boundingClientRect for the header and each section
-    // const headerRect = headerElement.getBoundingClientRect();
-    // const infoPageRect = infoPageElement.getBoundingClientRect();
-    // const whoPageRect = whoPageElement.getBoundingClientRect();
-    // const processPageRect = processPageElement.getBoundingClientRect();
+     setPrevScrollPos(currentScrollPos);
+     setVisible(isVisible);
+console.log("hello", isVisible)
+
     const infoPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -151,17 +149,22 @@ const HomePage = ({ data, location }) => {
   };
 
   useEffect(() => {
-    setCurrentPage('/');
-    window.addEventListener('scroll', handleScroll);
+    setCurrentPage("/");
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [prevScrollPos]);
 
   return (
     <>
       {/* <Parallax pages={7} style={{ top: "0", left: "0" }}> */}
-      <Header v="Home" />
+      <div className={ (visible ? "hshow" : "hhidden")}>
+        <Header
+          v="Home"
+       
+        />
+      </div>
       {/* <HeaderHome /> */}
       <main>
         <HomePageStyles className="narrow">

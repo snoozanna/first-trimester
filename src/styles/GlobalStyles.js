@@ -261,6 +261,15 @@ main{
   padding: var(--padding-mob);
    
 }
+ .hshow{
+      display:inherit;
+      /* transition: transform 5s ease-in-out; */
+      animation: show  0.3s ease-in-out;
+    }
+    .hhidden{
+         transform: translateY(0);
+       animation: hide  0.3s ease-in-out;
+    }
 }
 
  @media ${devices.tablet} {
@@ -271,6 +280,26 @@ main{
 }
 }
 
+  
+@keyframes show {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes hide {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
 
 
 

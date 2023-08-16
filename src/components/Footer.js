@@ -29,13 +29,10 @@ width: 100vw;
 
 const Footer = () => {
   const { currentPage } = useContext(MenuContext);
-  console.log(currentPage);
+
   return (
     <FooterStyles>
-      {/* <div className="scroller-wrapper">
-      <h3 className="tagline">Could you be our ideal sperm donor?</h3>
-    </div> */}
-      {/* <BSLToggle /> */}
+ 
       {currentPage !== '/participate' && currentPage !== '/' ? (
         <HeroButton />
       ) : (

@@ -13,7 +13,7 @@ const FormStyles = styled.form`
   width: 100%;
   max-width: 40rem;
   p[role='alert'] {
-    color: var(--pink);
+    color: lightblue;
     font-weight: 900;
   }
   label {

@@ -1,5 +1,5 @@
 import { Link, graphql } from 'gatsby';
-import React, {  forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import FAQList from '../FAQList';
 

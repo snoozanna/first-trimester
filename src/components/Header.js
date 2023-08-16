@@ -7,6 +7,8 @@ import { devices } from "../styles/breakpoints.js";
 import NavButton from "./NavButton";
 
 const HeaderStyles = styled.header`
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
   background-color: var(--purple);
   margin-block-end: 3rem;
   position: fixed;
@@ -18,6 +20,9 @@ const HeaderStyles = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  &.hidden {
+    transform: translateY(-100%);
+  }
   .site-logo {
     z-index: 99;
     transform: rotate(-9deg);
@@ -31,8 +36,10 @@ const HeaderStyles = styled.header`
     padding: 1rem;
   }
 
-
   @media ${devices.mobileL} {
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: var(--padding-mob);
     z-index: 999;
     .scrollpage {
@@ -43,7 +50,7 @@ const HeaderStyles = styled.header`
     }
     .site-logo {
       z-index: 99;
-       transform-origin:center;
+      transform-origin: center;
       transform: rotate(-3deg);
       padding-top: 1rem;
       img {
@@ -54,7 +61,7 @@ const HeaderStyles = styled.header`
 
   @media ${devices.tablet} {
     padding: var(--padding);
-   
+
     .site-logo {
       z-index: 99;
       transform: rotate(-13deg);
@@ -130,8 +137,9 @@ const HeaderPageStyles = styled.header`
   }
 
   @media ${devices.mobileL} {
+
     padding: var(--padding-mob);
-    z-index: 9999;
+    /* z-index: 9999; */
     .scrollpage {
       justify-content: center;
     }
@@ -157,26 +165,23 @@ const HeaderPageStyles = styled.header`
   }
 
   @media ${devices.tablet} {
-    .flexWrapper{
-      display:flex;
-      align-items:center;
-       ;
+    .flexWrapper {
+      display: flex;
+      align-items: center;
     }
     justify-content: space-between;
     padding: var(--padding);
-  
+
     h2 {
       font-size: 2.8rem;
     }
     .site-logo {
-  justify-self:end;
-        z-index: 99;
-        transform: rotate(-9deg);
-        img {
-          max-width: 18vw;
-      
+      justify-self: end;
+      z-index: 99;
+      transform: rotate(-9deg);
+      img {
+        max-width: 18vw;
       }
-      
     }
 
     .site-logo.displayMob {
@@ -185,62 +190,69 @@ const HeaderPageStyles = styled.header`
   }
 `;
 
-const Header = ({v, title}) => {
-switch (v) {
-  case "Home":
-    return (
-      <>
-        {/* <Scroll /> */}
-        <HeaderStyles>
-          <NavButton />
-          <div className="">{/* <h2>First Trimester</h2> */}</div>
-          <div />
-          <div className="site-logo">
-            <img src={logoText} alt="a wiggling sperm logo which reads Krishna Istha" />
-          </div>
-        </HeaderStyles>
-      </>
-    );
+const Header = ({ v, title, visible }) => {
+  switch (v) {
+    case "Home":
+      console.log("should header be visible?", visible);
+      return (
+        <>
+          {/* <Scroll /> */}
+          {visible ? (
+            ""
+          ) : (
+            <HeaderStyles>
+              <NavButton />
+              <div className="">{/* <h2>First Trimester</h2> */}</div>
+              <div />
+              <div className="site-logo">
+                <img
+                  src={logoText}
+                  alt="a wiggling sperm logo which reads Krishna Istha"
+                />
+              </div>
+            </HeaderStyles>
+          )}
+        </>
+      );
 
-  case "ScrollPage":
-    return (
-      <>
-        <HeaderScrollStyles className="scrollpage">
-          <div className/>
-          <div className="page-title">
-            <h2>{title}</h2>
-          </div>
-          <div>
-            {/* <h2>Krishna Istha</h2>
+    case "ScrollPage":
+      return (
+        <>
+          <HeaderScrollStyles className="scrollpage">
+            <div className />
+            <div className="page-title">
+              <h2>{title}</h2>
+            </div>
+            <div>
+              {/* <h2>Krishna Istha</h2>
             <h1>First Trimester</h1> */}
-          </div>
-        </HeaderScrollStyles>
-      </>
-    );
-  case "SinglePage":
-    return (
-      <>
-        <HeaderPageStyles className="singlepage">
-  
+            </div>
+          </HeaderScrollStyles>
+        </>
+      );
+    case "SinglePage":
+      return (
+        <>
+          <HeaderPageStyles className="singlepage">
             <NavButton />
             <div className="page-title">
               <h2>{title}</h2>
             </div>
-     
+
             <div className="site-logo displayMob">
               <img src={logoTextVer} alt="logo" />
             </div>
             <div className="site-logo hideMob">
-              <img src={logoText} alt="a wiggling sperm logo which reads Krishna Istha"  />
+              <img
+                src={logoText}
+                alt="a wiggling sperm logo which reads Krishna Istha"
+              />
             </div>
-   
-        </HeaderPageStyles>
-      </>
-    );
-  default:
-    console.log("nothing to return")
-
-}
-
+          </HeaderPageStyles>
+        </>
+      );
+    default:
+      console.log("nothing to return");
+  }
 };
 export default Header;
