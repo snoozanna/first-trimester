@@ -27,6 +27,11 @@ const HeaderStyles = styled.header`
   &.hidden {
     transform: translateY(-100%);
   }
+  .site-title h2 {
+    font-size: 1.8rem;
+    width: min-content;
+    text-align: end;
+  }
   .site-logo {
     z-index: 99;
     transform: rotate(-9deg);
@@ -51,6 +56,9 @@ const HeaderStyles = styled.header`
     }
     h2 {
       font-size: 2.4rem;
+    }
+    .site-title h2 {
+      font-size: 1.4rem;
     }
     .site-logo {
       z-index: 99;
@@ -196,25 +204,25 @@ const HeaderPageStyles = styled.header`
 
 const Header = ({ v, title, visible }) => {
   const matches = useMediaQuery("(max-width:428px)");
-function HideOnScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({ threshold: 100 });
-   return (
-     <Fade in={!trigger} timeout={{ enter: 500, exit: 500 }}>
-       <Slide
-         appear={false}
-         direction="down"
-         in={!trigger}
-         timeout={{ enter: 700, exit: 700 }}
-       >
-         {children}
-       </Slide>
-     </Fade>
-   );
-}
+// function HideOnScroll(props) {
+//   const { children, window } = props;
+//   // Note that you normally won't need to set the window ref as useScrollTrigger
+//   // will default to window.
+//   // This is only being set here because the demo is in an iframe.
+//   const trigger = useScrollTrigger({ threshold: 100 });
+//    return (
+//      <Fade in={!trigger} timeout={{ enter: 500, exit: 500 }}>
+//        <Slide
+//          appear={false}
+//          direction="down"
+//          in={!trigger}
+//          timeout={{ enter: 700, exit: 700 }}
+//        >
+//          {children}
+//        </Slide>
+//      </Fade>
+//    );
+// }
 
   switch (v) {
     case "Home":
@@ -222,37 +230,40 @@ function HideOnScroll(props) {
       return (
         <>
           {matches ? (
-            <HideOnScroll>
-              <AppBar>
-                <HeaderStyles>
-                  <NavButton />
-                  <div className=""></div>
-                  <div />
-                  <div className="site-logo">
+            // <HideOnScroll>
+            <AppBar>
+              <HeaderStyles>
+                <NavButton />
+                <div className=""></div>
+                <div />
+                {/* <div className="site-logo">
                     <img
                       src={logoText}
                       alt="a wiggling sperm logo which reads Krishna Istha"
                     />
-                  </div>
-                </HeaderStyles>
-              </AppBar>
-            </HideOnScroll>
+                  </div> */}
+                <div className="site-title">
+                  <h2>First Trimester</h2>
+                </div>
+              </HeaderStyles>
+            </AppBar>
           ) : (
-          
+            // </HideOnScroll>
             <HeaderStyles>
               <NavButton />
               <div className=""></div>
               <div />
-              <div className="site-logo">
+              {/* <div className="site-logo">
                 <img
                   src={logoText}
                   alt="a wiggling sperm logo which reads Krishna Istha"
                 />
+              </div> */}
+              <div className="site-title">
+                <h2>First Trimester</h2>
               </div>
             </HeaderStyles>
           )}
-
-  
         </>
       );
 
@@ -283,12 +294,12 @@ function HideOnScroll(props) {
             <div className="site-logo displayMob">
               <img src={logoTextVer} alt="logo" />
             </div>
-            <div className="site-logo hideMob">
+            {/* <div className="site-logo hideMob">
               <img
                 src={logoText}
                 alt="a wiggling sperm logo which reads Krishna Istha"
               />
-            </div>
+            </div> */}
           </HeaderPageStyles>
         </>
       );

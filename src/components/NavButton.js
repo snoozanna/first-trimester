@@ -29,9 +29,7 @@ const NavButtonStyles = styled.div`
     /* background-color: var(--pink); */
     z-index: 999;
   }
-  @media ${devices.mobileL} {
-    padding: 0 1rem;
-  }
+ 
 `;
 
 const MenuToggleButtonStyles = styled.div`

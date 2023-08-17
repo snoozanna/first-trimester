@@ -70,7 +70,7 @@ const HeroButton = () => (
   <HeroButtonStyles>
     <Link to="/participate" className="neon-button">
       <div className="hero-button-text-wrapper">
-        <span>Apply </span>
+        <span>Apply</span>
         <span> today!</span>
       </div>
     </Link>

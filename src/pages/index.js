@@ -2,8 +2,7 @@ import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
-
-
+import sperm from "./../assets/images/sperm.gif"
 
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
@@ -18,7 +17,10 @@ import Header from '../components/Header.js';
 import HugeButton from '../components/HugeButton.js';
 
 const HomePageStyles = styled.section`
-  min-height: 70vh;
+  /* min-height: 70vh; */
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -52,6 +54,22 @@ const HomePageStyles = styled.section`
       color: black;
     }
   }
+  .spermZoomWrapper {
+    animation: travel 20s ease 0s 1 normal forwards;
+    @keyframes travel {
+      0% {
+        opacity: 1;
+        transform: rotate(0deg);
+        transform-origin: top;
+      }
+
+      100% {
+        opacity: 0;
+        transform: rotate(40deg) translateY(-1200px);
+        transform-origin: top;
+      }
+    }
+  }
 
   @media ${devices.mobileL} {
     min-height: 85vh;
@@ -82,7 +100,6 @@ const HomePageStyles = styled.section`
       height: 300px;
       width: inherit;
     }
- 
   }
 `;
 
@@ -102,14 +119,6 @@ const HomePage = ({ data, location }) => {
     const options = {
       threshold: 0.5, // Set the threshold to 20% visibility
     };
-//      const currentScrollPos = window.scrollY;
-//      const isVisible =
-//        prevScrollPos > currentScrollPos || currentScrollPos < 200;
-
-//      setPrevScrollPos(currentScrollPos);
-//      setVisible(isVisible);
-// console.log("hello", isVisible)
-
     const infoPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -159,38 +168,35 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
-      {/* <Parallax pages={7} style={{ top: "0", left: "0" }}> */}
-      {/* <div className={ (visible ? "hshow" : "hhidden")}> */}
-        <Header
-          v="Home"
-       
-        />
-      {/* </div> */}
-      {/* <HeaderHome /> */}
+      <Header v="Home" />
+
       <main>
         <HomePageStyles className="narrow">
           <div className="hero-text-wrapper">
-            {/* <h1 className="site-title">First Trimester</h1> */}
-            {/* <img src={logoText} alt="a wiggling sperm logo which reads Krishna Istha" /> */}
             <p>Main image</p>
             <h3 className="tagline">Could you be our ideal sperm donor?</h3>
           </div>
-          {/* <img src={sperm} alt="A wiggling sperm gif" /> */}
-
-          {/* <HomePageHeroButton /> */}
+          <div class="spermZoomWrapper">
+            <img src={sperm} alt="logo" />
+            <img src={sperm} alt="logo" />
+            <img src={sperm} alt="logo" />
+          </div>
         </HomePageStyles>
-
         <InfoPageWrapper data={data.info} ref={infoPageRef} />
-        {/* <ParallaxLayer offset={2} speed={0.2}>
-          <img src={sperm} alt="logo" />  
-          <img src={sperm} alt="logo" />
-          <img src={sperm} alt="logo" />
-        </ParallaxLayer> */}
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
 
         <StepsPageWrapper data={data.steps} ref={processPageRef} />
 
         <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
+        {/* <Parallax pages={3} style={{ top: "0", left: "0" }}>
+          <ParallaxLayer offset={2} speed={0.2}>
+            <div class="spermZoomWrapper">
+              <img src={sperm} alt="logo" />
+              <img src={sperm} alt="logo" />
+              <img src={sperm} alt="logo" />
+            </div>
+          </ParallaxLayer>
+        </Parallax> */}
         <HugeButton />
         {/* </Parallax> */}
       </main>

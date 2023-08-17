@@ -154,13 +154,13 @@ button * {
   }
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--pink) var(--white);
+    scrollbar-color: var(--mintgreen) var(--white);
   }
   body::-webkit-scrollbar-track {
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--pink) ;
+    background-color: var(--mintgreen) ;
     border-radius: 6px;
     border: 3px solid var(--white);
   }

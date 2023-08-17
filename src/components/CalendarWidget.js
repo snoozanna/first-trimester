@@ -21,7 +21,7 @@ const CalendarWidget = () => {
     <>
       <CalendarWidgetStyles className="calendarly-wrapper">
         <InlineWidget
-          url="https://calendly.com/hurstsuzanna/initial-consultation?hide_landing_page_details=1&embed_type=Inline&embed_domain=1&back=1"
+          url="https://calendly.com/premeet?hide_landing_page_details=1&embed_type=Inline&embed_domain=1&back=1"
           // styles={{ height: 500 }}
           prefill={{
             firstName,
