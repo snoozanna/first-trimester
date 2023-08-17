@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -26,6 +26,7 @@ const FAQListStyles = styled.div`
     display: flex;
     align-items: flex-start;
     gap: 2rem;
+    margin-block-end:3rem;
   }
   @media ${devices.mobileL} {
     .category-wrapper {
@@ -34,14 +35,29 @@ const FAQListStyles = styled.div`
   }
 `;
 
-const SingleFAQ = ({ faq }) => (
-  <>
+const SingleFAQStyles = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  margin-block-end: 2rem;
+  @media ${devices.mobileL} {
+   display: inherit;
+  }
+`;
+
+const SingleFAQ = ({ faq }) => {
+  const [showVid, setShowVid] = useState(false)
+  console.log("hello")
+  return(
+     <SingleFAQStyles>
     <Accordion
       sx={{
         backgroundColor: "transparent",
         color: "white",
         boxShadow: "none",
       }}
+     
     >
       <AccordionSummary
         expandIcon={
@@ -49,6 +65,7 @@ const SingleFAQ = ({ faq }) => (
         }
         aria-controls="panel1a-content"
         id="panel1a-header"
+       onClick={() => setShowVid(!showVid)}
       >
         <h4>{faq.question}</h4>
       </AccordionSummary>
@@ -57,8 +74,10 @@ const SingleFAQ = ({ faq }) => (
         <PortableText value={faq.answer} />
       </AccordionDetails>
     </Accordion>
-  </>
-);
+    {showVid ? <Video url="https://www.youtube.com/embed/U0OTc567ubg" /> : null}
+  </SingleFAQStyles>
+    )
+      }
 
 const FAQList = ({ faqs }) => {
   const faqsByCategory = {};
@@ -84,7 +103,7 @@ const FAQList = ({ faqs }) => {
                 <SingleFAQ faq={faq} key={faq.id} />
               ))}
             </div>
-            <Video />
+      
           </div>
         ))}
       </FAQListStyles>

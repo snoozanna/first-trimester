@@ -27,15 +27,22 @@ const ParticipatePageStyles = styled.section`
   }
 
   .hero-img-wrapper {
-    background-color: var(--yellow);
-    min-height: 400px;
+    /* min-height: 400px; */
     /* height: 400px; */
     display: flex;
+    gap: 2rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--yellow);
       text-align: center;
       color: black;
+      min-height: 200px;
+      height: 300px;
     }
   }
 `;
@@ -47,7 +54,6 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
 
   return (
     <>
-
       <Header v="ScrollPage" title="Who can participate?" />
       <ParticipatePageStyles className="narrow" ref={ref} id="who">
         <div className="hero-text-wrapper">
@@ -64,13 +70,14 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
             </AnchorLink>
             to find out more.
           </p>
-          <Video />
         </div>
+
         <div className="hero-img-wrapper">
           <span className="tagline">
             {" "}
             a funny picture of Krishna and Rent holding a doll or something
           </span>
+          <Video url={participate.bslvid} />
         </div>
       </ParticipatePageStyles>
     </>

@@ -30,6 +30,10 @@ const DonatePageStyles = styled.section`
   [data-container="booking-container"] {
     background-color: red;
   }
+  p a {
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+  }
   @media ${devices.mobileL} {
     flex-direction: column;
   }
@@ -73,13 +77,18 @@ const DonatePage = ({ location }) => {
   const [showWidget, setShowWidget] = useState(false);
   const [showForm, setShowForm] = useState(true);
 
+
   useEffect(() => {
     setCurrentPage(pathname);
   }, []);
 
   return (
     <>
-      <Header title="Apply to Participate" v="SinglePage" />
+      <Header
+        title="Apply to Participate"
+        v="SinglePage"
+    
+      />
       <main>
         <DonatePageStyles className="narrow">
           <div className="info-text-wrapper">

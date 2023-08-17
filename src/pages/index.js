@@ -228,17 +228,20 @@ export const query = graphql`
       }
     }
     faqs: allSanityFaq(
+      sort: { number: ASC }
       filter: {
         faqCategories: { elemMatch: { category: { regex: $FAQRegex } } }
       }
     ) {
       nodes {
+        number
         question
         id
         answer: _rawAnswer(resolveReferences: { maxDepth: 5 })
         faqCategories {
           category
         }
+         bslvid
       }
     }
   }

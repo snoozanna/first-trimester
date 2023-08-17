@@ -7,6 +7,7 @@ import ProcessStepsListEx from '../ProcessStepsListEx';
 import { devices } from '../../styles/breakpoints';
 
 import Header from '../Header';
+import Video from '../Video';
 
 // import SEO from '../components/SEO';
 const StepsPageStyles = styled.section`
@@ -41,7 +42,19 @@ const StepsPageStyles = styled.section`
 
 `;
 
+const WrapperStyles = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 4rem;
+  max-width: 1080px;
+  @media ${devices.mobileL} {
+flex-direction:column;
+  }
+`;
+
 const TimeStyles = styled.div`
+  width: 100%;
+
   ul.time-list {
     font-family: var(--subheadings);
     font-size: 2rem;
@@ -54,6 +67,7 @@ const TimeStyles = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-wrap: pretty;
     font-variation-settings: "wght" 600;
     li .bullet-wrapper {
       margin-inline-end: 10px;
@@ -63,12 +77,19 @@ const TimeStyles = styled.div`
     }
   }
   @media ${devices.mobileL} {
-      ul.time-list {
-    padding: var(--padding-mob)
-  }
+    ul.time-list {
+      padding: var(--padding-mob);
+    }
     .funTitle {
       margin-block-end: 2rem;
     }
+    .funTitle > h3 {
+      text-align: center;
+    }
+  }
+
+  @media ${devices.tablet} {
+
     .funTitle > h3 {
       text-align: center;
     }
@@ -92,26 +113,29 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
         </div>
         {/* <PortableText value={participate.copy} /> */}
         <ProcessStepsListEx steps={steps} />
-        <TimeStyles>
-          <div className="funTitle green">
-            <h3 className="catName">The overall time commitment is:</h3>
-          </div>
+        <WrapperStyles className="flex-wrapper">
+          <TimeStyles>
+            <div className="funTitle green">
+              <h3 className="catName">The overall time commitment is:</h3>
+            </div>
 
-          <ul className="time-list">
-            <li data-sal="fade" data-sal-delay="400" data-sal-easing="ease">
-              <span className="bullet-wrapper">
-                <img src={spermAlone} alt="" />
-              </span>
-              10 min Zoom
-            </li>
-            <li data-sal="fade" data-sal-delay="400" data-sal-easing="ease">
-              <span className="bullet-wrapper">
-                <img src={spermAlone} alt="" />
-              </span>
-              1 Hour on show day
-            </li>
-          </ul>
-        </TimeStyles>
+            <ul className="time-list">
+              <li data-sal="fade" data-sal-delay="400" data-sal-easing="ease">
+                <span className="bullet-wrapper">
+                  <img src={spermAlone} alt="" />
+                </span>
+                10 min Zoom
+              </li>
+              <li data-sal="fade" data-sal-delay="400" data-sal-easing="ease">
+                <span className="bullet-wrapper">
+                  <img src={spermAlone} alt="" />
+                </span>
+                1 Hour on show day
+              </li>
+            </ul>
+          </TimeStyles>
+          <Video url="https://www.youtube.com/embed/8ZhI4Mv9_NU" />
+        </WrapperStyles>
       </StepsPageStyles>
     </>
   );

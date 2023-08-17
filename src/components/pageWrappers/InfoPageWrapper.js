@@ -115,11 +115,10 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
           </div>
         </HeroInfoStyles>
         <HeroInfoStyles className="hero-content-wrapper section narrow">
-          <Video url={info.bslvid} />
           <div>
             <PortableText value={info.secondCopy} />
           </div>
-          {/* <PortableText value={info.infoCopy} /> */}
+          <Video url={info.bslvid} />
         </HeroInfoStyles>
       </InfoPageStyles>
     </>

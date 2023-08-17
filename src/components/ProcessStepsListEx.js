@@ -10,7 +10,7 @@ import { PortableText } from '@portabletext/react';
 import { devices } from '../styles/breakpoints';
 
 const StepsWrapperStyles = styled.div`
-margin-bottom: 5rem;
+margin-bottom: 8rem;
 `
 
 const StepStyles = styled.div`
@@ -131,6 +131,7 @@ const ProcessStepsList = ({ steps }) => {
         <Grid
           container
           spacing={10}
+          sx={{justifyContent:"center"}}
           // columns={{ xs: 1, sm: 2, md: 12 }}
         >
           {steps.map((step, i) => {

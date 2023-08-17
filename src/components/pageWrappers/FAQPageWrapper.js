@@ -13,6 +13,8 @@ const FAQPageStyles = styled.section`
   padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
+  max-width: 1920px;
+  width:100% ;
   display: flex;
   flex-direction: column;
   .css-wldg4a-MuiPaper-root-MuiAccordion-root:before {
@@ -30,7 +32,7 @@ const FAQPageWrapper = forwardRef(({ data }, ref) => {
     <>
   
       <Header v="ScrollPage" title="FAQs" />
-      <FAQPageStyles className="narrow" ref={ref} id="faqs">
+      <FAQPageStyles ref={ref} id="faqs">
         {/* <SEO title="FAQs" /> */}
    
         <FAQList faqs={faqs} />
