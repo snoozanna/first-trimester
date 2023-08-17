@@ -176,11 +176,11 @@ const HomePage = ({ data, location }) => {
             <p>Main image</p>
             <h3 className="tagline">Could you be our ideal sperm donor?</h3>
           </div>
-          <div class="spermZoomWrapper">
+          {/* <div class="spermZoomWrapper">
             <img src={sperm} alt="logo" />
             <img src={sperm} alt="logo" />
             <img src={sperm} alt="logo" />
-          </div>
+          </div> */}
         </HomePageStyles>
         <InfoPageWrapper data={data.info} ref={infoPageRef} />
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
