@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-
 import logoText from "../assets/images/text_sperm_hor.gif";
 import logoTextVer from "../assets/images/text_sperm.gif";
 import { devices } from "../styles/breakpoints.js";
 import NavButton from "./NavButton";
+import AppBar from "@mui/material/AppBar";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Slide from "@mui/material/Slide";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const HeaderStyles = styled.header`
   transition: transform 0.3s ease-in-out;
@@ -191,18 +194,46 @@ const HeaderPageStyles = styled.header`
 `;
 
 const Header = ({ v, title, visible }) => {
+  const matches = useMediaQuery("(max-width:428px)");
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger();
+   return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
   switch (v) {
     case "Home":
-      console.log("should header be visible?", visible);
+  
       return (
         <>
-          {/* <Scroll /> */}
-          {visible ? (
-            ""
+          {matches ? (
+            <HideOnScroll>
+              <AppBar>
+                <HeaderStyles>
+                  <NavButton />
+                  <div className=""></div>
+                  <div />
+                  <div className="site-logo">
+                    <img
+                      src={logoText}
+                      alt="a wiggling sperm logo which reads Krishna Istha"
+                    />
+                  </div>
+                </HeaderStyles>
+              </AppBar>
+            </HideOnScroll>
           ) : (
+          
             <HeaderStyles>
               <NavButton />
-              <div className="">{/* <h2>First Trimester</h2> */}</div>
+              <div className=""></div>
               <div />
               <div className="site-logo">
                 <img
@@ -212,6 +243,8 @@ const Header = ({ v, title, visible }) => {
               </div>
             </HeaderStyles>
           )}
+
+  
         </>
       );
 

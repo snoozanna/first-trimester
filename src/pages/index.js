@@ -88,8 +88,8 @@ const HomePageStyles = styled.section`
 
 const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-    const [visible, setVisible] = useState(true);
+    // const [prevScrollPos, setPrevScrollPos] = useState(0);
+    // const [visible, setVisible] = useState(true);
 
   // create the refs
   const infoPageRef = useRef(null);
@@ -102,13 +102,13 @@ const HomePage = ({ data, location }) => {
     const options = {
       threshold: 0.5, // Set the threshold to 20% visibility
     };
-     const currentScrollPos = window.scrollY;
-     const isVisible =
-       prevScrollPos > currentScrollPos || currentScrollPos < 200;
+//      const currentScrollPos = window.scrollY;
+//      const isVisible =
+//        prevScrollPos > currentScrollPos || currentScrollPos < 200;
 
-     setPrevScrollPos(currentScrollPos);
-     setVisible(isVisible);
-console.log("hello", isVisible)
+//      setPrevScrollPos(currentScrollPos);
+//      setVisible(isVisible);
+// console.log("hello", isVisible)
 
     const infoPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -154,17 +154,18 @@ console.log("hello", isVisible)
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [prevScrollPos]);
+  // }, [prevScrollPos]);
+    }, []);
 
   return (
     <>
       {/* <Parallax pages={7} style={{ top: "0", left: "0" }}> */}
-      <div className={ (visible ? "hshow" : "hhidden")}>
+      {/* <div className={ (visible ? "hshow" : "hhidden")}> */}
         <Header
           v="Home"
        
         />
-      </div>
+      {/* </div> */}
       {/* <HeaderHome /> */}
       <main>
         <HomePageStyles className="narrow">
