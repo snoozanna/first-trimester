@@ -7,6 +7,7 @@ import NavButton from "./NavButton";
 import AppBar from "@mui/material/AppBar";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
+import Fade from "@mui/material/Fade";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const HeaderStyles = styled.header`
@@ -200,12 +201,19 @@ function HideOnScroll(props) {
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger();
+  const trigger = useScrollTrigger({ threshold: 100 });
    return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
+     <Fade in={!trigger} timeout={{ enter: 500, exit: 500 }}>
+       <Slide
+         appear={false}
+         direction="down"
+         in={!trigger}
+         timeout={{ enter: 700, exit: 700 }}
+       >
+         {children}
+       </Slide>
+     </Fade>
+   );
 }
 
   switch (v) {
