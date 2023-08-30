@@ -22,7 +22,7 @@ const FooterStyles = styled.footer`
     z-index: 99;
     transform: rotate(-9deg);
     img {
-      max-width: 16vw;
+      max-width: 13vw;
     }
   }
 

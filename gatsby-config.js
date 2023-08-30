@@ -5,8 +5,8 @@ dotenv.config({ path: '.env' });
 module.exports = {
   siteMetadata: {
     title: `First Trimester`,
-    siteUrl: 'https://first.trimester',
-    description: 'First Trimester by Krisha Istha',
+    siteUrl: 'https://www.first-trimester.co.uk',
+    description: `Looking to participate in First Trimester by Krisha Istha? You're in the right place!`,
     twitter: '@KrishnaIstha',
   },
   plugins: [

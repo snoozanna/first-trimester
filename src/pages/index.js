@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
 import sperm from "./../assets/images/sperm.gif"
-
+import SEO from '../components/SEO';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
 
@@ -168,6 +168,7 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
+      <SEO/>
       <Header v="Home" />
 
       <main>
@@ -197,6 +198,7 @@ const HomePage = ({ data, location }) => {
             </div>
           </ParallaxLayer>
         </Parallax> */}
+
         <HugeButton />
         {/* </Parallax> */}
       </main>

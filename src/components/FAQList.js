@@ -48,35 +48,34 @@ const SingleFAQStyles = styled.div`
 
 const SingleFAQ = ({ faq }) => {
   const [showVid, setShowVid] = useState(false)
-  console.log("hello")
-  return(
-     <SingleFAQStyles>
-    <Accordion
-      sx={{
-        backgroundColor: "transparent",
-        color: "white",
-        boxShadow: "none",
-      }}
-     
-    >
-      <AccordionSummary
-        expandIcon={
-          <AddIcon sx={{ fontSize: "4rem", color: "var(--yellow)" }} />
-        }
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-       onClick={() => setShowVid(!showVid)}
+
+  return (
+    <SingleFAQStyles>
+      <Accordion
+        sx={{
+          backgroundColor: "transparent",
+          color: "white",
+          boxShadow: "none",
+        }}
       >
-        <h4>{faq.question}</h4>
-      </AccordionSummary>
-      <AccordionDetails>
-        {/* <p>{faq.answer}</p> */}
-        <PortableText value={faq.answer} />
-      </AccordionDetails>
-    </Accordion>
-    {showVid ? <Video url="https://www.youtube.com/embed/U0OTc567ubg" /> : null}
-  </SingleFAQStyles>
-    )
+        <AccordionSummary
+          expandIcon={
+            <AddIcon sx={{ fontSize: "4rem", color: "var(--yellow)" }} />
+          }
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+          onClick={() => setShowVid(!showVid)}
+        >
+          <h4>{faq.question}</h4>
+        </AccordionSummary>
+        <AccordionDetails>
+          {/* <p>{faq.answer}</p> */}
+          <PortableText value={faq.answer} />
+        </AccordionDetails>
+      </Accordion>
+      {showVid ? <Video url={faq.bslvid} /> : null}
+    </SingleFAQStyles>
+  );
       }
 
 const FAQList = ({ faqs }) => {

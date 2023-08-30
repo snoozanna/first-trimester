@@ -9,7 +9,6 @@ import { devices } from '../../styles/breakpoints';
 import Header from '../Header';
 import Video from '../Video';
 
-// import SEO from '../components/SEO';
 const StepsPageStyles = styled.section`
   padding: 0 2rem;
   min-height: 60vh;
