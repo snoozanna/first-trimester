@@ -80,7 +80,7 @@ const StepStyles = styled.div`
 
 const SingleStep = ({ step, bgColor }) => (
   <>
-    <Grid item xs={12} sm={6} md={4} >
+    <Grid item xs={12} sm={6} md={4}>
       <StepStyles className={`bg${bgColor}`}>
         <Accordion
           sx={{
@@ -102,12 +102,14 @@ const SingleStep = ({ step, bgColor }) => (
             </div>
 
             <div className="step-heading-wrapper">
-              <h2>{step.heading}</h2>
+              
+                <PortableText value={step.heading} />
+            
             </div>
           </AccordionSummary>
           <AccordionDetails>
             {/* <p>{step.explanation}</p> */}
-             <PortableText value={step.explanation} />
+            <PortableText value={step.explanation} />
           </AccordionDetails>
         </Accordion>
       </StepStyles>

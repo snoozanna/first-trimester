@@ -96,7 +96,7 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Do you want children?{" "}
+                  Do you want children of your own?{" "}
                 </li>
                 <li data-sal="fade" data-sal-delay="700" data-sal-easing="ease">
                   <span className="bullet-wrapper">

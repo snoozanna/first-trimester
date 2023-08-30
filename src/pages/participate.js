@@ -101,7 +101,7 @@ const DonatePage = ({ location }) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Fill out this quick form
+                  Fill out this quick form.
                 </li>
                 <li data-sal="fade" data-sal-delay="500" data-sal-easing="ease">
                   <span className="bullet-wrapper">
@@ -115,7 +115,7 @@ const DonatePage = ({ location }) => {
                     <img src={spermAlone} alt="" />
                   </span>
                   There will be slots available with a BSL signing participation
-                  team member
+                  team member.
                 </li>
                 <li data-sal="fade" data-sal-delay="700" data-sal-easing="ease">
                   <span className="bullet-wrapper">

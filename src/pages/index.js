@@ -229,7 +229,7 @@ export const query = graphql`
       nodes {
         stepNumber
         id
-        heading
+        heading: _rawHeading(resolveReferences: { maxDepth: 5 })
         explanation: _rawExplanation(resolveReferences: { maxDepth: 5 })
       }
     }
@@ -247,7 +247,7 @@ export const query = graphql`
         faqCategories {
           category
         }
-         bslvid
+        bslvid
       }
     }
   }
