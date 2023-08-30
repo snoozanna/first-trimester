@@ -13,7 +13,7 @@ const FormStyles = styled.form`
   width: 100%;
   max-width: 40rem;
   p[role='alert'] {
-    color: lightblue;
+    color: var(--purple);
     font-weight: 900;
   }
   label {
@@ -44,6 +44,11 @@ const InputItemStyles = styled.div`
     border-radius: 10px;
     padding: 5px;
     border: none;
+  }
+  span.hint {
+    color: black;
+    margin-block-end: 2rem;
+    font-size: 1.5rem;
   }
   input {
     line-height: 1.5;
@@ -89,42 +94,42 @@ export default function DonateForm({ showForm, showWidget }) {
       <InputItemStyles>
         <label htmlFor="userFirstName">First Name</label>
         <input
-          {...register('userFirstName', { required: true })}
-          aria-invalid={errors.userFirstName ? 'true' : 'false'}
+          {...register("userFirstName", { required: true })}
+          aria-invalid={errors.userFirstName ? "true" : "false"}
         />
-        {errors.userFirstName?.type === 'required' && (
+        {errors.userFirstName?.type === "required" && (
           <p role="alert">First name is required</p>
         )}
       </InputItemStyles>
       <InputItemStyles>
         <label htmlFor="userLastName">Last Name</label>
         <input
-          {...register('userLastName', { required: true })}
-          aria-invalid={errors.userLastName ? 'true' : 'false'}
+          {...register("userLastName", { required: true })}
+          aria-invalid={errors.userLastName ? "true" : "false"}
         />
-        {errors.userLastName?.type === 'required' && (
+        {errors.userLastName?.type === "required" && (
           <p role="alert">Last name is required</p>
         )}
       </InputItemStyles>
       <InputItemStyles>
         <label htmlFor="userEmail">Email</label>
         <input
-          {...register('userEmail', { required: 'Email Address is required' })}
-          aria-invalid={errors.userEmail ? 'true' : 'false'}
+          {...register("userEmail", { required: "Email Address is required" })}
+          aria-invalid={errors.userEmail ? "true" : "false"}
         />
         {errors.userEmail && <p role="alert">{errors.userEmail?.message}</p>}
       </InputItemStyles>
       <InputItemStyles>
         <label htmlFor="userBSL">Do you require BSL interpretation?</label>
-
+        <span className='hint'>Please select YES if you would like a slot with a BSL user. </span>
         <select
-          {...register('userBSL', { required: 'This is required' })}
-          aria-invalid={errors.userBSL ? 'true' : 'false'}
+          {...register("userBSL", { required: "This is required" })}
+          aria-invalid={errors.userBSL ? "true" : "false"}
         >
           <option value="No">No</option>
           <option value="Yes">Yes</option>
         </select>
-        {errors.userEmail && <p role="alert">{errors.userEmail?.message}</p>}
+        {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
       </InputItemStyles>
 
       <button type="button" onClick={handleSubmit(onSubmit)}>

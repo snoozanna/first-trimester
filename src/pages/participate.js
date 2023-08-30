@@ -84,11 +84,7 @@ const DonatePage = ({ location }) => {
 
   return (
     <>
-      <Header
-        title="Apply to Participate"
-        v="SinglePage"
-    
-      />
+      <Header title="Apply to Participate" v="SinglePage" />
       <main>
         <DonatePageStyles className="narrow">
           <div className="info-text-wrapper">
@@ -121,8 +117,8 @@ const DonatePage = ({ location }) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Do let us know in the form if you have other access
-                  requirements.
+                  Once you have selected a date, there will be an opportunity to let us know about any other
+                  access requirements.
                 </li>
               </ul>
             </IntroTextStyles>
