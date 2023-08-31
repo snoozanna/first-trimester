@@ -66,6 +66,19 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-netlify-headers`,
+    {
+      resolve: "gatsby-plugin-netlify-headers",
+      options: {
+        headers: {
+          // Add the custom headers here
+          "/*": [
+            "X-Frame-Options: DENY",
+            "X-XSS-Protection: 1; mode=block",
+            "Referrer-Policy: no-referrer",
+            "X-Content-Type-Options: nosniff",
+          ],
+        },
+      },
+    },
   ],
 };
