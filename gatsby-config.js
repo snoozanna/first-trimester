@@ -66,6 +66,6 @@ module.exports = {
         ],
       },
     },
-    ` gatsby-plugin-netlify-headers`,
+    `gatsby-plugin-netlify-headers`,
   ],
 };
