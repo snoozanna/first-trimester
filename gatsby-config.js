@@ -5,32 +5,32 @@ dotenv.config({ path: '.env' });
 module.exports = {
   siteMetadata: {
     title: `First Trimester`,
-    siteUrl: 'https://www.first-trimester.co.uk',
+    siteUrl: "https://www.first-trimester.co.uk",
     description: `Looking to participate in First Trimester by Krisha Istha? You're in the right place!`,
-    twitter: '@KrishnaIstha',
+    twitter: "@KrishnaIstha",
   },
   plugins: [
     `gatsby-plugin-scroll-reveal`,
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-react-helmet",
     `gatsby-plugin-material-ui`,
-    'gatsby-plugin-styled-components',
+    "gatsby-plugin-styled-components",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: 'gatsby-plugin-anchor-links',
+      resolve: "gatsby-plugin-anchor-links",
       options: {
         offset: -100,
       },
     },
     {
       // this is the name of the plugin you are adding
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
-        projectId: '1mkamazd',
-        dataset: 'production',
+        projectId: "1mkamazd",
+        dataset: "production",
         watchMode: true,
-        apiVersion: '2023-06-19', // use a UTC date string
+        apiVersion: "2023-06-19", // use a UTC date string
         token: process.env.SANITY_TOKEN,
       },
     },
@@ -66,6 +66,6 @@ module.exports = {
         ],
       },
     },
-    
+    ` gatsby-plugin-netlify-headers`,
   ],
 };
