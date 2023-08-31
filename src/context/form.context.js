@@ -19,6 +19,10 @@ export function FormProvider({ children }) {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [BSL, setBSL] = useState(false);
+  const [phone, setPhone] = useState('');
+  const [access, setAccess] = useState('');
+  const [prefDate, setPrefDate] = useState("");
+
 
   return (
     <FormContext.Provider
@@ -27,10 +31,16 @@ export function FormProvider({ children }) {
         lastName,
         email,
         BSL,
+        phone,
+        access,
+        prefDate,
         setFirstName,
         setLastName,
         setEmail,
         setBSL,
+        setPhone,
+        setAccess,
+        setPrefDate,
       }}
     >
       {children}

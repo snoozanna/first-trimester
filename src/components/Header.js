@@ -4,13 +4,12 @@ import logoText from "../assets/images/text_sperm_hor.gif";
 import logoTextVer from "../assets/images/text_sperm.gif";
 import { devices } from "../styles/breakpoints.js";
 import NavButton from "./NavButton";
-import AppBar from "@mui/material/AppBar";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
-import Slide from "@mui/material/Slide";
-import Fade from "@mui/material/Fade";
+
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const HeaderStyles = styled.header`
+  //  on a desktop
   transition: transform 0.3s ease-in-out;
   transform: translateY(0);
   background-color: var(--purple);
@@ -32,6 +31,7 @@ const HeaderStyles = styled.header`
     width: min-content;
     text-align: end;
   }
+
   .site-logo {
     z-index: 99;
     transform: rotate(-9deg);
@@ -73,7 +73,7 @@ const HeaderStyles = styled.header`
 
   @media ${devices.tablet} {
     padding: var(--padding);
-
+   
     .site-logo {
       z-index: 99;
       transform: rotate(-13deg);
@@ -85,10 +85,24 @@ const HeaderStyles = styled.header`
   }
 `;
 
+// Site Title on Desktop 
+const SiteTitleTopStyles = styled.div`
+position:fixed;
+top:2rem;
+right: 2rem;
+z-index: 999;
+h2 {
+    font-size: 1.8rem;
+    width: min-content;
+    text-align: end;
+  }`;
+
 const HeaderScrollStyles = styled.header`
   background-color: var(--purple);
   margin-block-end: 3rem;
-  position: inherit;
+  position: sticky;
+  z-index: 9;
+  top: 0;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
@@ -106,6 +120,7 @@ const HeaderScrollStyles = styled.header`
 
   @media ${devices.tablet} {
     padding: var(--padding);
+    position: inherit;
     margin-inline-start: calc(var(--padding) * -1);
     justify-content: center;
     .page-title {
@@ -117,6 +132,7 @@ const HeaderScrollStyles = styled.header`
   }
   @media ${devices.mobileL} {
     margin-inline-start: calc(var(--padding-mob) * -1);
+    position: inherit;
   }
 `;
 
@@ -174,6 +190,9 @@ const HeaderPageStyles = styled.header`
     .site-logo.hideMob {
       display: none;
     }
+    .page-title{
+      text-align:end;
+    }
   }
 
   @media ${devices.tablet} {
@@ -203,26 +222,8 @@ const HeaderPageStyles = styled.header`
 `;
 
 const Header = ({ v, title, visible }) => {
-  const matches = useMediaQuery("(max-width:428px)");
-// function HideOnScroll(props) {
-//   const { children, window } = props;
-//   // Note that you normally won't need to set the window ref as useScrollTrigger
-//   // will default to window.
-//   // This is only being set here because the demo is in an iframe.
-//   const trigger = useScrollTrigger({ threshold: 100 });
-//    return (
-//      <Fade in={!trigger} timeout={{ enter: 500, exit: 500 }}>
-//        <Slide
-//          appear={false}
-//          direction="down"
-//          in={!trigger}
-//          timeout={{ enter: 700, exit: 700 }}
-//        >
-//          {children}
-//        </Slide>
-//      </Fade>
-//    );
-// }
+  const matches = useMediaQuery("(max-width:820px)");
+
 
   switch (v) {
     case "Home":
@@ -230,8 +231,8 @@ const Header = ({ v, title, visible }) => {
       return (
         <>
           {matches ? (
-            // <HideOnScroll>
-            <AppBar>
+            //  on a mobile
+            // <AppBar>
               <HeaderStyles>
                 <NavButton />
                 <div className=""></div>
@@ -246,23 +247,29 @@ const Header = ({ v, title, visible }) => {
                   <h2>First Trimester</h2>
                 </div>
               </HeaderStyles>
-            </AppBar>
+            // </AppBar>
           ) : (
-            // </HideOnScroll>
-            <HeaderStyles>
-              <NavButton />
-              <div className=""></div>
-              <div />
-              {/* <div className="site-logo">
-                <img
-                  src={logoText}
-                  alt="a wiggling sperm logo which reads Krishna Istha"
-                />
-              </div> */}
-              <div className="site-title">
+            //  on a desktop
+            // <HeaderStyles>
+            //   <NavButton />
+            //   <div className=""></div>
+            //   <div />
+            //   {/* <div className="site-logo">
+            //     <img
+            //       src={logoText}
+            //       alt="a wiggling sperm logo which reads Krishna Istha"
+            //     />
+            //   </div> */}
+            //   <div className="site-title">
+            //     <h2>First Trimester</h2>
+            //   </div>
+            // </HeaderStyles>
+             <>
+               <NavButton />
+              <SiteTitleTopStyles className="site-title-top">
                 <h2>First Trimester</h2>
-              </div>
-            </HeaderStyles>
+              </SiteTitleTopStyles>
+             </>
           )}
         </>
       );
@@ -287,13 +294,12 @@ const Header = ({ v, title, visible }) => {
         <>
           <HeaderPageStyles className="singlepage">
             <NavButton />
+            <div/>
             <div className="page-title">
               <h2>{title}</h2>
             </div>
 
-            <div className="site-logo displayMob">
-              <img src={logoTextVer} alt="logo" />
-            </div>
+           
             {/* <div className="site-logo hideMob">
               <img
                 src={logoText}

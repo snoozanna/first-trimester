@@ -33,7 +33,7 @@ const FAQPageWrapper = forwardRef(({ data }, ref) => {
   
       <Header v="ScrollPage" title="FAQs" />
       <FAQPageStyles ref={ref} id="faqs">
-        {/* <SEO title="FAQs" /> */}
+  
    
         <FAQList faqs={faqs} />
       </FAQPageStyles>

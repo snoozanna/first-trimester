@@ -15,6 +15,9 @@ const NavButtonStyles = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 2rem;
+  left: 3rem;
   gap: 2rem;
   z-index: 99;
   .flex-col {
@@ -29,7 +32,13 @@ const NavButtonStyles = styled.div`
     /* background-color: var(--pink); */
     z-index: 999;
   }
- 
+  @media ${devices.mobileL} {
+    width: 25px;
+    top: 1rem;
+    left: 2rem;
+    /* top: var(--padding-mob); */
+    /* left: var(--padding-mob); */
+  }
 `;
 
 const MenuToggleButtonStyles = styled.div`

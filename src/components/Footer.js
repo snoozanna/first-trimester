@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { MenuContext } from '../context/menu.context';
 import logoText from "../assets/images/text_sperm_hor.gif";
-
+import sperm from "./../assets/images/sperm.gif";
 import HeroButton from './HeroButton';
 import { devices } from '../styles/breakpoints';
 
 const FooterStyles = styled.footer`
   /* background-color:var(--purple); */
-  z-index: 9999;
+  z-index: 999;
   position: sticky;
   bottom: 0;
   padding: var(--padding);
@@ -23,6 +23,32 @@ const FooterStyles = styled.footer`
     transform: rotate(-9deg);
     img {
       max-width: 13vw;
+    }
+  }
+
+  .site-logo-sperm {
+    /* background-color:var(--purple); */
+    z-index: 99;
+    display: flex;
+    gap: 0.5rem;
+
+    animation: enterWiggle 3s ease-in-out forwards;
+    img {
+      max-width: 20px;
+    }
+    img:nth-child(2) {
+      transform: translate(3px, -30px) scale(1.1);
+      /* display:none; */
+    }
+  }
+
+  @keyframes enterWiggle {
+    0% {
+      transform: translate(-150px, 50px) rotate(70deg);
+    }
+   
+    100% {
+      transform: translateX(0px) rotate(70deg);
     }
   }
 
@@ -55,11 +81,12 @@ const Footer = () => {
 
   return (
     <FooterStyles>
-      <div className="site-logo">
-        <img
-          src={logoText}
-          alt="a wiggling sperm logo which reads Krishna Istha"
-        />
+
+      <div className="site-logo-sperm">
+    
+        <img src={sperm} />
+        <img src={sperm} />
+        <img src={sperm} />
       </div>
       {currentPage !== "/participate" && currentPage !== "/" ? (
         <HeroButton />

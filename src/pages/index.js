@@ -54,22 +54,7 @@ const HomePageStyles = styled.section`
       color: black;
     }
   }
-  .spermZoomWrapper {
-    animation: travel 20s ease 0s 1 normal forwards;
-    @keyframes travel {
-      0% {
-        opacity: 1;
-        transform: rotate(0deg);
-        transform-origin: top;
-      }
-
-      100% {
-        opacity: 0;
-        transform: rotate(40deg) translateY(-1200px);
-        transform-origin: top;
-      }
-    }
-  }
+  
 
   @media ${devices.mobileL} {
     min-height: 85vh;
@@ -101,6 +86,32 @@ const HomePageStyles = styled.section`
       width: inherit;
     }
   }
+`;
+
+const SpermAnimStyles = styled.div`
+max-width: 200px;
+position:fixed ;
+display:flex;
+right: 0;
+opacity: 0.3;
+    /* animation: travel 20s ease 0s infinite normal forwards; */
+    @keyframes travel {
+      0% {
+        opacity: 0.3;
+        transform: rotate(0deg);
+        transform-origin: top;
+      }
+
+      100% {
+        opacity: 0;
+        transform: rotate(10deg) translateY(-1200px);
+        transform-origin: top;
+      }
+    }
+  img{
+    max-width: 100%;
+  }
+
 `;
 
 const HomePage = ({ data, location }) => {
@@ -168,7 +179,7 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
-      <SEO/>
+      <SEO />
       <Header v="Home" />
 
       <main>
@@ -177,11 +188,16 @@ const HomePage = ({ data, location }) => {
             <p>Main image</p>
             <h3 className="tagline">Could you be our ideal sperm donor?</h3>
           </div>
-          {/* <div class="spermZoomWrapper">
+          {/* <SpermAnimStyles
+            class="spermZoomWrapper"
+            data-sal="slide-up"
+            data-sal-delay="300"
+            data-sal-easing="ease"
+          >
             <img src={sperm} alt="logo" />
             <img src={sperm} alt="logo" />
             <img src={sperm} alt="logo" />
-          </div> */}
+          </SpermAnimStyles> */}
         </HomePageStyles>
         <InfoPageWrapper data={data.info} ref={infoPageRef} />
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
