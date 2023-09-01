@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
 import sperm from "./../assets/images/sperm.gif"
+import logo from "./../assets/images/FTShowTitle.png"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import SEO from '../components/SEO';
 import { devices } from '../styles/breakpoints.js';
 import { MenuContext } from '../context/menu.context.js';
@@ -15,75 +17,59 @@ import Header from '../components/Header.js';
 
 
 import HugeButton from '../components/HugeButton.js';
+import { useMediaQuery } from '@mui/material';
 
 const HomePageStyles = styled.section`
   /* min-height: 70vh; */
+  background-image: url("https://cdn.sanity.io/images/1mkamazd/production/bd61193c7c3d01aa422ff6a83532c927fbd0952f-1920x1152.png");
+  background-size: cover;
   ::-webkit-scrollbar-track {
     display: none;
   }
   display: flex;
-  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  margin-block-start: 10rem;
-  .hero-text-wrapper {
-    grid-area: b;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    .site-title {
-      font-size: 10rem;
-      margin-bottom: 2rem;
-    }
-    .tagline {
-      font-weight: 600;
-      font-size: 2rem;
-    }
+  .hero-image {
+    margin-block-end: 3rem;
   }
-  .hero-img-wrapper {
-    grid-area: a;
-    background-color: var(--yellow);
-    width: 80%;
-    height: 400px;
+  .hero-logo-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    span {
-      text-align: center;
-      color: black;
-    }
+    flex-direction: column;
   }
-  
+  .placeholder {
+    width: 40%;
+  }
+  .hero-logo-wrapper,
+  .placeholder {
+    max-width: 40%;
+  }
+  .tagline {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  h3.tagline {
+    margin-block-end: 2rem;
+  }
 
   @media ${devices.mobileL} {
     min-height: 85vh;
-    grid-template-columns: repeat(3, minmax(50px, 1fr));
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      "a a ."
-      "a a b"
-      ". e d";
-    gap: 2rem;
-    .hero-text-wrapper {
-      grid-row-start: 2;
-      grid-row-end: 2;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      align-items: start;
-      .site-title {
-        font-size: 6rem;
-        margin-bottom: 2rem;
-        text-align: right;
-        width: min-content;
-        .tagline {
-          backgroundcolor: var(--yellow);
-        }
-      }
+    .placeholder {
+      width: 30%;
     }
-    .hero-img-wrapper {
-      height: 300px;
-      width: inherit;
+    .hero-logo-wrapper {
+      max-width: 65%;
+      margin-block-end: 15rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    h3.tagline,
+    h4.tagline {
+      text-align: left;
+      font-weight: 900;
+      max-width: 60%;
     }
   }
 `;
@@ -116,8 +102,10 @@ opacity: 0.3;
 
 const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
-    // const [prevScrollPos, setPrevScrollPos] = useState(0);
-    // const [visible, setVisible] = useState(true);
+  const heroImageData = data.general.nodes[0].hero.asset;
+  const heroImage = getImage(heroImageData);
+ const matches = useMediaQuery("(min-width:428px)");
+
 
   // create the refs
   const infoPageRef = useRef(null);
@@ -183,21 +171,25 @@ const HomePage = ({ data, location }) => {
       <Header v="Home" />
 
       <main>
-        <HomePageStyles className="narrow">
-          <div className="hero-text-wrapper">
-            <p>Main image</p>
-            <h3 className="tagline">Could you be our ideal sperm donor?</h3>
+        <HomePageStyles className="hero">
+          <div className="hero-logo-wrapper">
+            {matches ? (<StaticImage
+              src="./../assets/images/FTShowTitle.png"
+              alt={""}
+              placeholder="blurred"
+              // layout="fixed"
+              // width={200}
+              height={200}
+              className="hero-image"
+            /> ): null}
+
+            <h3 className="tagline">
+              <span>Looking to participate</span>{" "}
+              <span>in First Trimester?</span>
+            </h3>
+            <h4 className="tagline">You're in the right place!</h4>
           </div>
-          {/* <SpermAnimStyles
-            class="spermZoomWrapper"
-            data-sal="slide-up"
-            data-sal-delay="300"
-            data-sal-easing="ease"
-          >
-            <img src={sperm} alt="logo" />
-            <img src={sperm} alt="logo" />
-            <img src={sperm} alt="logo" />
-          </SpermAnimStyles> */}
+          <div className="placeholder"></div>
         </HomePageStyles>
         <InfoPageWrapper data={data.info} ref={infoPageRef} />
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
@@ -226,6 +218,22 @@ export default HomePage;
 
 export const query = graphql`
   query HomeQuery($FAQRegex: String) {
+    general: allSanityGeneral {
+      nodes {
+        background {
+          asset {
+            gatsbyImageData
+          }
+        }
+        hero {
+          asset {
+            gatsbyImageData
+          }
+          # credit
+          # altText
+        }
+      }
+    }
     info: allSanityInfo {
       nodes {
         id
@@ -233,6 +241,14 @@ export const query = graphql`
         heading
         firstCopy: _rawFirstCopy(resolveReferences: { maxDepth: 5 })
         secondCopy: _rawSecondCopy(resolveReferences: { maxDepth: 5 })
+        image {
+          asset {
+            gatsbyImageData
+          }
+          # credit
+          # altText
+        }
+
       }
     }
     participate: allSanityParticipate {

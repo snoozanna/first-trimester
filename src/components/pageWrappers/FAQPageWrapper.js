@@ -10,7 +10,7 @@ import { devices } from '../../styles/breakpoints';
 import Header from '../Header';
 
 const FAQPageStyles = styled.section`
-  padding: clamp(5px, 1vw, 25px);
+
   min-height: 60vh;
   /* margin: -1vw; */
   max-width: 1920px;

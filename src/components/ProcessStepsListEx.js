@@ -52,7 +52,7 @@ const StepStyles = styled.div`
     width: 100%;
   }
   .step-number-wrapper {
-    background-color: var(--mintgreen);
+    background-color: var(--orange);
     width: fit-content;
     font-weight: 600;
     padding: 0.5rem 1rem;

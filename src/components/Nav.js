@@ -11,7 +11,7 @@ const NavWrapperStyles = styled.div`
 `;
 const NavStyles = styled.nav`
   height: 100%;
-  background-color: var(--purple);
+  background-color: var(--orange);
   padding: 2rem;
   z-index: 99999;
   color: white;
@@ -33,7 +33,7 @@ const NavStyles = styled.nav`
     grid-gap: 2rem;
     align-items: center;
     flex-direction: column;
-    background-color: var(--purple);
+    background-color: var(--orange);
     padding: 2rem;
   }
   li {
@@ -48,6 +48,9 @@ const NavStyles = styled.nav`
       --rotate: -2.5deg;
     }
     &:nth-child(4) {
+      --rotate: 2.5deg;
+    }
+    &:nth-child(6) {
       --rotate: 2.5deg;
     }
   }

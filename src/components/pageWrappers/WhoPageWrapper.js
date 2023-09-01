@@ -10,7 +10,7 @@ const ParticipatePageStyles = styled.section`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 4rem;
   grid-auto-rows: auto;
-  padding: clamp(5px, 1vw, 25px);
+
   min-height: 60vh;
   /* margin: -1vw; */
 
@@ -27,8 +27,7 @@ const ParticipatePageStyles = styled.section`
   }
 
   .hero-img-wrapper {
-    /* min-height: 400px; */
-    /* height: 400px; */
+
     display: flex;
     gap: 2rem;
     flex-direction: column;
@@ -73,10 +72,7 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
         </div>
 
         <div className="hero-img-wrapper">
-          <span className="tagline">
-            {" "}
-            a funny picture of Krishna and Rent holding a doll or something
-          </span>
+         
           <Video url={participate.bslvid} />
         </div>
       </ParticipatePageStyles>

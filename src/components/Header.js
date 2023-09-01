@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import logoText from "../assets/images/text_sperm_hor.gif";
+
+
 import logoTextVer from "../assets/images/text_sperm.gif";
 import { devices } from "../styles/breakpoints.js";
 import NavButton from "./NavButton";
 
 
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { StaticImage } from "gatsby-plugin-image";
 
 const HeaderStyles = styled.header`
   //  on a desktop
   transition: transform 0.3s ease-in-out;
   transform: translateY(0);
-  background-color: var(--purple);
+  background-color: var(--orange);
   margin-block-end: 3rem;
   position: fixed;
   z-index: 2;
@@ -88,7 +90,7 @@ const HeaderStyles = styled.header`
 // Site Title on Desktop 
 const SiteTitleTopStyles = styled.div`
 position:fixed;
-top:2rem;
+top:1.5rem;
 right: 2rem;
 z-index: 999;
 h2 {
@@ -98,7 +100,7 @@ h2 {
   }`;
 
 const HeaderScrollStyles = styled.header`
-  background-color: var(--purple);
+  background-color: var(--orange);
   margin-block-end: 3rem;
   position: sticky;
   z-index: 9;
@@ -108,7 +110,6 @@ const HeaderScrollStyles = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  margin-inline-start: -3rem;
   width: 100vw;
 
   .page-title {
@@ -121,7 +122,6 @@ const HeaderScrollStyles = styled.header`
   @media ${devices.tablet} {
     padding: var(--padding);
     position: inherit;
-    margin-inline-start: calc(var(--padding) * -1);
     justify-content: center;
     .page-title {
       max-width: 33%;
@@ -131,13 +131,12 @@ const HeaderScrollStyles = styled.header`
     }
   }
   @media ${devices.mobileL} {
-    margin-inline-start: calc(var(--padding-mob) * -1);
     position: inherit;
   }
 `;
 
 const HeaderPageStyles = styled.header`
-  background-color: var(--purple);
+  background-color: var(--orange);
   margin-block-end: 3rem;
   position: fixed;
   /* z-index: 9; */
@@ -165,7 +164,6 @@ const HeaderPageStyles = styled.header`
   }
 
   @media ${devices.mobileL} {
-
     padding: var(--padding-mob);
     /* z-index: 9999; */
     .scrollpage {
@@ -190,8 +188,8 @@ const HeaderPageStyles = styled.header`
     .site-logo.hideMob {
       display: none;
     }
-    .page-title{
-      text-align:end;
+    .page-title {
+      text-align: end;
     }
   }
 
@@ -222,7 +220,7 @@ const HeaderPageStyles = styled.header`
 `;
 
 const Header = ({ v, title, visible }) => {
-  const matches = useMediaQuery("(max-width:820px)");
+  const matches = useMediaQuery("(max-width:428px)");
 
 
   switch (v) {
@@ -233,43 +231,38 @@ const Header = ({ v, title, visible }) => {
           {matches ? (
             //  on a mobile
             // <AppBar>
-              <HeaderStyles>
-                <NavButton />
-                <div className=""></div>
-                <div />
-                {/* <div className="site-logo">
-                    <img
-                      src={logoText}
-                      alt="a wiggling sperm logo which reads Krishna Istha"
-                    />
-                  </div> */}
-                <div className="site-title">
-                  <h2>First Trimester</h2>
-                </div>
-              </HeaderStyles>
-            // </AppBar>
+            <HeaderStyles>
+              <NavButton />
+              <div className=""></div>
+
+              <div className="site-title">
+                <StaticImage
+                  src="./../assets/images/FTShowTitle.png"
+                  alt={""}
+                  placeholder="blurred"
+                  // layout="fixed"
+                  // width={200}
+                  height={60}
+                  className="hero-image"
+                />
+              </div>
+              <div />
+            </HeaderStyles>
           ) : (
-            //  on a desktop
-            // <HeaderStyles>
-            //   <NavButton />
-            //   <div className=""></div>
-            //   <div />
-            //   {/* <div className="site-logo">
-            //     <img
-            //       src={logoText}
-            //       alt="a wiggling sperm logo which reads Krishna Istha"
-            //     />
-            //   </div> */}
-            //   <div className="site-title">
-            //     <h2>First Trimester</h2>
-            //   </div>
-            // </HeaderStyles>
-             <>
-               <NavButton />
+            <>
+              <NavButton />
               <SiteTitleTopStyles className="site-title-top">
-                <h2>First Trimester</h2>
+                <StaticImage
+                  src="./../assets/images/FTShowTitle.png"
+                  alt={""}
+                  placeholder="blurred"
+                  // layout="fixed"
+                  // width={200}
+                  height={60}
+                  className="hero-image"
+                />
               </SiteTitleTopStyles>
-             </>
+            </>
           )}
         </>
       );

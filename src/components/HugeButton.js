@@ -4,14 +4,12 @@ import styled from 'styled-components';
 import { devices } from '../styles/breakpoints';
 
 const HugeButtonStyles = styled.div`
-  width: 100%;
-  background-color: var(--yellow);
   padding: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   .huge-button {
-    background-color: var(--purple);
+    background-color: var(--orange);
     padding: 2rem;
     border-radius: 10px;
     span {
@@ -21,12 +19,20 @@ const HugeButtonStyles = styled.div`
     }
   }
   .huge-button:hover {
-    background-color: var(--brightpurple);
+    background-color: var(--yellow);
+
     span {
+      color: black;
     }
   }
   @media ${devices.mobileL} {
     background-color: transparent;
+    .huge-button {
+  
+      span {
+      text-align:center;
+      }
+    }
   }
 `;
 

@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-import krishna from '../../assets/images/krishnaHeadShot.jpg';
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import spermAlone from '../../assets/images/SpermAlone.png';
 import Video from '../Video';
-
+// import background from "/static/BackgroundLow.png"
 import { devices } from '../../styles/breakpoints';
 
 import Header from '../Header';
@@ -12,7 +12,9 @@ import Header from '../Header';
 
 const InfoPageStyles = styled.section`
   min-height: 60vh;
-  /* margin: -1vw; */
+  /* background-image: url(${background}); */
+  background-size:cover;
+  /* margin: -3vw; */
   .info-text-wrapper {
     display: flex;
     justify-content: center;
@@ -29,7 +31,7 @@ const HeroInfoStyles = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 4rem;
   grid-auto-rows: auto;
-  padding: clamp(5px, 1vw, 25px);
+
 `;
 
 const QuestionsStyles = styled.div`
@@ -39,7 +41,7 @@ const QuestionsStyles = styled.div`
   letter-spacing: 0.2rem;
   width: 100%;
   padding: var(--padding);
-  color: var(--lightgreen);
+  color: var(--white);
   display: flex;
   justify-content: center;
   font-variation-settings: 'wght' 600;
@@ -57,7 +59,9 @@ const QuestionsStyles = styled.div`
 const InfoPageWrapper = forwardRef(({ data }, ref) => {
   InfoPageWrapper.displayName = 'InfoPageWrapper';
   const info = data.nodes[0];
+const imageData = data.nodes[0].image.asset;
 
+const image = getImage(imageData);
   // useEffect(() => {
   //   setCurrentPage(pathname);
   // }, []);
@@ -70,7 +74,8 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
         <HeroInfoStyles className="hero-content-wrapper section narrow">
           <div className="hero-img-wrapper">
             {/* <span className="tagline">Show image</span> */}
-            <img src={krishna} alt="Krishna" />
+      
+            <GatsbyImage image={image} alt={"hi"} />
           </div>
           <div className="hero-text-wrapper">
             <div className="funTitle green">

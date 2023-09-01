@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/bg.svg';
 import stripes from '../assets/images/stripes.svg';
 import { devices } from './breakpoints.js';
+import background from "./../../static/BackgroundLow.png"
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -15,12 +16,14 @@ const GlobalStyles = createGlobalStyle`
     --mustyblue: #5E87EF;
     --mintgreen: #32D7B9;
     --lightgreen: #98e9d4;
+    --orange: #dc7a30;
     /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
      --purple:#ef5ea8;
      --brightpurple:rgba(129,73,245,1);
-    --clr-neon: hsl(300 85% 73%);
+    --clr-neon: 	hsl(17, 100%, 56%);
   --clr-bg: hsl(323 21% 16%);
-  --clr-blue-neon: #32D7B9;
+  /* --clr-blue-neon: #32D7B9; */
+  --clr-blue-neon:  #FDC24C;
     --headings: "Inter";
     --subheadings: "Inconsolata";
     --body:"Inter";
@@ -29,12 +32,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    /* background-image: url(${bg}); */
-    background-color: var(--blue) ;
-  background: rgb(62,49,222);
-background: linear-gradient(344deg, rgba(62,49,222,1) 0%, rgba(129,73,245,1) 100%);
+ 
+    background-color: var(--orange) ;
+
+background-image: url(${background});
+background-size:cover ;
     /* background-size: 450px; */
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
     font-size: 10px;
   }
 
@@ -154,13 +158,13 @@ button * {
   }
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--mintgreen) var(--white);
+    scrollbar-color: var(--orange) var(--white);
   }
   body::-webkit-scrollbar-track {
     background: var(--white);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--mintgreen) ;
+    background-color: var(--orange) ;
     border-radius: 6px;
     border: 3px solid var(--white);
   }
@@ -234,7 +238,7 @@ ul.typographic {
 
   main{
     margin-block-end: 8rem;
-     padding: var(--padding);
+     /* padding: var(--padding); */
   }
 
   section{
@@ -242,25 +246,31 @@ ul.typographic {
     margin-block-end:10rem;
     
   }
-   section.wide{
+section.wide{
   max-width: 100vw;
  }
 
-  section.narrow, .section.narrow {
+ section.hero{
+ }
+
+  section.narrow  {
     max-width: 1000px;
     margin-left: auto;
      margin-right: auto;
+      margin-block-end:10rem;
 
 }
- section.narrow{
- margin-block-end:10rem;
- }
+
 
   @media ${devices.mobileL} {
-main{
-  padding: var(--padding-mob);
+section{
+  padding: var(--padding);
    
 }
+ section.hero{
+background-size: cover;
+     background-position: 61%;
+ }
  .hshow{
       display:inherit;
       /* transition: transform 5s ease-in-out; */
@@ -274,10 +284,13 @@ main{
 
  @media ${devices.tablet} {
 
-main{
+section{
   padding: var(--padding);
-   
 }
+section.hero{
+background-size: cover;
+ background-position:58%;
+ }
 }
 
   

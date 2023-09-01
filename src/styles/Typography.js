@@ -76,7 +76,7 @@ h2{
   }
 
    .funTitle.green{
-    color: var(--lightgreen);
+    color: var(--white);
   }
 
   span.emphasis, blockquote{
@@ -84,7 +84,7 @@ h2{
   font-variation-settings: 'wght' 900;
   font-size: 2rem;
   letter-spacing: 0.2rem;
-     color: var(--lightgreen);
+     color: var(--white);
      text-transform:uppercase;
      margin-block-end:2rem;
      margin-inline-start:inherit;
@@ -93,7 +93,7 @@ h2{
 
   
   a {
-    color: var(--mintgreen);
+    color: var(--yellow);
     text-decoration-color: var(--red);
     /* Chrome renders this weird with this font, so we turn it off */
     text-decoration-skip-ink: none;

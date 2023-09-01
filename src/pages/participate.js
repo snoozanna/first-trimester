@@ -50,7 +50,7 @@ const IntroTextStyles = styled.div`
   letter-spacing: 0.2rem;
   width: 100%;
   padding: var(--padding);
-  color: var(--lightgreen);
+  color: var(--white);
   display: flex;
   /* justify-content: center; */
   font-variation-settings: "wght" 600;

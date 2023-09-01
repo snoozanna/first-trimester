@@ -33,7 +33,7 @@ const StepsPageStyles = styled.section`
     }
   }
   @media ${devices.mobileL} {
-    padding: 1rem;
+
     .funTitle > h3 {
       text-align: center;
     }
@@ -61,7 +61,7 @@ const TimeStyles = styled.div`
     letter-spacing: 0.2rem;
     width: 100%;
     padding: var(--padding);
-    color: var(--lightgreen);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;

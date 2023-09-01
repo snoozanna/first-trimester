@@ -9,15 +9,9 @@ import { PortableText } from "@portabletext/react";
 import { devices } from '../styles/breakpoints';
 
 const FAQListStyles = styled.div`
-  display: grid;
-  /* Take your row sizing not from pizza styles div but the pizza styles grid  */
-  @supports not (grid-template-rows: subgrid) {
-    --rows: auto auto auto 1fr;
-  }
-  grid-template-rows: var(--rows, subgrid);
-  /* chrome doesn't support subgrid  */
-  grid-row: span 3;
-  grid-gap: 1rem;
+
+      max-width: 1080px;
+    margin: auto;
   h2,
   p {
     margin: 0;
