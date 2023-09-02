@@ -7,12 +7,10 @@ import Header from '../Header';
 
 const ParticipatePageStyles = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: var(--grid-pad-set);
   gap: 4rem;
   grid-auto-rows: auto;
-
   min-height: 60vh;
-  /* margin: -1vw; */
 
   .hero-text-wrapper {
     display: flex;
@@ -27,7 +25,6 @@ const ParticipatePageStyles = styled.section`
   }
 
   .hero-img-wrapper {
-
     display: flex;
     gap: 2rem;
     flex-direction: column;

@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
     --body:"Inter";
     --padding: 3rem;
     --padding-mob:1.5rem;
+    --grid-pad-set:repeat(auto-fit,minmax(300px,1fr));
   }
 
   html {
@@ -132,7 +133,7 @@ button * {
   }
 
   button {
-    background: var(--purple);
+    background: var(--orange);
     color: white;
     border: 0;
     padding: 0.6rem 1rem;
@@ -269,7 +270,7 @@ section{
 }
  section.hero{
 background-size: cover;
-     background-position: 61%;
+     background-position: 56%;
  }
  .hshow{
       display:inherit;

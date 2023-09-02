@@ -7,38 +7,25 @@ import HeroButton from './HeroButton';
 import { devices } from '../styles/breakpoints';
 
 const FooterStyles = styled.footer`
-  /* background-color:var(--purple); */
   z-index: 999;
   position: sticky;
   bottom: 0;
   padding: var(--padding);
-  /* padding-top: 0; */
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: end;
-  .site-logo {
-    /* background-color:var(--purple); */
-    z-index: 99;
-    transform: rotate(-9deg);
-    img {
-      max-width: 13vw;
-    }
-  }
-
   .site-logo-sperm {
-    /* background-color:var(--purple); */
     z-index: 99;
     display: flex;
     gap: 0.5rem;
-
     animation: enterWiggle 3s ease-in-out forwards;
     img {
       max-width: 20px;
     }
     img:nth-child(2) {
       transform: translate(3px, -30px) scale(1.1);
-      /* display:none; */
+  
     }
   }
 
@@ -54,25 +41,11 @@ const FooterStyles = styled.footer`
 
   @media ${devices.mobileL} {
     align-items: end;
-    .site-logo {
-      /* background-color:var(--purple); */
-      z-index: 99;
-      transform: rotate(-9deg);
-      img {
-        max-width: 35vw;
-      }
-    }
+    
   }
 
   @media ${devices.tablet} {
-    .site-logo {
-      z-index: 99;
-      transform: rotate(-13deg);
-      max-width: 33%;
-      img {
-        max-width: 25vw;
-      }
-    }
+  
   }
 `;
 

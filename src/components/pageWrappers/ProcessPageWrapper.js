@@ -110,7 +110,6 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
           </div>
           <span className="disclaimer">Click each step to expand</span>
         </div>
-        {/* <PortableText value={participate.copy} /> */}
         <ProcessStepsListEx steps={steps} />
         <WrapperStyles className="flex-wrapper">
           <TimeStyles>

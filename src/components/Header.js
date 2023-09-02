@@ -238,7 +238,7 @@ const Header = ({ v, title, visible }) => {
               <div className="site-title">
                 <StaticImage
                   src="./../assets/images/FTShowTitle.png"
-                  alt={""}
+                  alt={"First Trimester Logo"}
                   placeholder="blurred"
                   // layout="fixed"
                   // width={200}
@@ -254,7 +254,7 @@ const Header = ({ v, title, visible }) => {
               <SiteTitleTopStyles className="site-title-top">
                 <StaticImage
                   src="./../assets/images/FTShowTitle.png"
-                  alt={""}
+                  alt={"First Trimester Logo"}
                   placeholder="blurred"
                   // layout="fixed"
                   // width={200}

@@ -17,6 +17,7 @@ const FAQPageStyles = styled.section`
   width:100% ;
   display: flex;
   flex-direction: column;
+  margin:auto
   .css-wldg4a-MuiPaper-root-MuiAccordion-root:before {
     background-color: transparent;
   }

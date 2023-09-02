@@ -34,7 +34,7 @@ const FormStyles = styled.form`
   button {
     width: fit-content;
     margin: auto;
-    color: black;
+    color: white;
     --cast: 5px;
     box-shadow: var(--cast) var(--cast) 0 var(--black);
     font-weight: 600;

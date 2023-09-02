@@ -46,12 +46,19 @@ const HomePageStyles = styled.section`
     max-width: 40%;
   }
   .tagline {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
   }
   h3.tagline {
     margin-block-end: 2rem;
+  }
+
+  @media ${devices.tablet} {
+    .hero-logo-wrapper,
+    .placeholder {
+      margin-block-end: 31rem;
+    }
   }
 
   @media ${devices.mobileL} {
@@ -61,9 +68,12 @@ const HomePageStyles = styled.section`
     }
     .hero-logo-wrapper {
       max-width: 65%;
-      margin-block-end: 15rem;
       display: flex;
       align-items: flex-start;
+    }
+    .hero-logo-wrapper,
+    .placeholder {
+      margin-block-end: 0;
     }
     h3.tagline,
     h4.tagline {

@@ -14,7 +14,6 @@ import { styled } from 'styled-components';
 
 const DonatePageStyles = styled.section`
   margin-block-start: 10rem;
-  padding: clamp(5px, 1vw, 25px);
   min-height: 60vh;
   /* margin: -1vw; */
   display: grid;
@@ -52,10 +51,10 @@ const IntroTextStyles = styled.div`
   padding: var(--padding);
   color: var(--white);
   display: flex;
-  /* justify-content: center; */
+
   font-variation-settings: "wght" 600;
   ul.questions-list {
-    /* list-style-type: "🤯"; */
+
     li {
       margin-block-end: 1rem;
     }
@@ -136,9 +135,7 @@ const DonatePage = ({ location }) => {
             </p>
           </div>
           <div>
-            {/* <div className="page-title">
-              <h2>Apply to Participate</h2>
-            </div> */}
+       
             {showForm ? (
               <DonateForm
                 showForm={() => setShowForm(false)}

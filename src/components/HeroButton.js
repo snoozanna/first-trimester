@@ -11,7 +11,7 @@ const HeroButtonStyles = styled.div`
     span {
       font-size: 2.5rem;
       font-family: var(--subheadings);
-      color: white;
+      color: #771f1a;
       text-align: center;
       margin-left: inherit;
       @media ${devices.mobileL} {
@@ -30,14 +30,17 @@ const HeroButtonStyles = styled.div`
     border: var(--clr-blue-neon) 0.125em solid;
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    box-shadow: inset 0 0 0.5em 0 var(--clr-blue-neon),
+    text-shadow:
+      0 0 0.125em hsl(0 0% 100% / 0.3),
+      0 0 0.45em currentColor;
+    box-shadow:
+      inset 0 0 0.5em 0 var(--clr-blue-neon),
       0 0 0.5em 0 var(--clr-blue-neon);
 
     position: relative;
   }
   .neon-button::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;

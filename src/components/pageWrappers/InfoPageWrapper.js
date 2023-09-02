@@ -1,10 +1,9 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import spermAlone from '../../assets/images/SpermAlone.png';
 import Video from '../Video';
-// import background from "/static/BackgroundLow.png"
 import { devices } from '../../styles/breakpoints';
 
 import Header from '../Header';
@@ -12,9 +11,8 @@ import Header from '../Header';
 
 const InfoPageStyles = styled.section`
   min-height: 60vh;
-  /* background-image: url(${background}); */
   background-size:cover;
-  /* margin: -3vw; */
+
   .info-text-wrapper {
     display: flex;
     justify-content: center;
@@ -28,10 +26,9 @@ const InfoPageStyles = styled.section`
 
 const HeroInfoStyles = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: var(--grid-pad-set);
   gap: 4rem;
   grid-auto-rows: auto;
-
 `;
 
 const QuestionsStyles = styled.div`
@@ -69,11 +66,11 @@ const image = getImage(imageData);
   return (
     <>
       <Header v="ScrollPage" title="Info" />
-      {/* <HeaderPage title="Info" /> */}
-      <InfoPageStyles ref={ref} id="info">
+
+      <InfoPageStyles ref={ref} id="info" className="narrow">
         <HeroInfoStyles className="hero-content-wrapper section narrow">
           <div className="hero-img-wrapper">
-            {/* <span className="tagline">Show image</span> */}
+  
       
             <GatsbyImage image={image} alt={"hi"} />
           </div>

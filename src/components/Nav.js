@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import styled from 'styled-components';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { MenuContext } from '../context/menu.context';
+import { StaticImage } from 'gatsby-plugin-image';
 // import '../styles/components/Nav.css';
 
 const NavWrapperStyles = styled.div`
@@ -15,13 +16,15 @@ const NavStyles = styled.nav`
   padding: 2rem;
   z-index: 99999;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h2 {
     font-size: 2rem;
     text-align: center;
   }
-  .logo {
-    transform: translateY(-25%;);
-  }
+ 
   ul {
     height: 100%;
     margin: 0;
@@ -65,6 +68,9 @@ const NavStyles = styled.nav`
       color: var(--yellow);
     } */
   }
+  .gatsby-image-wrapper {
+    overflow:inherit
+  }
 `;
 
 const Nav = () => {
@@ -87,7 +93,15 @@ const Nav = () => {
         onKeyDown={handleDrawer()}
       >
         <NavStyles>
-          <h2>First Trimester</h2>
+          <StaticImage
+            src="./../assets/images/FTShowTitle.png"
+            alt={"First Trimester Logo"}
+            placeholder="blurred"
+            // layout="fixed"
+            // width={200}
+            height={60}
+            className="nav-logo"
+          />
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -129,7 +143,8 @@ const Nav = () => {
             <li>
               <a
                 href="https://bac.org.uk/whats-on/first-trimester/"
-                rel="noreferrer" target="blank"
+                rel="noreferrer"
+                target="blank"
               >
                 Book tickets
               </a>
