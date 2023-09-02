@@ -8,7 +8,7 @@ import icon from '../assets/images/menu.png';
 
 // import sperm from '../assets/images/sperm.gif';
 import Nav from './Nav';
-import ScrollText from './ScrollText';
+
 
 const NavButtonStyles = styled.div`
   width: fit-content;
@@ -29,15 +29,14 @@ const NavButtonStyles = styled.div`
 
   button {
     box-shadow: none;
-    /* background-color: var(--pink); */
+  
     z-index: 999;
   }
   @media ${devices.mobileL} {
     width: 25px;
     top: 1rem;
     left: 2rem;
-    /* top: var(--padding-mob); */
-    /* left: var(--padding-mob); */
+
   }
 `;
 
@@ -51,7 +50,7 @@ const MenuToggleButtonStyles = styled.div`
 `;
 
 const NavButton = () => {
-  const { isOpen, toggle, currentPage } = useContext(MenuContext);
+  const { isOpen, toggle } = useContext(MenuContext);
   const isBrowser = typeof window !== 'undefined';
 
   return (

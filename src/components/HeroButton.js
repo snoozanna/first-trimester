@@ -11,7 +11,7 @@ const HeroButtonStyles = styled.div`
     span {
       font-size: 2.5rem;
       font-family: var(--subheadings);
-      color: #771f1a;
+      color: var(--rusty);
       text-align: center;
       margin-left: inherit;
       @media ${devices.mobileL} {

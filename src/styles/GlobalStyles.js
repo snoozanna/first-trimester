@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/bg.svg';
 import stripes from '../assets/images/stripes.svg';
 import { devices } from './breakpoints.js';
-import background from "./../../static/BackgroundLow.png"
+import background from "./../assets/images/BackgroundLow.png"
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     --orange: #dc7a30;
     /* --purple: hsl(16.88deg 96.55% 45.49% / 30.98%); */
      --purple:#ef5ea8;
+     --rusty:#771f1a;
      --brightpurple:rgba(129,73,245,1);
     --clr-neon: 	hsl(17, 100%, 56%);
   --clr-bg: hsl(323 21% 16%);

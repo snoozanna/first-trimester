@@ -220,6 +220,9 @@ const HeaderPageStyles = styled.header`
 `;
 
 const Header = ({ v, title, visible }) => {
+    if (typeof window === "undefined") {
+      return null;
+    }
   const matches = useMediaQuery("(max-width:428px)");
 
 

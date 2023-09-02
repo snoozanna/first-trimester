@@ -22,15 +22,14 @@ const HugeButtonStyles = styled.div`
     background-color: var(--yellow);
 
     span {
-      color: black;
+      color: var(--rusty);
     }
   }
   @media ${devices.mobileL} {
     background-color: transparent;
     .huge-button {
-  
       span {
-      text-align:center;
+        text-align: center;
       }
     }
   }

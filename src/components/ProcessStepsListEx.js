@@ -44,7 +44,7 @@ const StepStyles = styled.div`
     font-weight: 400;
   }
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-align: center;
     width: 100%;
   }
@@ -65,7 +65,7 @@ const StepStyles = styled.div`
     .step-number {
       font-size: 2rem;
       font-weight: 600;
-      font-family: var(--headings);
+      font-family: var(--subheadings);
       color: var(--black);
     }
   }

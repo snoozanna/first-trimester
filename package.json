@@ -38,6 +38,7 @@
     "gatsby-image": "^3.11.0",
     "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-google-gtag": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-material-ui": "^4.0.2",
     "gatsby-plugin-netlify": "^5.1.0",
