@@ -43,10 +43,18 @@ const GlobalStyles = createGlobalStyle`
 /* GENERICS */
   html,
 body {
+  width: 100%;
+	height: 100%;
   background-image: url(${background});
 background-size:cover ;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
     /* background-size: 450px; */
     background-attachment: fixed;
+    transform: translate3d(0,0,0);
+-webkit-transform: translate3d(0,0,0);
   min-height: 100vh;
     font-size: 1.6rem;
   margin: 0;
