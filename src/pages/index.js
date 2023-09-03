@@ -54,6 +54,10 @@ const HomePageStyles = styled.section`
     margin-block-end: 2rem;
   }
 
+  .background-mob{
+    display:none;
+  }
+
   @media ${devices.tablet} {
     grid-template-columns: 2fr 1fr;
     .hero-logo-wrapper {
@@ -156,43 +160,52 @@ const HomePage = ({ data, location }) => {
     <>
       <SEO />
       <Header v="Home" />
-
+      <StaticImage
+        src="./../assets/images/BackgroundLow.png"
+        placeholder="blurred"
+        // layout="fixed"
+        alt=""
+        className="background-mob"
+      />
       <main>
         <HomePageStyles className="hero">
-       
-           {matches ? (<GatsbyImage
-          image={heroImage}
-          alt="Krishna is kneeling in front of a mottled orangey yellow background"
-          className="hero-image-krishna"
-          placeholder="blurred"
-          width={2000}
-          // quality={100}
-          imgStyle={{
-            objectPosition: `${hotspot.x * 100}% ${hotspot.y * 100}%`,
-          }}
-          /> ) : (<StaticImage
-          src="./../assets/images/Hero_LowMob.png"
-          placeholder="blurred"
-          // layout="fixed"
-          alt="Krishna is kneeling in front of a mottled orangey yellow background"
-          quality={100}
-          // width={400}
-          className="hero-image-krishna"
-          /> 
-         )}
-    
-         
-       <div className="hero-logo-wrapper">
-            {matches ?  <StaticImage
-              src="./../assets/images/FTShowTitle.png"
-              alt={""}
+          {matches ? (
+            <GatsbyImage
+              image={heroImage}
+              alt="Krishna is kneeling in front of a mottled orangey yellow background"
+              className="hero-image-krishna"
+              placeholder="blurred"
+              width={2000}
+              // quality={100}
+              imgStyle={{
+                objectPosition: `${hotspot.x * 100}% ${hotspot.y * 100}%`,
+              }}
+            />
+          ) : (
+            <StaticImage
+              src="./../assets/images/Hero_LowMob.png"
               placeholder="blurred"
               // layout="fixed"
-              // width={200}
+              alt="Krishna is kneeling in front of a mottled orangey yellow background"
+              quality={100}
               // width={400}
-              className="hero-image-logo"
-            />: null}
-    
+              className="hero-image-krishna"
+            />
+          )}
+
+          <div className="hero-logo-wrapper">
+            {matches ? (
+              <StaticImage
+                src="./../assets/images/FTShowTitle.png"
+                alt={""}
+                placeholder="blurred"
+                // layout="fixed"
+                // width={200}
+                // width={400}
+                className="hero-image-logo"
+              />
+            ) : null}
+
             <h3 className="tagline">
               <span>Looking to participate</span>{" "}
               <span>in First Trimester?</span>

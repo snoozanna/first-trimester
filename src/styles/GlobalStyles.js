@@ -43,8 +43,7 @@ const GlobalStyles = createGlobalStyle`
 /* GENERICS */
   html,
 body {
-  width: 100%;
-	height: 100%;
+
   background-image: url(${background});
 background-size:cover ;
 -webkit-background-size: cover;
@@ -53,8 +52,7 @@ background-size:cover ;
 background-size: cover;
     /* background-size: 450px; */
     background-attachment: fixed;
-    transform: translate3d(0,0,0);
--webkit-transform: translate3d(0,0,0);
+    /* new attempt  */
   min-height: 100vh;
     font-size: 1.6rem;
   margin: 0;
@@ -322,6 +320,21 @@ section.hero{
   }
 }
 
+ .background-mob{
+  display:none;
+ }
+
+@media ${devices.mobileL} {
+  html,
+body {
+  background-image: none;
+}
+  .background-mob{
+    position: fixed;
+    height: 120vh;
+    z-index: -9;
+  }
+}
 
 
 `;
