@@ -160,13 +160,14 @@ const HomePage = ({ data, location }) => {
     <>
       <SEO />
       <Header v="Home" />
+      {matches ? null : (
       <StaticImage
         src="./../assets/images/BackgroundLow.png"
         placeholder="blurred"
         // layout="fixed"
         alt=""
         className="background-mob"
-      />
+      />)}
       <main>
         <HomePageStyles className="hero">
           {matches ? (
