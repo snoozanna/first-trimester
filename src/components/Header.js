@@ -164,7 +164,7 @@ const HeaderPageStyles = styled.header`
   }
 
   @media ${devices.mobileL} {
-    padding: var(--padding-mob);
+    /* padding: var(--padding-mob); */
     /* z-index: 9999; */
     .scrollpage {
       justify-content: center;

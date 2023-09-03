@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-
+import { useMediaQuery } from "@mui/material";
 
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import CalendarWidget from '../components/CalendarWidget';
@@ -11,6 +11,7 @@ import { devices } from '../styles/breakpoints.js';
 // import HeaderMob from '../components/HeaderMob';
 import Header from "../components/Header.js";
 import { styled } from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const DonatePageStyles = styled.section`
   margin-block-start: 10rem;
@@ -75,7 +76,7 @@ const DonatePage = ({ location }) => {
   const { pathname } = location;
   const [showWidget, setShowWidget] = useState(false);
   const [showForm, setShowForm] = useState(true);
-
+  const matches = useMediaQuery("(min-width:428px)");
 
   useEffect(() => {
     setCurrentPage(pathname);
@@ -83,11 +84,19 @@ const DonatePage = ({ location }) => {
 
   return (
     <>
-      <Header
-        title="Apply to Participate"
-        v="SinglePage"
-    
-      />
+      <Header title="Apply to Participate" v="SinglePage" />
+      {matches ? null : (
+        <StaticImage
+          src="./../assets/images/BackgroundLow.png"
+          placeholder="blurred"
+          // layout="fixed"
+          alt=""
+          className="background-mob"
+          style={{
+            position: "fixed",
+          }}
+        />
+      )}
       <main>
         <DonatePageStyles className="narrow">
           <div className="info-text-wrapper">
@@ -120,7 +129,7 @@ const DonatePage = ({ location }) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                Do let us know in the form if you have other access
+                  Do let us know in the form if you have other access
                   requirements.
                 </li>
               </ul>
@@ -135,7 +144,6 @@ const DonatePage = ({ location }) => {
             </p>
           </div>
           <div>
-       
             {showForm ? (
               <DonateForm
                 showForm={() => setShowForm(false)}

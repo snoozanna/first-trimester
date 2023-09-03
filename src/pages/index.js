@@ -54,9 +54,7 @@ const HomePageStyles = styled.section`
     margin-block-end: 2rem;
   }
 
-  .background-mob{
-    display:none;
-  }
+ 
 
   @media ${devices.tablet} {
     grid-template-columns: 2fr 1fr;

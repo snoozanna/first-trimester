@@ -334,6 +334,7 @@ body {
   .background-mob{
     display:inherit;
     position: fixed;
+    top:0;
     height: 120vh;
     z-index: -9;
   }
