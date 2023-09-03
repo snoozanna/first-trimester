@@ -37,7 +37,7 @@ const HomePageStyles = styled.section`
   }
   .hero-logo-wrapper {
     grid-area: a;
-    z-index: 99;
+    z-index: 9;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -287,9 +287,9 @@ section.hero{
 section{
   padding: var(--padding);
 }
+
 section.hero{
-background-size: cover;
- background-position:58%;
+    padding: 0;
  }
 }
 
