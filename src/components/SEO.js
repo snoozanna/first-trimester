@@ -12,6 +12,23 @@ export default function SEO({ children, location, description, title, image }) {
           twitter
         }
       }
+      general: allSanityGeneral {
+        nodes {
+          
+          hero {
+            asset {
+              gatsbyImageData
+            }
+            hotspot {
+              x
+              y
+              width
+              height
+            }
+         
+          }
+        }
+      }
     }
   `);
 

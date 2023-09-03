@@ -86,8 +86,8 @@ const FAQList = ({ faqs }) => {
     <>
       <FAQListStyles>
         {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
-          <div className="category-wrapper">
-            <div key={category} id={category.toLowerCase()}>
+          <div className="category-wrapper" key={category}>
+            <div  id={category.toLowerCase()}>
               <div className="funTitle green">
                 <h3 className="catName">{category}</h3>
               </div>
@@ -96,7 +96,6 @@ const FAQList = ({ faqs }) => {
                 <SingleFAQ faq={faq} key={faq.id} />
               ))}
             </div>
-      
           </div>
         ))}
       </FAQListStyles>

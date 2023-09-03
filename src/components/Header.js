@@ -236,7 +236,7 @@ const Header = ({ v, title, visible }) => {
             // <AppBar>
             <HeaderStyles>
               <NavButton />
-              <div className=""></div>
+              <div></div>
 
               <div className="site-title">
                 <StaticImage
@@ -274,7 +274,7 @@ const Header = ({ v, title, visible }) => {
       return (
         <>
           <HeaderScrollStyles className="scrollpage">
-            <div className />
+            <div />
             <div className="page-title">
               <h2>{title}</h2>
             </div>

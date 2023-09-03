@@ -101,7 +101,7 @@ h2{
   }
 
     a:hover {
-    color: var(--yellow);
+    color: var(--rusty);
     
   }
 

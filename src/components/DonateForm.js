@@ -67,9 +67,9 @@ const InputItemStyles = styled.div`
     border: none;
     border-radius: 10px;
   }
-  input[type="submit"] {
+  /* input[type="submit"] {
     background-color: "pink";
-  }
+  } */
   input:focus, textarea:focus {
     background-color: var(--mintgreen);
     color: black;

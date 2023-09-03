@@ -102,12 +102,12 @@ a {
   /* You MUST make sure that links stand out from nomal text though...*/
 }
 
-/*
-    a:hover,
+
+ /* a:hover,
     a:focus {
-      text-decoration: underline;
-    }
-  */
+ color: var(--rusty)
+ } */
+ 
 
 /* stops icons being the target of JS click events */
 a.btn *,
@@ -252,8 +252,7 @@ section.wide{
   max-width: 100vw;
  }
 
- section.hero{
- }
+ 
 
   section.narrow  {
     max-width: 1000px;
@@ -267,12 +266,11 @@ section.wide{
   @media ${devices.mobileL} {
 section{
   padding: var(--padding);
-   
 }
- section.hero{
-background-size: cover;
-     background-position: 56%;
+section.hero{
+  padding: 0;
  }
+
  .hshow{
       display:inherit;
       /* transition: transform 5s ease-in-out; */

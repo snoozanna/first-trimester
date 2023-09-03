@@ -19,7 +19,7 @@ const NavButtonStyles = styled.div`
   top: 2rem;
   left: 3rem;
   gap: 2rem;
-  z-index: 99;
+  z-index: 9999;
   .flex-col {
     display: flex;
     flex-direction: column;
@@ -29,14 +29,13 @@ const NavButtonStyles = styled.div`
 
   button {
     box-shadow: none;
-  
+
     z-index: 999;
   }
   @media ${devices.mobileL} {
     width: 25px;
     top: 1rem;
     left: 2rem;
-
   }
 `;
 

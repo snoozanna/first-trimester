@@ -1,9 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import styled from 'styled-components';
-import sperm from "./../assets/images/sperm.gif"
-import logo from "./../assets/images/FTShowTitle.png"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image";
 import SEO from '../components/SEO';
 import { devices } from '../styles/breakpoints.js';
@@ -15,36 +12,39 @@ import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
 import FAQPageWrapper from "../components/pageWrappers/FAQPageWrapper.js";
 import Header from '../components/Header.js';
 
-
 import HugeButton from '../components/HugeButton.js';
 import { useMediaQuery } from '@mui/material';
 
 const HomePageStyles = styled.section`
-  /* min-height: 70vh; */
-  background-image: url("https://cdn.sanity.io/images/1mkamazd/production/bd61193c7c3d01aa422ff6a83532c927fbd0952f-1920x1152.png");
-  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "a b "
+    "a d";
+  max-height: 100vh;
   ::-webkit-scrollbar-track {
     display: none;
   }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .hero-image {
+  .hero-image-krishna {
+    grid-column: a / b;
+    grid-row: a/ c;
+  }
+  .hero-image-logo {
     margin-block-end: 3rem;
+    width: fit-content;
+    width: 80%;
   }
   .hero-logo-wrapper {
+    grid-area: a;
+    z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
   }
-  .placeholder {
-    width: 40%;
-  }
-  .hero-logo-wrapper,
-  .placeholder {
-    max-width: 40%;
-  }
+
   .tagline {
     text-align: left;
     display: flex;
@@ -55,74 +55,51 @@ const HomePageStyles = styled.section`
   }
 
   @media ${devices.tablet} {
-    .hero-logo-wrapper,
-    .placeholder {
+    grid-template-columns: 2fr 1fr;
+    .hero-logo-wrapper {
       margin-block-end: 31rem;
     }
   }
 
   @media ${devices.mobileL} {
     min-height: 85vh;
-    .placeholder {
-      width: 30%;
+    grid-template-columns: 2fr 1fr;
+    .hero-logo-wrapper {
+      max-width: 100%;
+      display: flex;
+      padding-left: var(--padding);
+      align-items:flex-start;
+
     }
     .hero-logo-wrapper {
-      max-width: 65%;
-      display: flex;
-      align-items: flex-start;
-    }
-    .hero-logo-wrapper,
-    .placeholder {
       margin-block-end: 0;
     }
     h3.tagline,
     h4.tagline {
       text-align: left;
       font-weight: 900;
-      max-width: 60%;
+      max-width: 80%;
     }
   }
 `;
 
-const SpermAnimStyles = styled.div`
-max-width: 200px;
-position:fixed ;
-display:flex;
-right: 0;
-opacity: 0.3;
-    /* animation: travel 20s ease 0s infinite normal forwards; */
-    @keyframes travel {
-      0% {
-        opacity: 0.3;
-        transform: rotate(0deg);
-        transform-origin: top;
-      }
 
-      100% {
-        opacity: 0;
-        transform: rotate(10deg) translateY(-1200px);
-        transform-origin: top;
-      }
-    }
-  img{
-    max-width: 100%;
-  }
-
-`;
 
 const HomePage = ({ data, location }) => {
   const { setCurrentPage } = useContext(MenuContext);
-  const heroImageData = data.general.nodes[0].hero.asset;
-  const heroImage = getImage(heroImageData);
- const matches = useMediaQuery("(min-width:428px)");
-
+  // process hero image
+  // const heroImageData = data.general.nodes[0].hero.asset;
+  const { hotspot, asset } = data.general.nodes[0].hero
+  const heroImage = getImage(asset);
+  console.log("hotspot", hotspot);
+    // console.log("heroImageData", heroImageData);
+  const matches = useMediaQuery("(min-width:428px)");
 
   // create the refs
   const infoPageRef = useRef(null);
   const whoPageRef = useRef(null);
   const processPageRef = useRef(null);
   const FAQPageRef = useRef(null);
-  // const headerElement = headerRef.current;
 
   const handleScroll = () => {
     const options = {
@@ -131,7 +108,7 @@ const HomePage = ({ data, location }) => {
     const infoPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setCurrentPage('/info');
+          setCurrentPage("/info");
         }
       });
     }, options);
@@ -139,7 +116,7 @@ const HomePage = ({ data, location }) => {
     const whoPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setCurrentPage('/who');
+          setCurrentPage("/who");
         }
       });
     }, options);
@@ -147,7 +124,7 @@ const HomePage = ({ data, location }) => {
     const processPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setCurrentPage('/process');
+          setCurrentPage("/process");
         }
       });
     }, options);
@@ -155,7 +132,7 @@ const HomePage = ({ data, location }) => {
     const FAQPageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setCurrentPage('/faqs');
+          setCurrentPage("/faqs");
         }
       });
     }, options);
@@ -172,8 +149,8 @@ const HomePage = ({ data, location }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  // }, [prevScrollPos]);
-    }, []);
+    // }, [prevScrollPos]);
+  }, []);
 
   return (
     <>
@@ -182,16 +159,29 @@ const HomePage = ({ data, location }) => {
 
       <main>
         <HomePageStyles className="hero">
+          <GatsbyImage
+            image={heroImage}
+            alt="Krishna is kneeling in front of a mottled orangey yellow background"
+            className="hero-image-krishna"
+            placeholder="blurred"
+            imgStyle={{
+              width: `100%`,
+              height: `100%`,
+              objectPosition: `${hotspot.x * 100}% ${hotspot.y * 100}%`,
+            }}
+          />
           <div className="hero-logo-wrapper">
-            {matches ? (<StaticImage
-              src="./../assets/images/FTShowTitle.png"
-              alt={""}
-              placeholder="blurred"
-              // layout="fixed"
-              // width={200}
-              height={200}
-              className="hero-image"
-            /> ): null}
+            {matches ? (
+              <StaticImage
+                src="./../assets/images/FTShowTitle.png"
+                alt={""}
+                placeholder="blurred"
+                // layout="fixed"
+                // width={200}
+                // width={400}
+                className="hero-image-logo"
+              />
+            ) : null}
 
             <h3 className="tagline">
               <span>Looking to participate</span>{" "}
@@ -199,26 +189,11 @@ const HomePage = ({ data, location }) => {
             </h3>
             <h4 className="tagline">You're in the right place!</h4>
           </div>
-          <div className="placeholder"></div>
         </HomePageStyles>
         <InfoPageWrapper data={data.info} ref={infoPageRef} />
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
-
         <StepsPageWrapper data={data.steps} ref={processPageRef} />
-
-        <FAQPageWrapper data={data.faqs} ref={FAQPageRef} />
-        {/* <Parallax pages={3} style={{ top: "0", left: "0" }}>
-          <ParallaxLayer offset={2} speed={0.2}>
-            <div class="spermZoomWrapper">
-              <img src={sperm} alt="logo" />
-              <img src={sperm} alt="logo" />
-              <img src={sperm} alt="logo" />
-            </div>
-          </ParallaxLayer>
-        </Parallax> */}
-
-        <HugeButton />
-        {/* </Parallax> */}
+        <FAQPageWrapper data={data.faqs} ref={FAQPageRef} /> <HugeButton />
       </main>
     </>
   );
@@ -239,6 +214,12 @@ export const query = graphql`
           asset {
             gatsbyImageData
           }
+          hotspot {
+            x
+            y
+            width
+            height
+          }
           # credit
           # altText
         }
@@ -258,7 +239,6 @@ export const query = graphql`
           # credit
           # altText
         }
-
       }
     }
     participate: allSanityParticipate {

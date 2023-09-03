@@ -57,7 +57,6 @@ const InfoPageWrapper = forwardRef(({ data }, ref) => {
   InfoPageWrapper.displayName = 'InfoPageWrapper';
   const info = data.nodes[0];
 const imageData = data.nodes[0].image.asset;
-
 const image = getImage(imageData);
   // useEffect(() => {
   //   setCurrentPage(pathname);
@@ -70,9 +69,7 @@ const image = getImage(imageData);
       <InfoPageStyles ref={ref} id="info" className="narrow">
         <HeroInfoStyles className="hero-content-wrapper section narrow">
           <div className="hero-img-wrapper">
-  
-      
-            <GatsbyImage image={image} alt={"hi"} />
+            <GatsbyImage image={image} alt="Krishna &  partner Rent holding a doll" />
           </div>
           <div className="hero-text-wrapper">
             <div className="funTitle green">

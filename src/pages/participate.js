@@ -17,7 +17,7 @@ const DonatePageStyles = styled.section`
   min-height: 60vh;
   /* margin: -1vw; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: var(--grid-pad-set);
   gap: 4rem;
   justify-content: center;
   align-items: start;

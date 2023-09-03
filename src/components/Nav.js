@@ -62,7 +62,7 @@ const NavStyles = styled.nav`
     font-size: 2.5rem;
     text-decoration: none;
     &:hover {
-      color: var(--brightpurple);
+      color: var(--rusty);
     }
     /* &[aria-current='page'] {
       color: var(--yellow);

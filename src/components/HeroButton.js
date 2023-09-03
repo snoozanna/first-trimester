@@ -69,7 +69,11 @@ const HeroButtonStyles = styled.div`
   }
 `;
 
-const HeroButton = () => (
+const HeroButton = () => {
+  if (typeof window === "undefined") {
+      return null;
+    }
+  return(
   <HeroButtonStyles>
     <Link to="/participate" className="neon-button">
       <div className="hero-button-text-wrapper">
@@ -78,5 +82,6 @@ const HeroButton = () => (
       </div>
     </Link>
   </HeroButtonStyles>
-);
+  )
+};
 export default HeroButton;
