@@ -167,8 +167,8 @@ const HomePage = ({ data, location }) => {
           // layout="fixed"
           alt=""
           className="background-mob"
-          imgStyle={{
-            position:"fixed"
+          style={{
+            position: "fixed",
           }}
         />
       )}
