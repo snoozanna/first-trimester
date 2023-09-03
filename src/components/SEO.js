@@ -2,8 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default function SEO({ children, location, description, title, image }) {
-  const { site } = useStaticQuery(graphql`
+export default function SEO({ children, location, description, title }) {
+  const { site, general } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -14,10 +14,10 @@ export default function SEO({ children, location, description, title, image }) {
       }
       general: allSanityGeneral {
         nodes {
-          
           hero {
             asset {
               gatsbyImageData
+              url
             }
             hotspot {
               x
@@ -25,7 +25,6 @@ export default function SEO({ children, location, description, title, image }) {
               width
               height
             }
-         
           }
         }
       }
@@ -46,7 +45,7 @@ export default function SEO({ children, location, description, title, image }) {
         <meta name="description" content={site.siteMetadata.description} />
         {/* Open Graph */}
         {location && <meta property="og:url" content={location.href} />}
-        <meta property="og:image" content={image || '/logo.svg'} />
+        <meta property="og:image" content={general.nodes[0].hero.asset.url} />
         <meta property="og:title" content={title} key="ogtitle" />
         <meta
           property="og:site_name"
