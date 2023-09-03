@@ -90,6 +90,9 @@ const HomePageStyles = styled.section`
 
 
 const HomePage = ({ data, location }) => {
+   if (typeof window === "undefined") {
+     return null;
+   }
   const { setCurrentPage } = useContext(MenuContext);
   // process hero image
   // const heroImageData = data.general.nodes[0].hero.asset;
