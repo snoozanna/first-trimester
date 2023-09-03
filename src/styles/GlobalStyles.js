@@ -37,16 +37,16 @@ const GlobalStyles = createGlobalStyle`
  
     background-color: var(--orange) ;
 
-background-image: url(${background});
-background-size:cover ;
-    /* background-size: 450px; */
-    background-attachment: fixed;
     font-size: 10px;
   }
 
 /* GENERICS */
   html,
 body {
+  background-image: url(${background});
+background-size:cover ;
+    /* background-size: 450px; */
+    background-attachment: fixed;
   min-height: 100vh;
     font-size: 1.6rem;
   margin: 0;
