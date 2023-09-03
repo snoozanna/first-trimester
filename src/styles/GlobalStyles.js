@@ -320,6 +320,8 @@ section.hero{
   }
 }
 
+// fixed background on mobile
+
  .background-mob{
   display:none;
  }
@@ -330,6 +332,7 @@ body {
   background-image: none;
 }
   .background-mob{
+    display:inherit;
     position: fixed;
     height: 120vh;
     z-index: -9;
