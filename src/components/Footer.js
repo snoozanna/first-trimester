@@ -50,6 +50,9 @@ const FooterStyles = styled.footer`
 `;
 
 const Footer = () => {
+  if (typeof window === "undefined") {
+    return null;
+  }
   const { currentPage } = useContext(MenuContext);
 
   return (

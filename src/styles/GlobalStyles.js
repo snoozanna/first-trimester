@@ -50,7 +50,7 @@ background-size:cover ;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-    /* background-size: 450px; */
+    background-size: 120vh;
     background-attachment: fixed;
     /* new attempt  */
   min-height: 100vh;
@@ -322,11 +322,11 @@ section.hero{
 
 // fixed background on mobile
 
- .background-mob{
+ /* .background-mob{
   display:none;
- }
+ } */
 
-@media ${devices.mobileL} {
+/* @media ${devices.mobileL} {
   html,
 body {
   background-image: none;
@@ -338,7 +338,9 @@ body {
     height: 120vh;
     z-index: -9;
   }
-}
+} */
+
+
 
 
 `;
