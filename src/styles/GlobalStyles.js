@@ -323,7 +323,7 @@ section.hero{
 
  .background-mob{
   display:none;
- } */
+ } 
 
 @media ${devices.mobileL} {
   html,
