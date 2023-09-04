@@ -159,10 +159,10 @@ const HomePage = ({ data, location }) => {
 
   return (
     <>
-      <SEO />
+      <SEO title="Home" />
       <Header v="Home" />
 
-      {/* {matches ? null : (
+      {matches ? null : (
         <StaticImage
           src="./../assets/images/BackgroundLow.png"
           placeholder="blurred"
@@ -173,7 +173,7 @@ const HomePage = ({ data, location }) => {
             position: "fixed",
           }}
         />
-      )} */}
+      )}
       <main>
         <HomePageStyles className="hero">
           {matches ? (

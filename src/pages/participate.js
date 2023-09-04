@@ -12,6 +12,7 @@ import { devices } from '../styles/breakpoints.js';
 import Header from "../components/Header.js";
 import { styled } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
+import SEO from '../components/SEO';
 
 const DonatePageStyles = styled.section`
   margin-block-start: 10rem;
@@ -84,6 +85,7 @@ const DonatePage = ({ location }) => {
 
   return (
     <>
+      <SEO title="Participate" />
       <Header title="Apply to Participate" v="SinglePage" />
       {matches ? null : (
         <StaticImage
