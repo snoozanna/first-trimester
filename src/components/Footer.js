@@ -5,6 +5,7 @@ import logoText from "../assets/images/text_sperm_hor.gif";
 import sperm from "./../assets/images/sperm.gif";
 import HeroButton from './HeroButton';
 import { devices } from '../styles/breakpoints';
+import Logos from "./Logos"
 
 const FooterStyles = styled.footer`
   z-index: 999;
@@ -64,10 +65,12 @@ const Footer = () => {
         <img src={sperm} />
         <img src={sperm} />
       </div>
+      {/* <Logos/> */}
       {currentPage !== "/participate" && currentPage !== "/" ? (
         <HeroButton />
       ) : (
-        ""
+     <div/>
+
       )}
     </FooterStyles>
   );

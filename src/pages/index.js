@@ -11,6 +11,7 @@ import WhoPageWrapper from '../components/pageWrappers/WhoPageWrapper.js';
 import StepsPageWrapper from '../components/pageWrappers/ProcessPageWrapper.js';
 import FAQPageWrapper from "../components/pageWrappers/FAQPageWrapper.js";
 import Header from '../components/Header.js';
+import Logos from '../components/Logos';
 
 import HugeButton from '../components/HugeButton.js';
 import { useMediaQuery } from '@mui/material';
@@ -224,6 +225,7 @@ const HomePage = ({ data, location }) => {
         <WhoPageWrapper data={data.participate} ref={whoPageRef} />
         <StepsPageWrapper data={data.steps} ref={processPageRef} />
         <FAQPageWrapper data={data.faqs} ref={FAQPageRef} /> <HugeButton />
+        <Logos/>
       </main>
     </>
   );
