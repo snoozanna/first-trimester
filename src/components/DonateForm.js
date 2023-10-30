@@ -185,7 +185,7 @@ export default function DonateForm({ showForm, showWidget }) {
           />
         </label>
         <label htmlFor="WeekTwo" className="sublabel">
-          <span>Week 2: 7th-11th Nov 23</span>
+          <span>Week 1 & 2: 1st-11th Nov 23</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
