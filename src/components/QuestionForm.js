@@ -147,6 +147,7 @@ export default function QuestionForm() {
       id="contact"
       method="POST"
       data-netlify="true"
+      onSubmit={(e) => onSubmit(e, setSubmitText)}
     >
       <p style={{ display: "none" }}>
         <label>
