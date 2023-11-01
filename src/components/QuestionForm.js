@@ -142,7 +142,12 @@ export default function QuestionForm() {
   };
 
   return (
-    <FormStyles name="question" id="contact" method="POST" data-netlify="true">
+    <FormStyles
+      name="question-form"
+      id="contact"
+      method="POST"
+      data-netlify="true"
+    >
       <p style={{ display: "none" }}>
         <label>
           Don’t fill this out if you expect to hear from me!
