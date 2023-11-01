@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { devices } from '../styles/breakpoints.js';
-import { FormContext } from '../context/form.context.js';
+import { QuestionContext } from '../context/question.context.js';
 
 const FormStyles = styled.form`
   display: flex;
@@ -79,31 +79,84 @@ const InputItemStyles = styled.div`
   }
 `;
 
-export default function DonateForm({ showForm, showWidget }) {
+export default function QuestionForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { setFirstName, setLastName, setEmail, setBSL, setPhone, setAccess, setPrefDate } =
-    useContext(FormContext);
+  const { setFirstName, setLastName, setEmail, setQuestion } =
+    useContext(QuestionContext);
+ const [submitText, setSubmitText] = useState(null);
+  const [buttonTxt, setButtonTxt] = useState("Submit");
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  // const onSubmit = (data) => {
+  //   const { userFirstName, userLastName, userEmail, userQuestion } = data;
+  //   console.log(data);
+  //   setFirstName(userFirstName);
+  //   setLastName(userLastName);
+  //   setEmail(userEmail);
+  //   setQuestion(userQuestion);
 
-  const onSubmit = (data) => {
-    const { userFirstName, userLastName, userEmail, userBSL, userPhone, userAccess, userPrefDate } = data;
-    console.log(data);
-    setFirstName(userFirstName);
-    setLastName(userLastName);
-    setEmail(userEmail);
-    setBSL(userBSL);
-    setPhone(userPhone);
-    setAccess(userAccess);
-      setPrefDate(userPrefDate);
-    showForm();
-    showWidget();
+  // };
+  const onSubmit = async (event, setSubmitText) => {
+    event.preventDefault();
+    setSubmitText("Submitting ...");
+    const formElements = [...event.currentTarget.elements];
+    const isValid =
+      formElements.filter((elem) => elem.name === "bot-field")[0].value === "";
+
+    const validFormElements = isValid ? formElements : [];
+
+    if (validFormElements.length < 1) {
+      setSubmitText("It looks like you filled out too many fields!");
+    } else {
+      const filledOutElements = validFormElements
+        .filter((elem) => !!elem.value)
+        .map(
+          (element) =>
+            encodeURIComponent(element.name) +
+            "=" +
+            encodeURIComponent(element.value),
+        )
+        .join("&");
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: filledOutElements,
+      })
+        .then(() => {
+          setSubmitText("Successfully submitted");
+          setButtonTxt("Sent!");
+          setButtonDisabled(!buttonDisabled);
+          //TODO form reset
+        })
+        .catch((error) => {
+          console.log(error);
+          setSubmitText(
+            "Error!",
+          );
+        });
+    }
   };
 
   return (
-    <FormStyles onSubmit={handleSubmit(onSubmit)} className>
+    <FormStyles name="question" id="contact" method="POST" data-netlify="true">
+      <p style={{ display: "none" }}>
+        <label>
+          Don’t fill this out if you expect to hear from me!
+          <input name="bot-field" />
+        </label>
+      </p>
+      <input
+        type="hidden"
+        name="question-form"
+        value="question"
+        style={{ display: "none" }}
+        readOnly={true}
+      />
+
       <InputItemStyles>
         <label htmlFor="userFirstName">First Name</label>
         <input
@@ -137,6 +190,18 @@ export default function DonateForm({ showForm, showWidget }) {
         )}
       </InputItemStyles>
       <InputItemStyles>
+        <label htmlFor="userBSL">Can we add you to our mailing list?</label>
+
+        <select
+          {...register("userBSL", { required: "This is required" })}
+          aria-invalid={errors.userBSL ? "true" : "false"}
+        >
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+        {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
+      </InputItemStyles>
+      <InputItemStyles>
         {/* Change others to this one  */}
         <label htmlFor="userEmail">Email</label>
         <input
@@ -152,78 +217,24 @@ export default function DonateForm({ showForm, showWidget }) {
         {errors.userEmail && <p role="alert">{errors.userEmail?.message}</p>}
       </InputItemStyles>
       <InputItemStyles>
-        <label htmlFor="userPhone">Phone</label>
-        <input
-          type="tel"
-          {...register("userPhone", {
-            pattern: {
-              // value: /^[0-9]{10}$/,  // Adjust the regex pattern as needed
-              value: /^[+0-9-]{3,15}$/,
-              message: "Invalid phone number",
+        <label htmlFor="question">Question</label>
+        <textarea
+          {...register("userQuestion", {
+            required: "Question is required",
+            maxLength: {
+              value: 150,
+              message: "150 character limit",
             },
           })}
+          aria-invalid={errors.userQuestion ? "true" : "false"}
         />
-
-        {errors.userPhone && <p role="alert">{errors.userPhone.message}</p>}
-        {/* {errors.userPhone && <p role="alert">{errors.userPhone?.message}</p>} */}
-      </InputItemStyles>
-      <InputItemStyles>
-        <label htmlFor="userPrefDate">Performance dates</label>
-    
-        {/* <input
-          type="checkbox"
-          {...register("userPrefDate", { required: "This is required" })}
-          aria-invalid={errors.userPrefDate ? "true" : "false"}
-        ></input> */}
-        {/* <label htmlFor="WeekOne" className="sublabel">
-          <span>Week 1: 1st-4th Nov 23</span>
-          <input
-            {...register("userPrefDate", { required: "This is required" })}
-            type="radio"
-            value="WeekOne"
-            aria-invalid={errors.userPrefDate ? "true" : "false"}
-          />
-        </label> */}
-        <label htmlFor="WeekTwo" className="sublabel">
-          <span>Week 1 & 2: 1st-11th Nov 23</span>
-          <input
-            {...register("userPrefDate", { required: "This is required" })}
-            type="radio"
-            value="WeekTwo"
-            aria-invalid={errors.userPrefDate ? "true" : "false"}
-          />
-        </label>
-        {errors.userPrefDate && (
-          <p role="alert">{errors.userPrefDate?.message}</p>
+        {errors.userQuestion && (
+          <p role="alert">{errors.userQuestion?.message}</p>
         )}
       </InputItemStyles>
-      <InputItemStyles>
-        <label htmlFor="userBSL">Do you require BSL interpretation?</label>
-        <span className="hint">
-          Please select YES if you would like a slot with a BSL user.{" "}
-        </span>
-        <select
-          {...register("userBSL", { required: "This is required" })}
-          aria-invalid={errors.userBSL ? "true" : "false"}
-        >
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
-        {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
-      </InputItemStyles>
-      <InputItemStyles>
-        <label htmlFor="userAccess">
-          Do you have any other access requirements?
-        </label>
-        <textarea
-          rows="5"
-          cols="33"
-          {...register("userAccess", { maxLength: 100 })}
-        />
-      </InputItemStyles>
 
-      <button type="button" onClick={handleSubmit(onSubmit)}>
-        Find appointment time
+      <button type="submit" name="SendMessage" disabled={buttonDisabled}>
+        {buttonTxt}
       </button>
     </FormStyles>
   );
