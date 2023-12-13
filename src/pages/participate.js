@@ -25,7 +25,7 @@ const DonatePageStyles = styled.section`
   align-items: start;
   .hero-text-wrapper {
     display: flex;
-    justify-content: center;
+
     align-items: center;
   }
   [data-container="booking-container"] {
@@ -120,18 +120,18 @@ const DonatePage = ({ location }) => {
                   Select a time slot for a Zoom with one of our friendly
                   participation team members.
                 </li>
-                <li data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
+                {/* <li data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
                   There will be slots available with a BSL signing participation
                   team member.
-                </li>
+                </li> */}
                 <li data-sal="fade" data-sal-delay="700" data-sal-easing="ease">
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Do let us know in the form if you have other access
+                  Do let us know in the form if you have any access
                   requirements.
                 </li>
               </ul>

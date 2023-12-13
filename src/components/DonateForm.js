@@ -169,7 +169,7 @@ export default function DonateForm({ showForm, showWidget }) {
       </InputItemStyles>
       <InputItemStyles>
         <label htmlFor="userPrefDate">Performance dates</label>
-    
+
         {/* <input
           type="checkbox"
           {...register("userPrefDate", { required: "This is required" })}
@@ -185,7 +185,7 @@ export default function DonateForm({ showForm, showWidget }) {
           />
         </label> */}
         <label htmlFor="WeekTwo" className="sublabel">
-          <span>Week 1 & 2: 1st-11th Nov 23</span>
+          <span>February 15th, 16th, 17th</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
@@ -197,7 +197,7 @@ export default function DonateForm({ showForm, showWidget }) {
           <p role="alert">{errors.userPrefDate?.message}</p>
         )}
       </InputItemStyles>
-      <InputItemStyles>
+      {/* <InputItemStyles>
         <label htmlFor="userBSL">Do you require BSL interpretation?</label>
         <span className="hint">
           Please select YES if you would like a slot with a BSL user.{" "}
@@ -210,10 +210,10 @@ export default function DonateForm({ showForm, showWidget }) {
           <option value="true">Yes</option>
         </select>
         {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
-      </InputItemStyles>
+      </InputItemStyles> */}
       <InputItemStyles>
         <label htmlFor="userAccess">
-          Do you have any other access requirements?
+          Do you have any access requirements?
         </label>
         <textarea
           rows="5"

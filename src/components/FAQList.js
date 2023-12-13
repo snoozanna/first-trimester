@@ -9,18 +9,20 @@ import { PortableText } from "@portabletext/react";
 import { devices } from '../styles/breakpoints';
 
 const FAQListStyles = styled.div`
-
-      max-width: 1080px;
-    margin: auto;
+  max-width: 1080px;
+  margin: auto;
   h2,
   p {
     margin: 0;
   }
+  h4.faqQuestionTitle{
+margin-right:1rem;
+  } 
   .category-wrapper {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    margin-block-end:3rem;
+    margin-block-end: 3rem;
   }
   @media ${devices.mobileL} {
     .category-wrapper {
@@ -31,7 +33,7 @@ const FAQListStyles = styled.div`
 
 const SingleFAQStyles = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  /* grid-template-columns: 2fr 1fr; */
   gap: 3rem;
   width: 100%;
   margin-block-end: 2rem;
@@ -58,16 +60,18 @@ const SingleFAQ = ({ faq }) => {
           }
           aria-controls="panel1a-content"
           id="panel1a-header"
-          onClick={() => setShowVid(!showVid)}
+          // onClick={() => setShowVid(!showVid)}
         >
-          <h4>{faq.question}</h4>
+          <h4 className='faqQuestionTitle'>{faq.question}</h4>
         </AccordionSummary>
-        <AccordionDetails>
-          {/* <p>{faq.answer}</p> */}
+        <AccordionDetails
+          sx={devices.mobileL ? "" : {
+            maxWidth:"90%"}}
+        >
           <PortableText value={faq.answer} />
         </AccordionDetails>
       </Accordion>
-      {showVid ? <Video url={faq.bslvid} /> : null}
+      {/* {showVid ? <Video url={faq.bslvid} /> : null} */}
     </SingleFAQStyles>
   );
       }
@@ -88,9 +92,9 @@ const FAQList = ({ faqs }) => {
         {Object.entries(faqsByCategory).map(([category, faqsInCategory]) => (
           <div className="category-wrapper" key={category}>
             <div  id={category.toLowerCase()}>
-              <div className="funTitle green">
+              {/* <div className="funTitle green">
                 <h3 className="catName">{category}</h3>
-              </div>
+              </div> */}
 
               {faqsInCategory.map((faq) => (
                 <SingleFAQ faq={faq} key={faq.id} />

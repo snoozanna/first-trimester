@@ -250,7 +250,7 @@ ul.typographic {
 
   section{
     min-height: 100vh;
-    margin-block-end:10rem;
+    margin-block-end:5rem;
     
   }
 section.wide{
@@ -263,7 +263,7 @@ section.wide{
     max-width: 1000px;
     margin-left: auto;
      margin-right: auto;
-      margin-block-end:10rem;
+      margin-block-end:5rem;
 
 }
 

@@ -10,7 +10,7 @@ const ParticipatePageStyles = styled.section`
   grid-template-columns: var(--grid-pad-set);
   gap: 4rem;
   grid-auto-rows: auto;
-  min-height: 60vh;
+  min-height: 40vh;
 
   .hero-text-wrapper {
     display: flex;
@@ -68,10 +68,10 @@ const WhoPageWrapper = forwardRef(({ data }, ref) => {
           </p>
         </div>
 
-        <div className="hero-img-wrapper">
+        {/* <div className="hero-img-wrapper">
          
           <Video url={participate.bslvid} />
-        </div>
+        </div> */}
       </ParticipatePageStyles>
     </>
   );

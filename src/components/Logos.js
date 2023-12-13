@@ -21,7 +21,8 @@ const LogoWrapperStyles = styled.div`
     max-width: 100px;
   }
   @media ${devices.tablet} {
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 5rem;
   }
   @media ${devices.mobileL} {
     flex-wrap: wrap;

@@ -24,6 +24,7 @@ const HomePageStyles = styled.section`
     "a b "
     "a d";
   max-height: 100vh;
+  margin-block-end: 10rem;
   ::-webkit-scrollbar-track {
     display: none;
   }
@@ -67,6 +68,7 @@ const HomePageStyles = styled.section`
   @media ${devices.mobileL} {
     min-height: 85vh;
     grid-template-columns: 2fr 1fr;
+    
     .hero-logo-wrapper {
       max-width: 100%;
       display: flex;

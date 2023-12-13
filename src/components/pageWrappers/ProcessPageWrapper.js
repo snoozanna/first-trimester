@@ -60,7 +60,8 @@ const TimeStyles = styled.div`
     font-weight: 500;
     letter-spacing: 0.2rem;
     width: 100%;
-    padding: var(--padding);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -68,6 +69,9 @@ const TimeStyles = styled.div`
     align-items: center;
     text-wrap: pretty;
     font-variation-settings: "wght" 600;
+    li {
+      font-size: 2.2rem;
+    }
     li .bullet-wrapper {
       margin-inline-end: 10px;
     }
@@ -88,7 +92,6 @@ const TimeStyles = styled.div`
   }
 
   @media ${devices.tablet} {
-
     .funTitle > h3 {
       text-align: center;
     }
@@ -113,8 +116,10 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
         <ProcessStepsListEx steps={steps} />
         <WrapperStyles className="flex-wrapper">
           <TimeStyles>
-            <div className="funTitle green">
-              <h3 className="catName">The overall time commitment is:</h3>
+            <div className="hero-text-wrapper">
+              <div className="funTitle green">
+                <h3 className="catName">The overall time commitment is:</h3>
+              </div>
             </div>
 
             <ul className="time-list">
@@ -132,7 +137,7 @@ const StepsPageWrapper = forwardRef(({ data }, ref) => {
               </li>
             </ul>
           </TimeStyles>
-          <Video url="https://www.youtube.com/embed/8ZhI4Mv9_NU" />
+          {/* <Video url="https://www.youtube.com/embed/8ZhI4Mv9_NU" /> */}
         </WrapperStyles>
       </StepsPageStyles>
     </>
