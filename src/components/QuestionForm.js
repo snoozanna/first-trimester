@@ -208,7 +208,7 @@ export default function QuestionForm() {
         {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
       </InputItemStyles>
       <InputItemStyles>
-        {/* Change others to this one  */}
+
         <label htmlFor="userEmail">Email</label>
         <input
           {...register("userEmail", {

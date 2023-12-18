@@ -168,24 +168,24 @@ export default function DonateForm({ showForm, showWidget }) {
         {/* {errors.userPhone && <p role="alert">{errors.userPhone?.message}</p>} */}
       </InputItemStyles>
       <InputItemStyles>
-        <label htmlFor="userPrefDate">Performance dates</label>
+        <label htmlFor="userPrefDate">Are you planning to attend a performance in...</label>
 
         {/* <input
           type="checkbox"
           {...register("userPrefDate", { required: "This is required" })}
           aria-invalid={errors.userPrefDate ? "true" : "false"}
         ></input> */}
-        {/* <label htmlFor="WeekOne" className="sublabel">
-          <span>Week 1: 1st-4th Nov 23</span>
+        <label htmlFor="WeekOne" className="sublabel">
+          <span>New Zealand: DATES</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
             value="WeekOne"
             aria-invalid={errors.userPrefDate ? "true" : "false"}
           />
-        </label> */}
+        </label>
         <label htmlFor="WeekTwo" className="sublabel">
-          <span>February 15th, 16th, 17th</span>
+          <span>Cophenhagen: DATES</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
