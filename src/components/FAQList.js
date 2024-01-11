@@ -78,7 +78,7 @@ const SingleFAQ = ({ faq }) => {
 
 const FAQList = ({ faqs }) => {
   const faqsByCategory = {};
-
+console.log("faqs", faqs)
   faqs.forEach((faq) => {
     const { category } = faq.faqCategories[0];
     if (!faqsByCategory[category]) {

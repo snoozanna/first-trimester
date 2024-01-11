@@ -142,7 +142,7 @@ const Nav = () => {
             </li>
             <li>
               <a
-                href="https://bac.org.uk/whats-on/first-trimester/"
+                href="https://www.iticket.co.nz/events/2024/feb/first-trimester"
                 rel="noreferrer"
                 target="blank"
               >

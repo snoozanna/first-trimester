@@ -168,7 +168,9 @@ export default function DonateForm({ showForm, showWidget }) {
         {/* {errors.userPhone && <p role="alert">{errors.userPhone?.message}</p>} */}
       </InputItemStyles>
       <InputItemStyles>
-        <label htmlFor="userPrefDate">Are you planning to attend a performance in...</label>
+        <label htmlFor="userPrefDate">
+          Are you planning to attend a performance in...
+        </label>
 
         {/* <input
           type="checkbox"
@@ -176,7 +178,7 @@ export default function DonateForm({ showForm, showWidget }) {
           aria-invalid={errors.userPrefDate ? "true" : "false"}
         ></input> */}
         <label htmlFor="WeekOne" className="sublabel">
-          <span>New Zealand</span>
+          <span>Tāmaki Makaurau (Auckland)</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
@@ -212,9 +214,7 @@ export default function DonateForm({ showForm, showWidget }) {
         {errors.userBSL && <p role="alert">{errors.userBSL?.message}</p>}
       </InputItemStyles> */}
       <InputItemStyles>
-        <label htmlFor="userAccess">
-          Do you have any access requirements?
-        </label>
+        <label htmlFor="userAccess">Do you have any access requirements?</label>
         <textarea
           rows="5"
           cols="33"
