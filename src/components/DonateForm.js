@@ -187,7 +187,7 @@ export default function DonateForm({ showForm, showWidget }) {
           />
         </label>
         <label htmlFor="WeekTwo" className="sublabel">
-          <span>Cophenhagen</span>
+          <span>København (Copenhagen)</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
