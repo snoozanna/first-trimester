@@ -85,7 +85,7 @@ const DonatePage = ({ location }) => {
 
   return (
     <>
-      <SEO title="Participate" />
+      {/* <SEO title="Participate" /> */}
       <Header title="Apply to Participate" v="SinglePage" />
       {matches ? null : (
         <StaticImage
@@ -142,7 +142,7 @@ const DonatePage = ({ location }) => {
               <AnchorLink to="/#faqs" title="FAQs">
                 FAQs
               </AnchorLink>
-              section.
+              section...
             </p>
           </div>
           <div>
