@@ -178,7 +178,7 @@ export default function DonateForm({ showForm, showWidget }) {
           aria-invalid={errors.userPrefDate ? "true" : "false"}
         ></input> */}
         <label htmlFor="WeekOne" className="sublabel">
-          <span>Tāmaki Makaurau (Auckland)</span>
+          <span>Dublin</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
@@ -186,7 +186,7 @@ export default function DonateForm({ showForm, showWidget }) {
             aria-invalid={errors.userPrefDate ? "true" : "false"}
           />
         </label>
-        <label htmlFor="WeekTwo" className="sublabel">
+        {/* <label htmlFor="WeekTwo" className="sublabel">
           <span>København (Copenhagen)</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
@@ -194,7 +194,7 @@ export default function DonateForm({ showForm, showWidget }) {
             value="WeekTwo"
             aria-invalid={errors.userPrefDate ? "true" : "false"}
           />
-        </label>
+        </label> */}
         {errors.userPrefDate && (
           <p role="alert">{errors.userPrefDate?.message}</p>
         )}

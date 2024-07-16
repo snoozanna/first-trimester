@@ -142,7 +142,7 @@ const DonatePage = ({ location }) => {
               <AnchorLink to="/#faqs" title="FAQs">
                 FAQs
               </AnchorLink>
-              section...
+              section.
             </p>
           </div>
           <div>
