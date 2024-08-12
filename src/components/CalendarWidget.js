@@ -11,7 +11,7 @@ const CalendarWidget = () => {
 
     const CUrl =
       // "https://calendly.com/first-trimester-show/week-1-participation-zooms?hide_landing_page_details=1&embed_type=Inline&embed_domain=1&back=1";
-      "https://calendly.com/first-trimester-show/dublin-participant-zooms";
+      "https://calendly.com/first-trimester-show/first-trimester-participant-zoom-meeting";
     return (
       <>
         {/* Prefers Week One */}
@@ -20,8 +20,7 @@ const CalendarWidget = () => {
             url={CUrl}
             // styles={{ height: 500 }}
             prefill={{
-              firstName,
-              lastName,
+              name: `${firstName} ${lastName}`,
               email,
               customAnswers: {
         a1:phone,
