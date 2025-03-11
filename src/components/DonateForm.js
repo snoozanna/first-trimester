@@ -178,7 +178,7 @@ export default function DonateForm({ showForm, showWidget }) {
           aria-invalid={errors.userPrefDate ? "true" : "false"}
         ></input> */}
         <label htmlFor="WeekOne" className="sublabel">
-          <span>Dublin</span>
+          <span>Bern</span>
           <input
             {...register("userPrefDate", { required: "This is required" })}
             type="radio"
