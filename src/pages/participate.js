@@ -111,7 +111,7 @@ const DonatePage = ({ location }) => {
                   <span className="bullet-wrapper">
                     <img src={spermAlone} alt="" />
                   </span>
-                  Fill out this quick form.
+                  Fill out this quick <a href='https://airtable.com/appa22sJWd9yij9JZ/shrSLnXciscNMf3To' rel="noreferrer" target="_blank">form</a>.
                 </li>
                 <li data-sal="fade" data-sal-delay="500" data-sal-easing="ease">
                   <span className="bullet-wrapper">
@@ -145,7 +145,7 @@ const DonatePage = ({ location }) => {
               section.
             </p>
           </div>
-          <div>
+          {/* <div>
             {showForm ? (
               <DonateForm
                 showForm={() => setShowForm(false)}
@@ -155,7 +155,7 @@ const DonatePage = ({ location }) => {
               ""
             )}
             {showWidget ? <CalendarWidget /> : ""}
-          </div>
+          </div> */}
         </DonatePageStyles>
       </main>
     </>
